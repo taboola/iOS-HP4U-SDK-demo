@@ -60,17 +60,25 @@
 		DC069168284F57F0005A42D6 /* HomePageForYouDemoProject */ = {
 			isa = PBXGroup;
 			children = (
-				DC069169284F57F0005A42D6 /* AppDelegate.swift */,
-				DC06916B284F57F0005A42D6 /* SceneDelegate.swift */,
 				DC06916D284F57F0005A42D6 /* ViewController.swift */,
 				DC06917D284F59F4005A42D6 /* AppInformation.swift */,
 				DC06917E284F59F4005A42D6 /* Constants.swift */,
 				DC06916F284F57F0005A42D6 /* Main.storyboard */,
+				DC069181284F5B0C005A42D6 /* Supporting files */,
+			);
+			path = HomePageForYouDemoProject;
+			sourceTree = "<group>";
+		};
+		DC069181284F5B0C005A42D6 /* Supporting files */ = {
+			isa = PBXGroup;
+			children = (
+				DC069169284F57F0005A42D6 /* AppDelegate.swift */,
+				DC06916B284F57F0005A42D6 /* SceneDelegate.swift */,
 				DC069172284F57F1005A42D6 /* Assets.xcassets */,
 				DC069174284F57F1005A42D6 /* LaunchScreen.storyboard */,
 				DC069177284F57F1005A42D6 /* Info.plist */,
 			);
-			path = HomePageForYouDemoProject;
+			path = "Supporting files";
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -297,7 +305,7 @@
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_TEAM = P4YBSJEM3U;
 				GENERATE_INFOPLIST_FILE = YES;
-				INFOPLIST_FILE = HomePageForYouDemoProject/Info.plist;
+				INFOPLIST_FILE = "HomePageForYouDemoProject/Supporting files/Info.plist";
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
 				INFOPLIST_KEY_UIMainStoryboardFile = Main;
@@ -325,7 +333,7 @@
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_TEAM = P4YBSJEM3U;
 				GENERATE_INFOPLIST_FILE = YES;
-				INFOPLIST_FILE = HomePageForYouDemoProject/Info.plist;
+				INFOPLIST_FILE = "HomePageForYouDemoProject/Supporting files/Info.plist";
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
 				INFOPLIST_KEY_UIMainStoryboardFile = Main;
