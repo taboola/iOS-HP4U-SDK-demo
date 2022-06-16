@@ -6,6 +6,7 @@ This project showcases how to integrate Taboola's SDK on iOS and use its HomePag
 
 ### Initialization
 1. Add Taboola's SDK to your project via one of the following:
+  
   **SPM** - https://github.com/taboola/taboola-spm-ios-sdk - (3.8.0)
 
   **Cocoapods: podfile:** `pod 'TaboolaSDK', ‘3.8.0’`
