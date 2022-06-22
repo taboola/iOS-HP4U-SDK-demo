@@ -10,18 +10,34 @@ import TaboolaSDK
 
 class ViewController: UIViewController {
     @IBOutlet weak var collectionView: UICollectionView!
+    @IBOutlet weak var collectionLayout: UICollectionViewFlowLayout! {
+        didSet {
+            collectionLayout.estimatedItemSize = UICollectionViewFlowLayout.automaticSize
+
+        }
+    }
     let datasource: PublisherDataSource = HomePageDataSource()
     lazy var page = TBLHomePage(delegate: self, sourceType: SourceTypeText, pageUrl: "http://blog.taboola.com")
 
-    struct Constants {
-        static let topNewsCellIdentifier = "topNewsCell"
-        static let topicHeaderViewIdentifier = "topicHeader"
+    enum LayoutConfig: String {
+        case topNewsCellIdentifier = "topNewsCell"
+        case defaultNewsCellIdentifier = "newsCell"
+        case topicHeaderViewIdentifier = "topicHeader"
+
+        private static let topNewsIndex = [IndexPath(row: 0, section: 0)]
+
+        static func cellIdentifier(at indexPath: IndexPath) -> LayoutConfig {
+            indexPath == IndexPath(row: 0, section: 0) ?
+                .topNewsCellIdentifier :
+                .defaultNewsCellIdentifier
+        }
     }
+
     override func viewDidLoad() {
         super.viewDidLoad()
         datasource.fetchArticles { items, error in
             guard error == nil else {
-                print("Error fetching articles: \(error?.localizedDescription)")
+                print("Error fetching articles: \(error?.localizedDescription ?? ""))")
                 return
             }
             self.collectionView .reloadData()
@@ -38,13 +54,20 @@ extension ViewController: UICollectionViewDataSource {
     }
 
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
-        guard let cell = collectionView.dequeueReusableCell(withReuseIdentifier: Constants.topNewsCellIdentifier, for: indexPath) as? TopNewsCollectionViewCell else {
+        let identifier = LayoutConfig.cellIdentifier(at: indexPath).rawValue
+        guard let cell = collectionView.dequeueReusableCell(withReuseIdentifier: identifier, for: indexPath) as? TopNewsCollectionViewCell else {
             return UICollectionViewCell()
         }
 
         if let topic = datasource.topicName(at: indexPath.section), let item = datasource.item(in: topic, at: indexPath.row) {
-//            cell.imageView.image = item.image
+            // fetch image
+            datasource.fetchImage(for: item) { url, image, error in
+                guard item.imageUrl == url, error == nil else { return }
+                cell.imageView.image = image
+            }
             cell.titleLabel.text = item.title
+            cell.subtitleLabel.text = item.description
+            cell.widthConstraint.constant = collectionView.frame.width
         }
         return cell
     }
@@ -53,10 +76,10 @@ extension ViewController: UICollectionViewDataSource {
 
     func collectionView(_ collectionView: UICollectionView, viewForSupplementaryElementOfKind kind: String, at indexPath: IndexPath) -> UICollectionReusableView {
         if kind == UICollectionView.elementKindSectionHeader {
-            guard let headerView = collectionView.dequeueReusableSupplementaryView(ofKind: kind, withReuseIdentifier: Constants.topicHeaderViewIdentifier, for: indexPath) as? TopicHeaderHeaderView else {
+            guard let headerView = collectionView.dequeueReusableSupplementaryView(ofKind: kind, withReuseIdentifier: LayoutConfig.topicHeaderViewIdentifier.rawValue, for: indexPath) as? TopicHeaderHeaderView else {
                 return UICollectionReusableView()
             }
-            headerView.setTitle(datasource.topicName(at: indexPath.section))
+            headerView.setTitle(datasource.topicName(at: indexPath.section)?.capitalized)
             return headerView
         }
         return UICollectionReusableView()
@@ -64,9 +87,10 @@ extension ViewController: UICollectionViewDataSource {
 }
 
 extension ViewController: UICollectionViewDelegateFlowLayout {
-    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
-        CGSize(width: UIScreen.main.bounds.width, height: UIScreen.main.bounds.width)
-    }
+//    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
+//        let width = collectionView.frame.width
+//        return CGSize(width: width, height: width)
+//    }
 }
 
 

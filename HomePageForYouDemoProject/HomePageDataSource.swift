@@ -15,7 +15,7 @@ protocol PublisherDataSource {
     func numberOfItems(in topic: String) -> Int
     func item(in topic: String, at index: Int) -> PublisherItem?
     func fetchArticles(completion: @escaping ([String: [PublisherItem]], Error?) -> Void)
-    func fetchImage(for item: PublisherItem, completion: @escaping (UIImage?, Error?) -> Void)
+    func fetchImage(for item: PublisherItem, completion: @escaping (URL, UIImage?, Error?) -> Void)
 }
 
 protocol PublisherItemProtocol {
@@ -36,6 +36,7 @@ extension PublisherItem: Decodable {}
 
 class HomePageDataSource: PublisherDataSource {
     var items: [String: [PublisherItem]] = [:]
+    private var cachedImages: [String: UIImage] = [:]
     private let requestManager = RequestManager()
 
     func fetchArticles(completion: @escaping ([String: [PublisherItem]], Error?) -> Void) {
@@ -47,17 +48,37 @@ class HomePageDataSource: PublisherDataSource {
         }
     }
 
-    func fetchImage(for item: PublisherItem, completion: @escaping (UIImage?, Error?) -> Void) {
+    func fetchImage(for item: PublisherItem, completion: @escaping (URL, UIImage?, Error?) -> Void) {
         DispatchQueue.global(qos: .background).async {
+            var image: UIImage?
+            var error: Error?
+            defer {
+                DispatchQueue.main.async {
+                    completion(item.imageUrl, image, error)
+                }
+            }
+            // check if already cached
+            if let cachedImage: UIImage = self.cachedImages[item.imageUrl.absoluteString] {
+                image = cachedImage
+                return
+            }
+            // decode data
             guard let data = try? Data(contentsOf: item.imageUrl) else {
-                completion(nil, RequestManager.RequestError.noResponseBody)
+                error = RequestManager.RequestError.noResponseBody
                 return
             }
-            guard let image = UIImage(data: data) else {
-                completion(nil, RequestManager.RequestError.failedToDecode)
+            guard let decodedImage = UIImage(data: data) else {
+                error = RequestManager.RequestError.failedToDecode
                 return
             }
-            completion(image, nil)
+            self.saveImageToCache(decodedImage, url: item.imageUrl)
+            image = decodedImage
+        }
+    }
+
+    private func saveImageToCache(_ image: UIImage, url: URL) {
+        DispatchQueue.main.async {
+            self.cachedImages[url.absoluteString] = image
         }
     }
 
