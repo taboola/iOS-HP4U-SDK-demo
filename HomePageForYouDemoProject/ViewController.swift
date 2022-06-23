@@ -17,7 +17,7 @@ class ViewController: UIViewController {
         }
     }
     let datasource: PublisherDataSource = HomePageDataSource()
-    lazy var page = TBLHomePage(delegate: self, sourceType: SourceTypeText, pageUrl: "http://blog.taboola.com")
+    lazy var page = TBLHomePage(delegate: self, sourceType: SourceTypeText, pageUrl: "http://blog.taboola.com", sectionNames: ["life", "industry", "company", "engagement"])
 
     enum LayoutConfig: String {
         case topNewsCellIdentifier = "topNewsCell"
@@ -43,6 +43,12 @@ class ViewController: UIViewController {
             self.collectionView .reloadData()
         }
     }
+
+    private func setupTaboola() {
+        page.setScrollView(collectionView)
+        page.targetType = "mix"
+        page.fetchContent()
+    }
 }
 
 extension ViewController: UICollectionViewDataSource {
@@ -59,7 +65,12 @@ extension ViewController: UICollectionViewDataSource {
             return UICollectionViewCell()
         }
 
-        if let topic = datasource.topicName(at: indexPath.section), let item = datasource.item(in: topic, at: indexPath.row) {
+        guard let topic = datasource.topicName(at: indexPath.section), let item = datasource.item(in: topic, at: indexPath.row) else { return cell }
+
+        if page.shouldSwapItem(inSection: topic, indexPath: indexPath, parentView: cell, imageView: cell.imageView, titleView: cell.titleLabel, descriptionView: cell.subtitleLabel, additionalViews: nil) {
+            cell.contentView.backgroundColor = .orange
+            collectionView.reloadItems(at: [indexPath])
+        } else {
             // fetch image
             datasource.fetchImage(for: item) { url, image, error in
                 guard item.imageUrl == url, error == nil else { return }

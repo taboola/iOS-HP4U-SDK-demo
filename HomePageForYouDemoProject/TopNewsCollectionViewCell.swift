@@ -18,5 +18,6 @@ class TopNewsCollectionViewCell: UICollectionViewCell {
         imageView.image = nil
         titleLabel.text = nil
         subtitleLabel.text = nil
+        contentView.backgroundColor = .white
     }
 }
