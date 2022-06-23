@@ -1,9 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="20037" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="aSX-P9-nip">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="20037" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="aSX-P9-nip">
     <device id="retina6_1" orientation="portrait" appearance="light"/>
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="20020"/>
-        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="System colors in document resources" minToolsVersion="11.0"/>
         <capability name="collection view cell content view" minToolsVersion="11.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
@@ -12,7 +11,11 @@
         <!--View Controller-->
         <scene sceneID="tne-QT-ifu">
             <objects>
-                <viewController id="BYZ-38-t0r" customClass="ViewController" customModule="HomePageForYouDemoProject" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="DemoScreenViewController" id="BYZ-38-t0r" customClass="ViewController" customModule="HomePageForYouDemoProject" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="AmP-M5-Gv5"/>
+                        <viewControllerLayoutGuide type="bottom" id="mTO-k3-nb9"/>
+                    </layoutGuides>
                     <view key="view" contentMode="scaleToFill" id="8bC-Xf-vdC">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -200,13 +203,12 @@
                                 </connections>
                             </collectionView>
                         </subviews>
-                        <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                         <constraints>
-                            <constraint firstItem="tV2-GW-XAv" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" id="8i3-XI-Ukg"/>
-                            <constraint firstItem="tV2-GW-XAv" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" id="NN4-fI-KXC"/>
-                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="bottom" secondItem="tV2-GW-XAv" secondAttribute="bottom" id="Q1p-IM-9vx"/>
-                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="tV2-GW-XAv" secondAttribute="trailing" id="TwT-wu-beP"/>
+                            <constraint firstItem="tV2-GW-XAv" firstAttribute="top" secondItem="AmP-M5-Gv5" secondAttribute="bottom" id="8i3-XI-Ukg"/>
+                            <constraint firstItem="tV2-GW-XAv" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leading" id="NN4-fI-KXC"/>
+                            <constraint firstItem="mTO-k3-nb9" firstAttribute="top" secondItem="tV2-GW-XAv" secondAttribute="bottom" id="Q1p-IM-9vx"/>
+                            <constraint firstAttribute="trailing" secondItem="tV2-GW-XAv" secondAttribute="trailing" id="TwT-wu-beP"/>
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" id="2sN-Vz-egt"/>
@@ -217,28 +219,115 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1047.8260869565217" y="137.94642857142856"/>
+            <point key="canvasLocation" x="2271" y="138"/>
+        </scene>
+        <!--Settings View Controller-->
+        <scene sceneID="V3u-7X-HpA">
+            <objects>
+                <viewController id="cOO-lY-fKa" customClass="SettingsViewController" customModule="HomePageForYouDemoProject" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="QUX-0T-jN8"/>
+                        <viewControllerLayoutGuide type="bottom" id="I9U-uM-6c2"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="ydT-gR-6s9">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="BE4-7x-ned">
+                                <rect key="frame" x="174" y="497" width="67" height="31"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <state key="normal" title="Button"/>
+                                <buttonConfiguration key="configuration" style="plain" title="Button"/>
+                                <connections>
+                                    <segue destination="BYZ-38-t0r" kind="push" id="OnH-cZ-mbn"/>
+                                </connections>
+                            </button>
+                        </subviews>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                    </view>
+                    <navigationItem key="navigationItem" id="y16-zj-x0y"/>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="cuv-vZ-XCW" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1042" y="138"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="V1w-4M-gIp">
             <objects>
                 <navigationController automaticallyAdjustsScrollViewInsets="NO" id="aSX-P9-nip" sceneMemberID="viewController">
                     <toolbarItems/>
+                    <navigationItem key="navigationItem" id="nWC-bg-GXy"/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" id="KTB-iJ-Qyy">
                         <rect key="frame" x="0.0" y="44" width="414" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
                     </navigationBar>
                     <nil name="viewControllers"/>
                     <connections>
-                        <segue destination="BYZ-38-t0r" kind="relationship" relationship="rootViewController" id="BEu-eh-eKs"/>
+                        <segue destination="cOO-lY-fKa" kind="relationship" relationship="rootViewController" id="tLH-5A-BYH"/>
                     </connections>
                 </navigationController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="4bP-p3-0YB" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="137.68115942028987" y="137.94642857142856"/>
         </scene>
+        <!--View Controller-->
+        <scene sceneID="qjh-Nt-IA2">
+            <objects>
+                <viewController storyboardIdentifier="SplashViewController" id="ZlX-zY-4Ou" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="5gB-D3-wxL"/>
+                        <viewControllerLayoutGuide type="bottom" id="lxN-3d-7VC"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="57V-Kg-lnS">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" insetsLayoutMarginsFromSafeArea="NO" image="taboola-logo" translatesAutoresizingMaskIntoConstraints="NO" id="Fgm-lj-o6A">
+                                <rect key="frame" x="16" y="194" width="382" height="191"/>
+                            </imageView>
+                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" alignment="center" translatesAutoresizingMaskIntoConstraints="NO" id="4uV-aW-1TH">
+                                <rect key="frame" x="32" y="485" width="350" height="102.5"/>
+                                <subviews>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Taboola “HomePage For You” Demo" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="WHM-cB-urd">
+                                        <rect key="frame" x="38" y="0.0" width="274" height="20.5"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                        <nil key="textColor"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Using this app is subject to Taboola Terms, Legal contract, and Business terms" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="cQG-92-0VQ">
+                                        <rect key="frame" x="10" y="20.5" width="330" height="41"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                        <nil key="textColor"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="For questions, comments, and feedback, please reach out to android.sdk@taboola.com" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="i3h-fm-ZcW">
+                                        <rect key="frame" x="0.5" y="61.5" width="349" height="41"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                        <nil key="textColor"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                </subviews>
+                            </stackView>
+                        </subviews>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <constraints>
+                            <constraint firstItem="Fgm-lj-o6A" firstAttribute="leading" secondItem="57V-Kg-lnS" secondAttribute="leading" constant="16" id="6ki-9Y-afT"/>
+                            <constraint firstAttribute="trailing" secondItem="Fgm-lj-o6A" secondAttribute="trailing" constant="16" id="GIH-8b-t5g"/>
+                            <constraint firstAttribute="trailing" secondItem="4uV-aW-1TH" secondAttribute="trailing" constant="32" id="Qwx-RW-bJ8"/>
+                            <constraint firstItem="Fgm-lj-o6A" firstAttribute="top" secondItem="5gB-D3-wxL" secondAttribute="bottom" constant="150" id="TLB-Q3-i4G"/>
+                            <constraint firstItem="4uV-aW-1TH" firstAttribute="top" secondItem="Fgm-lj-o6A" secondAttribute="bottom" constant="100" id="Zgi-PY-ct3"/>
+                            <constraint firstItem="lxN-3d-7VC" firstAttribute="top" relation="greaterThanOrEqual" secondItem="4uV-aW-1TH" secondAttribute="bottom" constant="32" id="iOQ-c5-w3W"/>
+                            <constraint firstItem="4uV-aW-1TH" firstAttribute="leading" secondItem="57V-Kg-lnS" secondAttribute="leading" constant="32" id="wtf-6r-Jrn"/>
+                        </constraints>
+                    </view>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="2Pb-xg-Zjz" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-767" y="138"/>
+        </scene>
     </scenes>
     <resources>
+        <image name="taboola-logo" width="789" height="191"/>
         <systemColor name="systemBackgroundColor">
             <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
         </systemColor>
