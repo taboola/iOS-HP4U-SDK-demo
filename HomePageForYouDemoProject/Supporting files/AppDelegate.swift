@@ -15,9 +15,6 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
         // Override point for customization after application launch.
-        let publisher = TBLPublisherInfo(publisherName: "newsplace-israel-feed-ios")
-        publisher.apiKey = "f44d224ed117102b74bed53b82e6079af28600d5"
-        Taboola.initWith(publisher)
         return true
     }
 
