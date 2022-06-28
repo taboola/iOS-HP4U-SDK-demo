@@ -1,8 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="20037" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="aSX-P9-nip">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="19529" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="aSX-P9-nip">
     <device id="retina6_1" orientation="portrait" appearance="light"/>
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="20020"/>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="19519"/>
         <capability name="Named colors" minToolsVersion="9.0"/>
         <capability name="System colors in document resources" minToolsVersion="11.0"/>
         <capability name="collection view cell content view" minToolsVersion="11.0"/>
@@ -258,6 +259,7 @@
                                         </userDefinedRuntimeAttributes>
                                         <connections>
                                             <action selector="demoInfoButtonPressed:" destination="cOO-lY-fKa" eventType="touchUpInside" id="GW9-hE-Mgv"/>
+                                            <segue destination="uSd-eN-gIw" kind="show" id="Uvd-BM-BDf"/>
                                         </connections>
                                     </button>
                                     <button opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Pet-x1-ibq">
@@ -517,7 +519,7 @@
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="tAO-iq-Qlf" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1041" y="866"/>
+            <point key="canvasLocation" x="1003" y="844"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="V1w-4M-gIp">
@@ -593,14 +595,67 @@
             </objects>
             <point key="canvasLocation" x="-767" y="138"/>
         </scene>
+        <!--App Information-->
+        <scene sceneID="VsI-Od-Li9">
+            <objects>
+                <viewController storyboardIdentifier="AppInformation" id="uSd-eN-gIw" customClass="AppInformation" customModule="HomePageForYouDemoProject" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="QF1-nb-2w4"/>
+                        <viewControllerLayoutGuide type="bottom" id="TYg-Ke-RJa"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="ZYQ-aG-Vol">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Jmb-9W-BxM">
+                                <rect key="frame" x="0.0" y="96" width="414" height="800"/>
+                                <subviews>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="giu-GJ-ymb">
+                                        <rect key="frame" x="26" y="8" width="362" height="20.5"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                        <nil key="textColor"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                </subviews>
+                                <constraints>
+                                    <constraint firstItem="giu-GJ-ymb" firstAttribute="leading" secondItem="Jmb-9W-BxM" secondAttribute="leading" constant="26" id="M0m-IM-5Aw"/>
+                                    <constraint firstAttribute="bottom" secondItem="giu-GJ-ymb" secondAttribute="bottom" constant="30" id="NEI-L2-dAa"/>
+                                    <constraint firstAttribute="trailing" secondItem="giu-GJ-ymb" secondAttribute="trailing" constant="27" id="fTA-do-C4M"/>
+                                    <constraint firstItem="giu-GJ-ymb" firstAttribute="top" secondItem="Jmb-9W-BxM" secondAttribute="top" constant="8" id="x6Z-QI-JV2"/>
+                                </constraints>
+                                <viewLayoutGuide key="contentLayoutGuide" id="kUY-js-n3E"/>
+                                <viewLayoutGuide key="frameLayoutGuide" id="1Be-IP-1Uw"/>
+                            </scrollView>
+                        </subviews>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <constraints>
+                            <constraint firstItem="Jmb-9W-BxM" firstAttribute="top" secondItem="QF1-nb-2w4" secondAttribute="bottom" constant="8" symbolic="YES" id="BUl-T4-XAL"/>
+                            <constraint firstAttribute="trailing" secondItem="Jmb-9W-BxM" secondAttribute="trailing" id="FSm-gB-hcz"/>
+                            <constraint firstItem="giu-GJ-ymb" firstAttribute="width" secondItem="ZYQ-aG-Vol" secondAttribute="width" multiplier="0.874396" id="Gvf-zE-34d"/>
+                            <constraint firstItem="Jmb-9W-BxM" firstAttribute="leading" secondItem="ZYQ-aG-Vol" secondAttribute="leading" id="Lx4-rg-u8P"/>
+                            <constraint firstItem="Jmb-9W-BxM" firstAttribute="width" secondItem="ZYQ-aG-Vol" secondAttribute="width" id="M6C-tF-tQR"/>
+                            <constraint firstAttribute="bottom" secondItem="Jmb-9W-BxM" secondAttribute="bottom" id="goT-Ht-iH8"/>
+                            <constraint firstItem="giu-GJ-ymb" firstAttribute="centerX" secondItem="ZYQ-aG-Vol" secondAttribute="centerX" id="lQU-ct-eAO"/>
+                        </constraints>
+                    </view>
+                    <navigationItem key="navigationItem" id="mhd-fc-Pax"/>
+                    <connections>
+                        <outlet property="infoLabel" destination="giu-GJ-ymb" id="jgK-6C-sKQ"/>
+                        <outlet property="scrollView" destination="Jmb-9W-BxM" id="qys-ua-q4b"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="g5Z-e7-kPQ" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="2270" y="869"/>
+        </scene>
     </scenes>
     <resources>
         <image name="taboola-logo" width="789" height="191"/>
         <namedColor name="accent-red">
-            <color red="1" green="0.23137254901960785" blue="0.18823529411764706" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+            <color red="1" green="0.23100000619888306" blue="0.18799999356269836" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </namedColor>
         <namedColor name="background-gray">
-            <color red="0.9137254901960784" green="0.9137254901960784" blue="0.92156862745098034" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+            <color red="0.91399997472763062" green="0.91399997472763062" blue="0.92199999094009399" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </namedColor>
         <namedColor name="separator-color">
             <color red="0.79199999570846558" green="0.79199999570846558" blue="0.79600000381469727" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>

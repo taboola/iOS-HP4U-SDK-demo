@@ -55,6 +55,7 @@ class SettingsViewController: UIViewController {
             showAlert(with: "Error", subtitle: "Please fill in all required fields")
         }
     }
+    @IBAction func demoInfoButtonPressed(_ sender: Any) { }
 
     private func showAlert(with title: String, subtitle: String?) {
         let alertCtrl = UIAlertController(title: title, message: subtitle, preferredStyle: .alert)
