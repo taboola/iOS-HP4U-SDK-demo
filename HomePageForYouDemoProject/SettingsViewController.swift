@@ -9,6 +9,9 @@ import UIKit
 import TaboolaSDK
 
 class SettingsViewController: UIViewController {
+    // a flag to report usage only once per session
+    private var hasReportedDemoUsage = false
+
     private enum NavigationSegue: String {
         case demo = "openDemo"
         case info = "openInfo"
@@ -53,6 +56,11 @@ class SettingsViewController: UIViewController {
     @IBAction func launchDemoButtonPressed(_ sender: Any) {
         if tableViewController.publisherCredentials() == nil {
             showAlert(with: "Error", subtitle: "Please fill in all required fields")
+        } else if !hasReportedDemoUsage {
+            // report app usage
+            Taboola.reportTBLMobileEvent([:], eventType: Constants.UsageReporting.usageEventType)
+            // change the flag to report only once
+            hasReportedDemoUsage = true
         }
     }
     @IBAction func demoInfoButtonPressed(_ sender: Any) { }
