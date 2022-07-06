@@ -58,7 +58,8 @@ class HomePageDataSource: PublisherDataSource {
                 }
             }
             // check if already cached
-            if let cachedImage: UIImage = self.cachedImages[item.imageUrl.absoluteString] {
+            let key = item.imageUrl.absoluteString
+            if let cachedImage: UIImage = self.cachedImages[key] {
                 image = cachedImage
                 return
             }
@@ -161,8 +162,6 @@ class RequestManager {
             }.resume()
         }
     }
-
-//    func loadImage(url: URL, completion)
 
     private func verifyResponse(_ response: URLResponse?) throws {
         guard let response = response as? HTTPURLResponse else {
