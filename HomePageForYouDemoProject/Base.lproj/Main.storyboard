@@ -105,6 +105,7 @@
                                             <outlet property="subtitleLabel" destination="eof-1f-b9C" id="KkZ-Qi-2qg"/>
                                             <outlet property="titleLabel" destination="hQW-WZ-qzx" id="g4U-4a-Wmp"/>
                                             <outlet property="widthConstraint" destination="E5m-A0-ZN9" id="gBT-F3-Wph"/>
+                                            <segue destination="wAg-ku-JPQ" kind="show" identifier="openArticle" id="kUq-cg-h0e"/>
                                         </connections>
                                     </collectionViewCell>
                                     <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" reuseIdentifier="newsCell" id="fjl-XZ-LHF" customClass="TopNewsCollectionViewCell" customModule="HomePageForYouDemoProject" customModuleProvider="target">
@@ -126,13 +127,13 @@
                                                                         <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" alignment="top" spacing="20" translatesAutoresizingMaskIntoConstraints="NO" id="4E4-BU-zj6">
                                                                             <rect key="frame" x="0.0" y="0.0" width="51.5" height="64.5"/>
                                                                             <subviews>
-                                                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="3" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="SSb-lN-Yn1">
+                                                                                <label opaque="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="3" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="SSb-lN-Yn1">
                                                                                     <rect key="frame" x="0.0" y="0.0" width="51.5" height="24"/>
                                                                                     <fontDescription key="fontDescription" type="boldSystem" pointSize="20"/>
                                                                                     <nil key="textColor"/>
                                                                                     <nil key="highlightedColor"/>
                                                                                 </label>
-                                                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="3" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="30c-mE-Z6O">
+                                                                                <label opaque="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="3" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="30c-mE-Z6O">
                                                                                     <rect key="frame" x="0.0" y="44" width="41.5" height="20.5"/>
                                                                                     <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                                                     <nil key="textColor"/>
@@ -143,7 +144,7 @@
                                                                         <view contentMode="scaleAspectFill" translatesAutoresizingMaskIntoConstraints="NO" id="MgS-jE-A3M">
                                                                             <rect key="frame" x="261.5" y="0.0" width="136.5" height="136.5"/>
                                                                             <subviews>
-                                                                                <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="P5i-FI-Dlp">
+                                                                                <imageView clipsSubviews="YES" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="P5i-FI-Dlp">
                                                                                     <rect key="frame" x="0.0" y="0.0" width="136.5" height="136.5"/>
                                                                                     <constraints>
                                                                                         <constraint firstAttribute="width" secondItem="P5i-FI-Dlp" secondAttribute="height" id="zuj-yQ-qCb"/>
@@ -206,6 +207,7 @@
                                             <outlet property="subtitleLabel" destination="30c-mE-Z6O" id="gtt-qI-sXn"/>
                                             <outlet property="titleLabel" destination="SSb-lN-Yn1" id="Rnh-tV-r4M"/>
                                             <outlet property="widthConstraint" destination="8Ig-dI-Whf" id="KnI-cv-3Pd"/>
+                                            <segue destination="wAg-ku-JPQ" kind="show" identifier="openArticle" id="xMm-IH-yx7"/>
                                         </connections>
                                     </collectionViewCell>
                                 </cells>
@@ -262,6 +264,60 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="2269.5652173913045" y="137.94642857142856"/>
+        </scene>
+        <!--Article View Controller-->
+        <scene sceneID="2si-pJ-4eD">
+            <objects>
+                <viewController id="wAg-ku-JPQ" customClass="ArticleViewController" customModule="HomePageForYouDemoProject" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="Sd4-dE-DOZ"/>
+                        <viewControllerLayoutGuide type="bottom" id="YbQ-ag-5on"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="U4b-yk-CtN">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="equalSpacing" alignment="top" spacing="32" translatesAutoresizingMaskIntoConstraints="NO" id="VkB-mj-kxa">
+                                <rect key="frame" x="36" y="104" width="342" height="742"/>
+                                <subviews>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" text="URL" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="FSc-JW-Lgp">
+                                        <rect key="frame" x="0.0" y="0.0" width="34" height="20.5"/>
+                                        <fontDescription key="fontDescription" type="boldSystem" pointSize="17"/>
+                                        <nil key="textColor"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="7yj-wL-eoZ">
+                                        <rect key="frame" x="0.0" y="52.5" width="342" height="689.5"/>
+                                        <mutableString key="text">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nam ipsum ex, posuere ac suscipit a, volutpat sit amet diam. Duis id luctus erat. In facilisis suscipit tristique. Nunc vitae est in ipsum eleifend rutrum ultricies vel nisi. Curabitur sed velit quam. Ut tincidunt imperdiet nisi eget pharetra. In hac habitasse platea dictumst. Quisque vitae turpis hendrerit, ultricies eros dignissim, vulputate sem. Aliquam ullamcorper est in lacinia gravida. Suspendisse eu efficitur neque.
+
+Etiam non ante vestibulum mi tincidunt gravida. Etiam sapien metus, vulputate non neque vel, rutrum lacinia nisl. Duis turpis magna, tincidunt a risus quis, ultrices dapibus lorem. Sed et urna ac quam aliquam euismod. Nullam sodales dignissim lobortis. Donec eu dignissim neque. Donec id velit id elit eleifend laoreet vel in dui. Quisque sagittis purus et ligula blandit bibendum. Curabitur nec arcu purus. Pellentesque vulputate pharetra cursus. Cras elementum turpis vulputate condimentum malesuada. Suspendisse ullamcorper nisl vitae faucibus ullamcorper.
+
+Phasellus posuere a mauris at finibus. Duis egestas rutrum velit, quis aliquet urna tempus quis. Nulla viverra dui ut urna luctus egestas. Class aptent taciti sociosqu ad litora torquent per conubia nostra, per inceptos himenaeos. Nulla facilisi. Sed eu condimentum orci. Fusce tempus dui nunc, eu laoreet elit elementum venenatis. Suspendisse non sem at dolor sodales aliquet. Phasellus sed nunc et mauris tempor mollis ac nec dui. Maecenas in venenatis ipsum. Nam feugiat enim vel tempus interdum. Sed et venenatis velit, sed lobortis diam. Quisque non lacus eros. Mauris condimentum sollicitudin egestas. Nullam at metus quis odio vulputate iaculis.
+
+</mutableString>
+                                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                        <nil key="textColor"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                </subviews>
+                            </stackView>
+                        </subviews>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <constraints>
+                            <constraint firstItem="VkB-mj-kxa" firstAttribute="leading" secondItem="U4b-yk-CtN" secondAttribute="leadingMargin" constant="16" id="8Ad-AX-yRB"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="VkB-mj-kxa" secondAttribute="trailing" constant="16" id="Zgu-D7-fNH"/>
+                            <constraint firstItem="VkB-mj-kxa" firstAttribute="top" secondItem="Sd4-dE-DOZ" secondAttribute="bottom" constant="16" id="qfn-XQ-47t"/>
+                            <constraint firstItem="YbQ-ag-5on" firstAttribute="top" secondItem="VkB-mj-kxa" secondAttribute="bottom" constant="16" id="vTd-43-7u5"/>
+                        </constraints>
+                    </view>
+                    <navigationItem key="navigationItem" id="9pa-GK-Mrz"/>
+                    <connections>
+                        <outlet property="urlLabel" destination="FSc-JW-Lgp" id="y2t-NA-54P"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="TKV-Ne-nM4" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="3428" y="141"/>
         </scene>
         <!--Settings View Controller-->
         <scene sceneID="V3u-7X-HpA">
@@ -689,6 +745,9 @@
             <point key="canvasLocation" x="2270" y="869"/>
         </scene>
     </scenes>
+    <inferredMetricsTieBreakers>
+        <segue reference="xMm-IH-yx7"/>
+    </inferredMetricsTieBreakers>
     <resources>
         <image name="taboola-logo" width="789" height="191"/>
         <namedColor name="accent-red">

@@ -18,6 +18,13 @@ struct Constants {
         static let newsHeaderFont = UIFont(name: "Baskerville-Bold", size: 45.0)
     }
 
+    struct NavigationSegue {
+        static let demo = "openDemo"
+        static let info = "openInfo"
+        static let article = "openArticle"
+    }
+
+
     struct UsageReporting {
         static let usageEventType = 3
     }

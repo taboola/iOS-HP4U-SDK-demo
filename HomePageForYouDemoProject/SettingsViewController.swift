@@ -11,12 +11,6 @@ import TaboolaSDK
 class SettingsViewController: UIViewController {
     // a flag to report usage only once per session
     private var hasReportedDemoUsage = false
-
-    private enum NavigationSegue: String {
-        case demo = "openDemo"
-        case info = "openInfo"
-    }
-
     private var tableViewController: SettingsTableViewController {
         guard let controller = children.first as? SettingsTableViewController else { preconditionFailure("Wrong embedded viewcontroller") }
         return controller
@@ -73,14 +67,14 @@ class SettingsViewController: UIViewController {
     }
     // MARK: - Navigation
     override func shouldPerformSegue(withIdentifier identifier: String, sender: Any?) -> Bool {
-        if identifier == NavigationSegue.demo.rawValue {
+        if identifier == Constants.NavigationSegue.demo {
             return tableViewController.publisherCredentials() != nil
         }
         return true
     }
 
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        if segue.identifier == NavigationSegue.demo.rawValue, let account = tableViewController.publisherCredentials() {
+        if segue.identifier == Constants.NavigationSegue.demo, let account = tableViewController.publisherCredentials() {
             let publisher = TBLPublisherInfo(publisherName: account.publisher)
             publisher.apiKey = account.apiKey
             Taboola.initWith(publisher)
