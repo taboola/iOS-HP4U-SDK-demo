@@ -20,27 +20,17 @@ class SettingsViewController: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        setupNavigationBar()
+        title = "Demo Settings"
+        setupLargeNavigationBarTitle()
         showLaunchScreen()
         tableViewController.setCredentials(publisher: Constants.DefaultPublisher.name, apikey: Constants.DefaultPublisher.apiKey)
-    }
-
-    private func setupNavigationBar() {
-        title = "Demo Settings"
-        let appearance = UINavigationBarAppearance()
-
-        appearance.largeTitleTextAttributes = [.foregroundColor: UIColor.red]
-        appearance.titleTextAttributes = appearance.largeTitleTextAttributes
-        navigationController?.navigationBar.prefersLargeTitles = true
-        navigationItem.standardAppearance = appearance
-        navigationItem.scrollEdgeAppearance = appearance
     }
 
     private func showLaunchScreen() {
         navigationController?.isNavigationBarHidden = true
         let splash = UIStoryboard(name: "Main", bundle: .main).instantiateViewController(withIdentifier: "SplashViewController")
         self.navigationController?.show(splash, sender: nil)
-        DispatchQueue.main.asyncAfter(deadline: .now() + 2.0) { // TODO: change delay
+        DispatchQueue.main.asyncAfter(deadline: .now() + Constants.LaunchScreen.onScreenTime) {
             self.navigationController?.popViewController(animated: false)
             self.navigationController?.isNavigationBarHidden = false
         }

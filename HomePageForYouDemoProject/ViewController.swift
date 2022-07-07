@@ -15,6 +15,7 @@ class ViewController: UIViewController {
             collectionLayout.estimatedItemSize = UICollectionViewFlowLayout.automaticSize
         }
     }
+    var isPreloadEnabled = true
     let datasource: PublisherDataSource = HomePageDataSource()
     lazy var page = TBLHomePage(delegate: self, sourceType: SourceTypeText, pageUrl: "http://blog.taboola.com", sectionNames: ["life", "industry", "company", "engagement"])
 
@@ -34,7 +35,8 @@ class ViewController: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        setupNavigationBar()
+        title = "News"
+        setupLargeNavigationBarTitle()
         datasource.fetchArticles { items, error in
             guard error == nil else {
                 print("Error fetching articles: \(error?.localizedDescription ?? ""))")
@@ -44,20 +46,10 @@ class ViewController: UIViewController {
         }
     }
 
-    private func setupNavigationBar() {
-        title = "News"
-        let appearance = UINavigationBarAppearance()
-
-        appearance.largeTitleTextAttributes = [.foregroundColor: UIColor.red, .font: Constants.Layout.newsHeaderFont!]
-        appearance.titleTextAttributes = appearance.largeTitleTextAttributes
-        navigationItem.standardAppearance = appearance
-        navigationItem.scrollEdgeAppearance = appearance
-    }
-
     private func setupTaboola() {
         page.setScrollView(collectionView)
         page.targetType = "mix"
-        page.fetchContent()
+        if isPreloadEnabled { page.fetchContent() }
     }
 
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {

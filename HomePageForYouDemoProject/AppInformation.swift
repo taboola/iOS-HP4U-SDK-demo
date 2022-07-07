@@ -14,11 +14,11 @@ class AppInformation: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         self.title = "About This Demo"
+        setupLargeNavigationBarTitle()
         infoLabel.text = self.textValue()
     }
 
     private func textValue() -> String {
-        return
     """
     Dear Publisher,
 
