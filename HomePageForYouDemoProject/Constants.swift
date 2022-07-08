@@ -19,6 +19,6 @@ struct Constants {
     }
 
     struct UsageReporting {
-        static let usageEventType = 3
+        static let eventType = 3
     }
 }
