@@ -20,6 +20,7 @@
 		DC455820286AE35B00748219 /* SettingsTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DC45581F286AE35B00748219 /* SettingsTableViewController.swift */; };
 		DC455822287603BB00748219 /* UIView+extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = DC455821287603BB00748219 /* UIView+extension.swift */; };
 		DC455824287603EB00748219 /* UIImage+extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = DC455823287603EB00748219 /* UIImage+extension.swift */; };
+		DC45582A28781FB300748219 /* HomePageArticles.json in Resources */ = {isa = PBXBuildFile; fileRef = DC45582928781FB200748219 /* HomePageArticles.json */; };
 		DC778834286443A800EE047C /* SettingsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DC778833286443A800EE047C /* SettingsViewController.swift */; };
 		DCDF310028531AF300886E55 /* TopicHeaderHeaderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DCDF30FF28531AF300886E55 /* TopicHeaderHeaderView.swift */; };
 		DCE09DC2284F6820000A01D9 /* TopNewsCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = DCE09DC1284F6820000A01D9 /* TopNewsCollectionViewCell.swift */; };
@@ -43,6 +44,7 @@
 		DC45581F286AE35B00748219 /* SettingsTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsTableViewController.swift; sourceTree = "<group>"; };
 		DC455821287603BB00748219 /* UIView+extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIView+extension.swift"; sourceTree = "<group>"; };
 		DC455823287603EB00748219 /* UIImage+extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIImage+extension.swift"; sourceTree = "<group>"; };
+		DC45582928781FB200748219 /* HomePageArticles.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = HomePageArticles.json; sourceTree = "<group>"; };
 		DC778833286443A800EE047C /* SettingsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsViewController.swift; sourceTree = "<group>"; };
 		DCDF30FF28531AF300886E55 /* TopicHeaderHeaderView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TopicHeaderHeaderView.swift; sourceTree = "<group>"; };
 		DCE09DC1284F6820000A01D9 /* TopNewsCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TopNewsCollectionViewCell.swift; sourceTree = "<group>"; };
@@ -92,6 +94,7 @@
 				DC455821287603BB00748219 /* UIView+extension.swift */,
 				DC06917E284F59F4005A42D6 /* Constants.swift */,
 				DC06916F284F57F0005A42D6 /* Main.storyboard */,
+				DC45582928781FB200748219 /* HomePageArticles.json */,
 				DC069181284F5B0C005A42D6 /* Supporting files */,
 			);
 			path = HomePageForYouDemoProject;
@@ -188,6 +191,7 @@
 			files = (
 				DC069176284F57F1005A42D6 /* LaunchScreen.storyboard in Resources */,
 				DC069173284F57F1005A42D6 /* Assets.xcassets in Resources */,
+				DC45582A28781FB300748219 /* HomePageArticles.json in Resources */,
 				DC069171284F57F0005A42D6 /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
