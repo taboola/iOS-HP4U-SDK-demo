@@ -84,12 +84,13 @@ extension ViewController: UICollectionViewDataSource {
             datasource.fetchImage(for: item) { url, image, error in
                 guard item.imageUrl == url, error == nil else { return }
                 cell.imageView.image = image
+                cell.widthConstraint.constant = collectionView.frame.width
             }
             cell.isSwapped = false
             cell.titleLabel.text = item.title
             cell.subtitleLabel.text = item.description
-            cell.widthConstraint.constant = collectionView.frame.width
         }
+        cell.widthConstraint.constant = collectionView.frame.width
         return cell
     }
 

@@ -29,7 +29,7 @@ class TopNewsCollectionViewCell: UICollectionViewCell {
             isSwappedLabel.isHidden = !isSwapped
             // animations
             if isSwapped {
-                isSwappedLabel.fadeInOut(finished: true)
+                isSwappedLabel.fadeInOut()
             } else {
                 isSwappedLabel.layer.removeAllAnimations()
             }
