@@ -1,10 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="20037" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="aSX-P9-nip">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="20037" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="aSX-P9-nip">
     <device id="retina6_1" orientation="portrait" appearance="light"/>
     <dependencies>
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="20020"/>
         <capability name="Named colors" minToolsVersion="9.0"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="System colors in document resources" minToolsVersion="11.0"/>
         <capability name="collection view cell content view" minToolsVersion="11.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
@@ -14,10 +15,6 @@
         <scene sceneID="tne-QT-ifu">
             <objects>
                 <viewController storyboardIdentifier="DemoScreenViewController" id="BYZ-38-t0r" customClass="ViewController" customModule="HomePageForYouDemoProject" customModuleProvider="target" sceneMemberID="viewController">
-                    <layoutGuides>
-                        <viewControllerLayoutGuide type="top" id="AmP-M5-Gv5"/>
-                        <viewControllerLayoutGuide type="bottom" id="mTO-k3-nb9"/>
-                    </layoutGuides>
                     <view key="view" contentMode="scaleToFill" id="8bC-Xf-vdC">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -247,12 +244,13 @@
                                 </connections>
                             </collectionView>
                         </subviews>
+                        <viewLayoutGuide key="safeArea" id="jo3-P2-Yhw"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                         <constraints>
-                            <constraint firstItem="tV2-GW-XAv" firstAttribute="top" secondItem="AmP-M5-Gv5" secondAttribute="bottom" id="8i3-XI-Ukg"/>
-                            <constraint firstItem="tV2-GW-XAv" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leading" id="NN4-fI-KXC"/>
-                            <constraint firstItem="mTO-k3-nb9" firstAttribute="top" secondItem="tV2-GW-XAv" secondAttribute="bottom" id="Q1p-IM-9vx"/>
-                            <constraint firstAttribute="trailing" secondItem="tV2-GW-XAv" secondAttribute="trailing" id="TwT-wu-beP"/>
+                            <constraint firstItem="tV2-GW-XAv" firstAttribute="top" secondItem="jo3-P2-Yhw" secondAttribute="top" id="8i3-XI-Ukg"/>
+                            <constraint firstItem="tV2-GW-XAv" firstAttribute="leading" secondItem="jo3-P2-Yhw" secondAttribute="leading" id="NN4-fI-KXC"/>
+                            <constraint firstItem="jo3-P2-Yhw" firstAttribute="bottom" secondItem="tV2-GW-XAv" secondAttribute="bottom" id="Q1p-IM-9vx"/>
+                            <constraint firstItem="jo3-P2-Yhw" firstAttribute="trailing" secondItem="tV2-GW-XAv" secondAttribute="trailing" id="TwT-wu-beP"/>
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" largeTitleDisplayMode="never" id="2sN-Vz-egt"/>
@@ -269,45 +267,54 @@
         <scene sceneID="2si-pJ-4eD">
             <objects>
                 <viewController id="wAg-ku-JPQ" customClass="ArticleViewController" customModule="HomePageForYouDemoProject" customModuleProvider="target" sceneMemberID="viewController">
-                    <layoutGuides>
-                        <viewControllerLayoutGuide type="top" id="Sd4-dE-DOZ"/>
-                        <viewControllerLayoutGuide type="bottom" id="YbQ-ag-5on"/>
-                    </layoutGuides>
                     <view key="view" contentMode="scaleToFill" id="U4b-yk-CtN">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="equalSpacing" alignment="top" spacing="16" translatesAutoresizingMaskIntoConstraints="NO" id="VkB-mj-kxa">
-                                <rect key="frame" x="36" y="104" width="342" height="742"/>
+                            <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="27y-Vg-Qk2">
+                                <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                                 <subviews>
-                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" text="URL" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="FSc-JW-Lgp">
-                                        <rect key="frame" x="0.0" y="0.0" width="34" height="20.5"/>
-                                        <fontDescription key="fontDescription" type="boldSystem" pointSize="17"/>
-                                        <nil key="textColor"/>
-                                        <nil key="highlightedColor"/>
-                                    </label>
-                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="7yj-wL-eoZ">
-                                        <rect key="frame" x="0.0" y="52.5" width="342" height="689.5"/>
-                                        <mutableString key="text">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nam ipsum ex, posuere ac suscipit a, volutpat sit amet diam. Duis id luctus erat. In facilisis suscipit tristique. Nunc vitae est in ipsum eleifend rutrum ultricies vel nisi. Curabitur sed velit quam. Ut tincidunt imperdiet nisi eget pharetra. In hac habitasse platea dictumst. Quisque vitae turpis hendrerit, ultricies eros dignissim, vulputate sem. Aliquam ullamcorper est in lacinia gravida. Suspendisse eu efficitur neque.
+                                    <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="equalSpacing" alignment="top" spacing="16" translatesAutoresizingMaskIntoConstraints="NO" id="VkB-mj-kxa">
+                                        <rect key="frame" x="20" y="0.0" width="374" height="909"/>
+                                        <subviews>
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="URL" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="3" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="FSc-JW-Lgp">
+                                                <rect key="frame" x="0.0" y="0.0" width="34" height="20.5"/>
+                                                <fontDescription key="fontDescription" type="boldSystem" pointSize="17"/>
+                                                <nil key="textColor"/>
+                                                <nil key="highlightedColor"/>
+                                            </label>
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="7yj-wL-eoZ">
+                                                <rect key="frame" x="0.0" y="36.5" width="374" height="872.5"/>
+                                                <string key="text">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nam ipsum ex, posuere ac suscipit a, volutpat sit amet diam. Duis id luctus erat. In facilisis suscipit tristique. Nunc vitae est in ipsum eleifend rutrum ultricies vel nisi. Curabitur sed velit quam. Ut tincidunt imperdiet nisi eget pharetra. In hac habitasse platea dictumst. Quisque vitae turpis hendrerit, ultricies eros dignissim, vulputate sem. Aliquam ullamcorper est in lacinia gravida. Suspendisse eu efficitur neque.
 
 Etiam non ante vestibulum mi tincidunt gravida. Etiam sapien metus, vulputate non neque vel, rutrum lacinia nisl. Duis turpis magna, tincidunt a risus quis, ultrices dapibus lorem. Sed et urna ac quam aliquam euismod. Nullam sodales dignissim lobortis. Donec eu dignissim neque. Donec id velit id elit eleifend laoreet vel in dui. Quisque sagittis purus et ligula blandit bibendum. Curabitur nec arcu purus. Pellentesque vulputate pharetra cursus. Cras elementum turpis vulputate condimentum malesuada. Suspendisse ullamcorper nisl vitae faucibus ullamcorper.
 
 Phasellus posuere a mauris at finibus. Duis egestas rutrum velit, quis aliquet urna tempus quis. Nulla viverra dui ut urna luctus egestas. Class aptent taciti sociosqu ad litora torquent per conubia nostra, per inceptos himenaeos. Nulla facilisi. Sed eu condimentum orci. Fusce tempus dui nunc, eu laoreet elit elementum venenatis. Suspendisse non sem at dolor sodales aliquet. Phasellus sed nunc et mauris tempor mollis ac nec dui. Maecenas in venenatis ipsum. Nam feugiat enim vel tempus interdum. Sed et venenatis velit, sed lobortis diam. Quisque non lacus eros. Mauris condimentum sollicitudin egestas. Nullam at metus quis odio vulputate iaculis.
 
-</mutableString>
-                                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                        <nil key="textColor"/>
-                                        <nil key="highlightedColor"/>
-                                    </label>
+</string>
+                                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                <nil key="textColor"/>
+                                                <nil key="highlightedColor"/>
+                                            </label>
+                                        </subviews>
+                                    </stackView>
                                 </subviews>
-                            </stackView>
+                                <constraints>
+                                    <constraint firstItem="VkB-mj-kxa" firstAttribute="width" secondItem="27y-Vg-Qk2" secondAttribute="width" constant="-40" id="23Q-Vq-WSe"/>
+                                    <constraint firstItem="VkB-mj-kxa" firstAttribute="bottom" secondItem="27y-Vg-Qk2" secondAttribute="bottom" id="CaA-jy-sB7"/>
+                                    <constraint firstAttribute="trailing" secondItem="VkB-mj-kxa" secondAttribute="trailing" constant="20" id="Tqv-Lj-KBn"/>
+                                    <constraint firstItem="VkB-mj-kxa" firstAttribute="leading" secondItem="27y-Vg-Qk2" secondAttribute="leading" constant="20" id="V5C-Fr-i6U"/>
+                                    <constraint firstItem="VkB-mj-kxa" firstAttribute="top" secondItem="27y-Vg-Qk2" secondAttribute="top" id="mUU-4M-lRP"/>
+                                </constraints>
+                            </scrollView>
                         </subviews>
+                        <viewLayoutGuide key="safeArea" id="06q-ie-Pby"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                         <constraints>
-                            <constraint firstItem="VkB-mj-kxa" firstAttribute="leading" secondItem="U4b-yk-CtN" secondAttribute="leadingMargin" constant="16" id="8Ad-AX-yRB"/>
-                            <constraint firstAttribute="trailingMargin" secondItem="VkB-mj-kxa" secondAttribute="trailing" constant="16" id="Zgu-D7-fNH"/>
-                            <constraint firstItem="VkB-mj-kxa" firstAttribute="top" secondItem="Sd4-dE-DOZ" secondAttribute="bottom" constant="16" id="qfn-XQ-47t"/>
-                            <constraint firstItem="YbQ-ag-5on" firstAttribute="top" secondItem="VkB-mj-kxa" secondAttribute="bottom" constant="16" id="vTd-43-7u5"/>
+                            <constraint firstItem="06q-ie-Pby" firstAttribute="trailing" secondItem="27y-Vg-Qk2" secondAttribute="trailing" id="Hf3-HA-LJI"/>
+                            <constraint firstItem="27y-Vg-Qk2" firstAttribute="leading" secondItem="06q-ie-Pby" secondAttribute="leading" id="Se7-gi-HSx"/>
+                            <constraint firstItem="06q-ie-Pby" firstAttribute="top" secondItem="27y-Vg-Qk2" secondAttribute="top" constant="88" id="ao6-Zr-Xd8"/>
+                            <constraint firstItem="27y-Vg-Qk2" firstAttribute="bottom" secondItem="06q-ie-Pby" secondAttribute="bottom" constant="34" id="oKU-4G-43X"/>
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" id="9pa-GK-Mrz"/>
@@ -323,10 +330,6 @@ Phasellus posuere a mauris at finibus. Duis egestas rutrum velit, quis aliquet u
         <scene sceneID="V3u-7X-HpA">
             <objects>
                 <viewController id="cOO-lY-fKa" customClass="SettingsViewController" customModule="HomePageForYouDemoProject" customModuleProvider="target" sceneMemberID="viewController">
-                    <layoutGuides>
-                        <viewControllerLayoutGuide type="top" id="QUX-0T-jN8"/>
-                        <viewControllerLayoutGuide type="bottom" id="I9U-uM-6c2"/>
-                    </layoutGuides>
                     <view key="view" contentMode="scaleToFill" id="ydT-gR-6s9">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -386,15 +389,16 @@ Phasellus posuere a mauris at finibus. Duis egestas rutrum velit, quis aliquet u
                                 </constraints>
                             </stackView>
                         </subviews>
+                        <viewLayoutGuide key="safeArea" id="aQE-ln-1KP"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                         <constraints>
                             <constraint firstItem="Pet-x1-ibq" firstAttribute="width" secondItem="ydT-gR-6s9" secondAttribute="width" multiplier="0.66" id="AoJ-Jz-bln"/>
-                            <constraint firstItem="4rd-6K-Idc" firstAttribute="leading" secondItem="ydT-gR-6s9" secondAttribute="leading" id="LbR-gE-udw"/>
-                            <constraint firstAttribute="trailing" secondItem="4rd-6K-Idc" secondAttribute="trailing" id="NWl-C8-7j5"/>
+                            <constraint firstItem="4rd-6K-Idc" firstAttribute="leading" secondItem="aQE-ln-1KP" secondAttribute="leading" id="LbR-gE-udw"/>
+                            <constraint firstItem="aQE-ln-1KP" firstAttribute="trailing" secondItem="4rd-6K-Idc" secondAttribute="trailing" id="NWl-C8-7j5"/>
                             <constraint firstItem="3EW-fz-HMK" firstAttribute="top" secondItem="4rd-6K-Idc" secondAttribute="bottom" constant="40" id="WQr-vU-YqJ"/>
-                            <constraint firstItem="I9U-uM-6c2" firstAttribute="top" secondItem="3EW-fz-HMK" secondAttribute="bottom" constant="32" id="vTF-Bh-tgT"/>
-                            <constraint firstItem="4rd-6K-Idc" firstAttribute="top" secondItem="QUX-0T-jN8" secondAttribute="bottom" id="xoe-tV-52m"/>
-                            <constraint firstItem="3EW-fz-HMK" firstAttribute="centerX" secondItem="ydT-gR-6s9" secondAttribute="centerX" id="zoR-pD-tmM"/>
+                            <constraint firstItem="aQE-ln-1KP" firstAttribute="bottom" secondItem="3EW-fz-HMK" secondAttribute="bottom" constant="32" id="vTF-Bh-tgT"/>
+                            <constraint firstItem="4rd-6K-Idc" firstAttribute="top" secondItem="aQE-ln-1KP" secondAttribute="top" id="xoe-tV-52m"/>
+                            <constraint firstItem="3EW-fz-HMK" firstAttribute="centerX" secondItem="aQE-ln-1KP" secondAttribute="centerX" id="zoR-pD-tmM"/>
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" id="y16-zj-x0y"/>
@@ -640,11 +644,7 @@ Phasellus posuere a mauris at finibus. Duis egestas rutrum velit, quis aliquet u
         <scene sceneID="qjh-Nt-IA2">
             <objects>
                 <viewController storyboardIdentifier="SplashViewController" id="ZlX-zY-4Ou" sceneMemberID="viewController">
-                    <layoutGuides>
-                        <viewControllerLayoutGuide type="top" id="5gB-D3-wxL"/>
-                        <viewControllerLayoutGuide type="bottom" id="lxN-3d-7VC"/>
-                    </layoutGuides>
-                    <view key="view" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="57V-Kg-lnS">
+                    <view key="view" contentMode="scaleToFill" id="57V-Kg-lnS">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
@@ -675,15 +675,16 @@ Phasellus posuere a mauris at finibus. Duis egestas rutrum velit, quis aliquet u
                                 </subviews>
                             </stackView>
                         </subviews>
+                        <viewLayoutGuide key="safeArea" id="UY1-HA-9P4"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                         <constraints>
-                            <constraint firstItem="Fgm-lj-o6A" firstAttribute="leading" secondItem="57V-Kg-lnS" secondAttribute="leading" constant="16" id="6ki-9Y-afT"/>
-                            <constraint firstAttribute="trailing" secondItem="Fgm-lj-o6A" secondAttribute="trailing" constant="16" id="GIH-8b-t5g"/>
-                            <constraint firstAttribute="trailing" secondItem="4uV-aW-1TH" secondAttribute="trailing" constant="32" id="Qwx-RW-bJ8"/>
-                            <constraint firstItem="Fgm-lj-o6A" firstAttribute="top" secondItem="5gB-D3-wxL" secondAttribute="bottom" constant="150" id="TLB-Q3-i4G"/>
+                            <constraint firstItem="Fgm-lj-o6A" firstAttribute="leading" secondItem="UY1-HA-9P4" secondAttribute="leading" constant="16" id="6ki-9Y-afT"/>
+                            <constraint firstItem="UY1-HA-9P4" firstAttribute="trailing" secondItem="Fgm-lj-o6A" secondAttribute="trailing" constant="16" id="GIH-8b-t5g"/>
+                            <constraint firstItem="UY1-HA-9P4" firstAttribute="trailing" secondItem="4uV-aW-1TH" secondAttribute="trailing" constant="32" id="Qwx-RW-bJ8"/>
+                            <constraint firstItem="Fgm-lj-o6A" firstAttribute="top" secondItem="UY1-HA-9P4" secondAttribute="top" constant="150" id="TLB-Q3-i4G"/>
                             <constraint firstItem="4uV-aW-1TH" firstAttribute="top" secondItem="Fgm-lj-o6A" secondAttribute="bottom" constant="100" id="Zgi-PY-ct3"/>
-                            <constraint firstItem="lxN-3d-7VC" firstAttribute="top" relation="greaterThanOrEqual" secondItem="4uV-aW-1TH" secondAttribute="bottom" constant="32" id="iOQ-c5-w3W"/>
-                            <constraint firstItem="4uV-aW-1TH" firstAttribute="leading" secondItem="57V-Kg-lnS" secondAttribute="leading" constant="32" id="wtf-6r-Jrn"/>
+                            <constraint firstItem="UY1-HA-9P4" firstAttribute="bottom" relation="greaterThanOrEqual" secondItem="4uV-aW-1TH" secondAttribute="bottom" constant="32" id="iOQ-c5-w3W"/>
+                            <constraint firstItem="4uV-aW-1TH" firstAttribute="leading" secondItem="UY1-HA-9P4" secondAttribute="leading" constant="32" id="wtf-6r-Jrn"/>
                         </constraints>
                     </view>
                 </viewController>
@@ -695,16 +696,12 @@ Phasellus posuere a mauris at finibus. Duis egestas rutrum velit, quis aliquet u
         <scene sceneID="VsI-Od-Li9">
             <objects>
                 <viewController storyboardIdentifier="AppInformation" id="uSd-eN-gIw" customClass="AppInformation" customModule="HomePageForYouDemoProject" customModuleProvider="target" sceneMemberID="viewController">
-                    <layoutGuides>
-                        <viewControllerLayoutGuide type="top" id="QF1-nb-2w4"/>
-                        <viewControllerLayoutGuide type="bottom" id="TYg-Ke-RJa"/>
-                    </layoutGuides>
                     <view key="view" contentMode="scaleToFill" id="ZYQ-aG-Vol">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Jmb-9W-BxM">
-                                <rect key="frame" x="0.0" y="96" width="414" height="800"/>
+                                <rect key="frame" x="0.0" y="88" width="414" height="808"/>
                                 <subviews>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="giu-GJ-ymb">
                                         <rect key="frame" x="26" y="8" width="362" height="20.5"/>
@@ -723,15 +720,16 @@ Phasellus posuere a mauris at finibus. Duis egestas rutrum velit, quis aliquet u
                                 <viewLayoutGuide key="frameLayoutGuide" id="1Be-IP-1Uw"/>
                             </scrollView>
                         </subviews>
+                        <viewLayoutGuide key="safeArea" id="rvk-gU-QDz"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                         <constraints>
-                            <constraint firstItem="Jmb-9W-BxM" firstAttribute="top" secondItem="QF1-nb-2w4" secondAttribute="bottom" constant="8" symbolic="YES" id="BUl-T4-XAL"/>
-                            <constraint firstAttribute="trailing" secondItem="Jmb-9W-BxM" secondAttribute="trailing" id="FSm-gB-hcz"/>
+                            <constraint firstItem="Jmb-9W-BxM" firstAttribute="top" secondItem="rvk-gU-QDz" secondAttribute="top" constant="8" symbolic="YES" id="BUl-T4-XAL"/>
+                            <constraint firstItem="rvk-gU-QDz" firstAttribute="trailing" secondItem="Jmb-9W-BxM" secondAttribute="trailing" id="FSm-gB-hcz"/>
                             <constraint firstItem="giu-GJ-ymb" firstAttribute="width" secondItem="ZYQ-aG-Vol" secondAttribute="width" multiplier="0.874396" id="Gvf-zE-34d"/>
-                            <constraint firstItem="Jmb-9W-BxM" firstAttribute="leading" secondItem="ZYQ-aG-Vol" secondAttribute="leading" id="Lx4-rg-u8P"/>
+                            <constraint firstItem="Jmb-9W-BxM" firstAttribute="leading" secondItem="rvk-gU-QDz" secondAttribute="leading" id="Lx4-rg-u8P"/>
                             <constraint firstItem="Jmb-9W-BxM" firstAttribute="width" secondItem="ZYQ-aG-Vol" secondAttribute="width" id="M6C-tF-tQR"/>
                             <constraint firstAttribute="bottom" secondItem="Jmb-9W-BxM" secondAttribute="bottom" id="goT-Ht-iH8"/>
-                            <constraint firstItem="giu-GJ-ymb" firstAttribute="centerX" secondItem="ZYQ-aG-Vol" secondAttribute="centerX" id="lQU-ct-eAO"/>
+                            <constraint firstItem="giu-GJ-ymb" firstAttribute="centerX" secondItem="rvk-gU-QDz" secondAttribute="centerX" id="lQU-ct-eAO"/>
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" id="mhd-fc-Pax"/>
