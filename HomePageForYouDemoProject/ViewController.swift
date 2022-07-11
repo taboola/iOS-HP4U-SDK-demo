@@ -15,6 +15,7 @@ class ViewController: UIViewController {
             collectionLayout.estimatedItemSize = UICollectionViewFlowLayout.automaticSize
         }
     }
+    var isPreloadEnabled = true
     let datasource: PublisherDataSource = HomePageDataSource()
     lazy var page = TBLHomePage(delegate: self, sourceType: SourceTypeText, pageUrl: "http://blog.taboola.com", sectionNames: ["life", "industry", "company", "engagement"])
 

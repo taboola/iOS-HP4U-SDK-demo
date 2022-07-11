@@ -21,4 +21,8 @@ struct Constants {
     struct Layout {
         static let newsHeaderFont = UIFont(name: "Baskerville-Bold", size: 45.0)
     }
+
+    struct UsageReporting {
+        static let eventType = 44
+    }
 }
