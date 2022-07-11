@@ -6,10 +6,19 @@
 //
 
 import Foundation
+import UIKit
 
 struct Constants {
+    struct PublisherContent {
+        static let contentFile = (name:"HomePageArticles",fileExtension: "json")
+    }
+
     struct DefaultPublisher {
-        static let name = "sdk-tester-hp4u-demo"
-        static let apiKey = "05380b1d71ca985df52d641e1f0336ebbb8d67f7"
+        static let name = "newsplace-israel-feed-ios"
+        static let apiKey = "f44d224ed117102b74bed53b82e6079af28600d5"
+    }
+
+    struct Layout {
+        static let newsHeaderFont = UIFont(name: "Baskerville-Bold", size: 45.0)
     }
 }

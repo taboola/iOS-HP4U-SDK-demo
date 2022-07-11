@@ -12,12 +12,27 @@ class TopNewsCollectionViewCell: UICollectionViewCell {
     @IBOutlet weak var imageView: UIImageView!
     @IBOutlet weak var titleLabel: UILabel!
     @IBOutlet weak var subtitleLabel: UILabel!
+    @IBOutlet weak var isSwappedLabel: UILabel!
 
     @IBOutlet weak var widthConstraint: NSLayoutConstraint!
+
     override func prepareForReuse() {
-        imageView.image = nil
+        imageView.image = UIImage.placeholder
+        isSwapped = false
         titleLabel.text = nil
         subtitleLabel.text = nil
         contentView.backgroundColor = .white
+    }
+
+    var isSwapped: Bool = false {
+        didSet {
+            isSwappedLabel.isHidden = !isSwapped
+            // animations
+            if isSwapped {
+                isSwappedLabel.fadeInOut()
+            } else {
+                isSwappedLabel.layer.removeAllAnimations()
+            }
+        }
     }
 }

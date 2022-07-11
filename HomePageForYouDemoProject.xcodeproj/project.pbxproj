@@ -18,6 +18,11 @@
 		DC069180284F59F4005A42D6 /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = DC06917E284F59F4005A42D6 /* Constants.swift */; };
 		DC069183284F60AD005A42D6 /* HomePageDataSource.swift in Sources */ = {isa = PBXBuildFile; fileRef = DC069182284F60AD005A42D6 /* HomePageDataSource.swift */; };
 		DC455820286AE35B00748219 /* SettingsTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DC45581F286AE35B00748219 /* SettingsTableViewController.swift */; };
+		DC455822287603BB00748219 /* UIView+extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = DC455821287603BB00748219 /* UIView+extension.swift */; };
+		DC455824287603EB00748219 /* UIImage+extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = DC455823287603EB00748219 /* UIImage+extension.swift */; };
+		DC45582A28781FB300748219 /* HomePageArticles.json in Resources */ = {isa = PBXBuildFile; fileRef = DC45582928781FB200748219 /* HomePageArticles.json */; };
+		DC6CF16D2879A9A9008EC3CF /* Collection+extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = DC6CF16C2879A9A9008EC3CF /* Collection+extension.swift */; };
+		DC6CF16F2879A9C8008EC3CF /* Data+extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = DC6CF16E2879A9C7008EC3CF /* Data+extension.swift */; };
 		DC778834286443A800EE047C /* SettingsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DC778833286443A800EE047C /* SettingsViewController.swift */; };
 		DCDF310028531AF300886E55 /* TopicHeaderHeaderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DCDF30FF28531AF300886E55 /* TopicHeaderHeaderView.swift */; };
 		DCE09DC2284F6820000A01D9 /* TopNewsCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = DCE09DC1284F6820000A01D9 /* TopNewsCollectionViewCell.swift */; };
@@ -39,6 +44,11 @@
 		DC06917E284F59F4005A42D6 /* Constants.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
 		DC069182284F60AD005A42D6 /* HomePageDataSource.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomePageDataSource.swift; sourceTree = "<group>"; };
 		DC45581F286AE35B00748219 /* SettingsTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsTableViewController.swift; sourceTree = "<group>"; };
+		DC455821287603BB00748219 /* UIView+extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIView+extension.swift"; sourceTree = "<group>"; };
+		DC455823287603EB00748219 /* UIImage+extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIImage+extension.swift"; sourceTree = "<group>"; };
+		DC45582928781FB200748219 /* HomePageArticles.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = HomePageArticles.json; sourceTree = "<group>"; };
+		DC6CF16C2879A9A9008EC3CF /* Collection+extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Collection+extension.swift"; sourceTree = "<group>"; };
+		DC6CF16E2879A9C7008EC3CF /* Data+extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Data+extension.swift"; sourceTree = "<group>"; };
 		DC778833286443A800EE047C /* SettingsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsViewController.swift; sourceTree = "<group>"; };
 		DCDF30FF28531AF300886E55 /* TopicHeaderHeaderView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TopicHeaderHeaderView.swift; sourceTree = "<group>"; };
 		DCE09DC1284F6820000A01D9 /* TopNewsCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TopNewsCollectionViewCell.swift; sourceTree = "<group>"; };
@@ -80,12 +90,17 @@
 				DC06916D284F57F0005A42D6 /* ViewController.swift */,
 				DCDF30FF28531AF300886E55 /* TopicHeaderHeaderView.swift */,
 				DC069182284F60AD005A42D6 /* HomePageDataSource.swift */,
+				DC6CF16E2879A9C7008EC3CF /* Data+extension.swift */,
 				DC778833286443A800EE047C /* SettingsViewController.swift */,
 				DC45581F286AE35B00748219 /* SettingsTableViewController.swift */,
 				DC06917D284F59F4005A42D6 /* AppInformation.swift */,
 				DCE09DC1284F6820000A01D9 /* TopNewsCollectionViewCell.swift */,
+				DC455823287603EB00748219 /* UIImage+extension.swift */,
+				DC455821287603BB00748219 /* UIView+extension.swift */,
+				DC6CF16C2879A9A9008EC3CF /* Collection+extension.swift */,
 				DC06917E284F59F4005A42D6 /* Constants.swift */,
 				DC06916F284F57F0005A42D6 /* Main.storyboard */,
+				DC45582928781FB200748219 /* HomePageArticles.json */,
 				DC069181284F5B0C005A42D6 /* Supporting files */,
 			);
 			path = HomePageForYouDemoProject;
@@ -132,7 +147,6 @@
 				DC069163284F57F0005A42D6 /* Frameworks */,
 				DC069164284F57F0005A42D6 /* Resources */,
 				7029E9EDE99752E97D0D6CB9 /* [CP] Embed Pods Frameworks */,
-				EDF93D83CC301E561E7D4654 /* [CP] Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -183,6 +197,7 @@
 			files = (
 				DC069176284F57F1005A42D6 /* LaunchScreen.storyboard in Resources */,
 				DC069173284F57F1005A42D6 /* Assets.xcassets in Resources */,
+				DC45582A28781FB300748219 /* HomePageArticles.json in Resources */,
 				DC069171284F57F0005A42D6 /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -229,23 +244,6 @@
 			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
 			showEnvVarsInLog = 0;
 		};
-		EDF93D83CC301E561E7D4654 /* [CP] Copy Pods Resources */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputFileListPaths = (
-				"${PODS_ROOT}/Target Support Files/Pods-HomePageForYouDemoProject/Pods-HomePageForYouDemoProject-resources-${CONFIGURATION}-input-files.xcfilelist",
-			);
-			name = "[CP] Copy Pods Resources";
-			outputFileListPaths = (
-				"${PODS_ROOT}/Target Support Files/Pods-HomePageForYouDemoProject/Pods-HomePageForYouDemoProject-resources-${CONFIGURATION}-output-files.xcfilelist",
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-HomePageForYouDemoProject/Pods-HomePageForYouDemoProject-resources.sh\"\n";
-			showEnvVarsInLog = 0;
-		};
 /* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
@@ -256,13 +254,17 @@
 				DC069183284F60AD005A42D6 /* HomePageDataSource.swift in Sources */,
 				DC069180284F59F4005A42D6 /* Constants.swift in Sources */,
 				DCDF310028531AF300886E55 /* TopicHeaderHeaderView.swift in Sources */,
+				DC455824287603EB00748219 /* UIImage+extension.swift in Sources */,
 				DC778834286443A800EE047C /* SettingsViewController.swift in Sources */,
+				DC6CF16F2879A9C8008EC3CF /* Data+extension.swift in Sources */,
 				DC06916E284F57F0005A42D6 /* ViewController.swift in Sources */,
 				DCE09DC2284F6820000A01D9 /* TopNewsCollectionViewCell.swift in Sources */,
 				DC455820286AE35B00748219 /* SettingsTableViewController.swift in Sources */,
 				DC06916A284F57F0005A42D6 /* AppDelegate.swift in Sources */,
 				DC06917F284F59F4005A42D6 /* AppInformation.swift in Sources */,
 				DC06916C284F57F0005A42D6 /* SceneDelegate.swift in Sources */,
+				DC455822287603BB00748219 /* UIView+extension.swift in Sources */,
+				DC6CF16D2879A9A9008EC3CF /* Collection+extension.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
