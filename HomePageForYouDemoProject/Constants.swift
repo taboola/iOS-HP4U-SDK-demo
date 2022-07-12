@@ -13,12 +13,12 @@ struct Constants {
         static let accent = UIColor(named: "accent-red") ?? .red
     }
     struct DefaultPublisher {
-        static let name = "newsplace-israel-feed-ios"
-        static let apiKey = "f44d224ed117102b74bed53b82e6079af28600d5"
+        static let name = "sdk-tester-hp4u-demo"
+        static let apiKey = "05380b1d71ca985df52d641e1f0336ebbb8d67f7"
     }
 
     struct Layout {
-        static let newsHeaderFont = UIFont(name: "Baskerville-Bold", size: 45.0)
+        static let newsHeaderFont = UIFont(name: "Baskerville-Bold", size: 45.0) ?? .systemFont(ofSize: 45.0)
     }
 
     struct NavigationSegue {

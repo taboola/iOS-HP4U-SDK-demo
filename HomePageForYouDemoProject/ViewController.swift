@@ -17,7 +17,7 @@ class ViewController: UIViewController {
     }
     var isPreloadEnabled = true
     let datasource: PublisherDataSource = HomePageDataSource()
-    lazy var page = TBLHomePage(delegate: self, sourceType: SourceTypeText, pageUrl: "http://blog.taboola.com", sectionNames: ["life", "industry", "company", "engagement"])
+    lazy var page = TBLHomePage(delegate: self, sourceType: SourceTypeHome, pageUrl: "http://blog.taboola.com", sectionNames: ["sport", "technology", "topnews"])
 
     enum LayoutConfig: String {
         case topNewsCellIdentifier = "topNewsCell"
@@ -36,7 +36,7 @@ class ViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         title = "News"
-        setupLargeNavigationBarTitle()
+        setupLargeNavigationBarTitle(extraAttributes: [.font: Constants.Layout.newsHeaderFont])
         datasource.fetchArticles { items, error in
             guard error == nil else {
                 print("Error fetching articles: \(error?.localizedDescription ?? ""))")
@@ -120,6 +120,7 @@ extension ViewController: UICollectionViewDelegateFlowLayout { }
 
 extension ViewController: TBLHomePageDelegate {
     func onItemClick(_ placementName: String, withItemId itemId: String, withClickUrl clickUrl: String, isOrganic organic: Bool, customData: String) -> Bool {
+        // returning false to handle the click in the app
         false
     }
 }

@@ -9,10 +9,10 @@ import Foundation
 import UIKit
 
 extension UIViewController {
-    func setupLargeNavigationBarTitle(textColor: UIColor = Constants.Color.accent) {
+    func setupLargeNavigationBarTitle(textColor: UIColor = Constants.Color.accent, extraAttributes: [NSAttributedString.Key : Any] = [:]) {
         let appearance = UINavigationBarAppearance()
-
-        appearance.largeTitleTextAttributes = [.foregroundColor: textColor]
+        let allAttributes = [.foregroundColor: textColor].merging(extraAttributes, uniquingKeysWith: {$1})
+        appearance.largeTitleTextAttributes = allAttributes
         appearance.titleTextAttributes = appearance.largeTitleTextAttributes
         navigationController?.navigationBar.prefersLargeTitles = true
         navigationItem.standardAppearance = appearance
