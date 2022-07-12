@@ -42,11 +42,12 @@ class SettingsViewController: UIViewController {
             showAlert(with: "Error", subtitle: "Please fill in all required fields")
         } else if !hasReportedDemoUsage {
             // report app usage
-            Taboola.reportTBLMobileEvent([:], eventType: Constants.UsageReporting.usageEventType)
+            Taboola.reportTBLMobileEvent([:], eventType: Constants.UsageReporting.eventType)
             // change the flag to report only once
             hasReportedDemoUsage = true
         }
     }
+
     @IBAction func demoInfoButtonPressed(_ sender: Any) { }
 
     private func showAlert(with title: String, subtitle: String?) {
@@ -65,6 +66,9 @@ class SettingsViewController: UIViewController {
 
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         if segue.identifier == Constants.NavigationSegue.demo, let account = tableViewController.publisherCredentials() {
+            if let destination = segue.destination as? ViewController {
+                destination.isPreloadEnabled = tableViewController.isPreloadSelected()
+            }
             let publisher = TBLPublisherInfo(publisherName: account.publisher)
             publisher.apiKey = account.apiKey
             Taboola.initWith(publisher)

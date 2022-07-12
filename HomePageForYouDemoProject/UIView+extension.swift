@@ -9,9 +9,9 @@ import Foundation
 import UIKit
 
 extension UIView {
-    func fadeInOut(finished: Bool) {
-        UIView.animate(withDuration: 0.8, delay: 0,
+    func fadeInOut(duration: Double = 1.5) {
+        UIView.animate(withDuration: duration, delay: 0,
                        options: [.autoreverse, .repeat],
-                       animations: { self.alpha = 0 }, completion: { _ in self.alpha = 1 })
+                       animations: { self.alpha = 0.3 }, completion: { _ in self.alpha = 1 })
     }
 }

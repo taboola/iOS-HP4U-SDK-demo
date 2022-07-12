@@ -14,7 +14,7 @@ protocol PublisherDataSource {
 
     func numberOfItems(in topic: String) -> Int
     func item(in topic: String, at index: Int) -> PublisherItem?
-    func fetchArticles(completion: @escaping ([String: [PublisherItem]], Error?) -> Void)
+    func fetchArticles(completion: @escaping ([PublisherTopic], Error?) -> Void)
     func fetchImage(for item: PublisherItem, completion: @escaping (URL, UIImage?, Error?) -> Void)
 }
 
@@ -23,6 +23,11 @@ protocol PublisherItemProtocol {
     var description: String { get }
     var imageUrl: URL { get }
     var link: URL { get }
+}
+
+struct PublisherTopic: Decodable {
+    let topic: String
+    var items: [PublisherItem] = []
 }
 
 struct PublisherItem: PublisherItemProtocol {
@@ -35,13 +40,16 @@ struct PublisherItem: PublisherItemProtocol {
 extension PublisherItem: Decodable {}
 
 class HomePageDataSource: PublisherDataSource {
-    var items: [String: [PublisherItem]] = [:]
-    private var cachedImages: [String: UIImage] = [:]
-    private let requestManager = RequestManager()
+    private var items: [PublisherTopic] = []
+    private(set) var allTopics: [String] = []
 
-    func fetchArticles(completion: @escaping ([String: [PublisherItem]], Error?) -> Void) {
-        requestManager.runRequest(PublisherContentRouter.articles, type: [String: [PublisherItem]].self) { objects, error in
-            self.items = objects ?? [:]
+    private var cachedImages: [String: UIImage] = [:]
+    private let requestManager = LocalFileManager()
+
+    func fetchArticles(completion: @escaping ([PublisherTopic], Error?) -> Void) {
+        requestManager.loadLocalItems(file: Constants.PublisherContent.contentFile, type: [PublisherTopic].self) { objects, error in
+            self.items = objects ?? []
+            self.allTopics = self.items.map { $0.topic }
             DispatchQueue.main.async {
                 completion(self.items, error)
             }
@@ -65,11 +73,11 @@ class HomePageDataSource: PublisherDataSource {
             }
             // decode data
             guard let data = try? Data(contentsOf: item.imageUrl) else {
-                error = RequestManager.RequestError.noResponseBody
+                error = LocalFileManager.FileManagerError.noContents
                 return
             }
             guard let decodedImage = UIImage(data: data) else {
-                error = RequestManager.RequestError.failedToDecode
+                error = LocalFileManager.FileManagerError.failedToDecode
                 return
             }
             self.saveImageToCache(decodedImage, url: item.imageUrl)
@@ -82,8 +90,6 @@ class HomePageDataSource: PublisherDataSource {
             self.cachedImages[url.absoluteString] = image
         }
     }
-
-    var allTopics: [String] { [String] (items.keys) }
 
     func topicName(at index: Int) -> String? {
         allTopics[safe: index]
@@ -98,8 +104,13 @@ class HomePageDataSource: PublisherDataSource {
         items(in: topic).count
     }
 
-    private func items(in topic: String) -> [PublisherItem] {
-        return items[topic] ?? []
+    private func topic(named: String) -> PublisherTopic? {
+        items.filter { $0.topic == named }.first
+    }
+
+    private func items(in topicName: String) -> [PublisherItem] {
+        let contentTopic = topic(named: topicName)
+        return contentTopic?.items ?? []
     }
 }
 
@@ -122,64 +133,38 @@ struct PublisherContentRouter {
     }
 }
 
-extension Collection {
-    /// Returns the element at the specified index if it is within bounds, otherwise nil.
-    subscript (safe index: Index) -> Element? {
-        return indices.contains(index) ? self[index] : nil
-    }
-}
-
-class RequestManager {
+class LocalFileManager {
     private let queue = DispatchQueue.global(qos: .background)
-    enum RequestError: Error {
+
+    enum FileManagerError: Error {
         case failed
-        case badStatusCode(Int)
-        case noResponseBody
+        case noContents
+        case notFound
         case failedToDecode
     }
 
-    func runRequest<T:Decodable>(_ request: URLRequest, type: T.Type = T.self, completion: @escaping (T?, Error?) -> Void) {
+    func loadLocalItems<T:Decodable>(file: (name: String, fileExtension: String), type: T.Type = T.self, completion: @escaping (T?, Error?) -> Void) {
         queue.async {
-            URLSession.shared.dataTask(with: request) { data, response, error in
-                // check response object
-                do {
-                    try self.verifyResponse(response)
-                } catch {
-                    completion(nil, error)
-                }
-                // check body
-                guard let data = data else {
-                    completion(nil, RequestError.noResponseBody)
-                    return
-                }
-                // decode body
-                do {
-                    let model: T = try data.decode()
-                    completion(model, nil)
-                } catch {
-                    completion(nil, error)
-                }
-            }.resume()
-        }
-    }
-
-    private func verifyResponse(_ response: URLResponse?) throws {
-        guard let response = response as? HTTPURLResponse else {
-            throw RequestError.failed
-        }
-        guard 200...300 ~= response.statusCode else {
-            throw RequestError.badStatusCode(response.statusCode)
+            // get file path
+            guard let path = Bundle.main.path(forResource: file.name, ofType: file.fileExtension) else {
+                completion(nil, FileManagerError.notFound)
+                return
+            }
+            // read file
+            guard let string = try? String(contentsOfFile: path, encoding: .utf8), let data = string.data(using: .utf8) else {
+                completion(nil, FileManagerError.failed)
+                return
+            }
+            // decode
+            do {
+                let model: T = try data.decode()
+                completion(model, nil)
+                return
+            } catch {
+                completion(nil, error)
+                return
+            }
         }
     }
 }
 
-extension Data {
-    func decode<T:Decodable>(as: T.Type = T.self) throws -> T {
-        try JSONDecoder().decode(T.self, from: self)
-    }
-
-    func decode<T:UIImage>() throws -> T {
-        guard let image = UIImage(data: self) as? T else { throw RequestManager.RequestError.noResponseBody }
-        return image
-    }
-}

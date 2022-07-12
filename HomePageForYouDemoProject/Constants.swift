@@ -12,6 +12,11 @@ struct Constants {
     struct Color {
         static let accent = UIColor(named: "accent-red") ?? .red
     }
+
+    struct PublisherContent {
+        static let contentFile = (name:"HomePageArticles",fileExtension: "json")
+    }
+
     struct DefaultPublisher {
         static let name = "sdk-tester-hp4u-demo"
         static let apiKey = "05380b1d71ca985df52d641e1f0336ebbb8d67f7"
@@ -33,6 +38,6 @@ struct Constants {
 
 
     struct UsageReporting {
-        static let usageEventType = 3
+        static let eventType = 44
     }
 }
