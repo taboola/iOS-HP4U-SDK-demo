@@ -4,13 +4,13 @@
         "items": [
             {
                 "imageUrl": "https://ychef.files.bbci.co.uk/1600x900/p072bwvx.webp",
-                "title": "Get healthy, go to a green space",
-                "description": "In the best, we've written a great deal about the health benefits of spending time in green spaces. Here are a few particularly good tidbits",
+                "title": "Get healthy, go green",
+                "description": "Here are a few particularly good tidbits",
                 "link": "https://taboolanews.com/summary-page/3687694654531729572"
             }]
     },
     {
-        "topic": "industry",
+        "topic": "sport",
         "items": [
             {
                 "imageUrl": "https://images.taboola.com/taboola/image/fetch/f_jpg%2Cq_70%2Ch_340%2Cw_567%2Cc_fill%2Cg_faces:auto%2Ce_sharpen/https://static.independent.co.uk/2022/06/23/09/1403894617.jpg%3Fquality=75&width=1200&auto=webp",
@@ -39,7 +39,7 @@
         ]
     },
     {
-        "topic": "company",
+        "topic": "technology",
         "items": [
             {
                 "imageUrl": "https://images.taboola.com/taboola/image/fetch/f_jpg%2Cq_auto%2Cq_100%2Ch_916%2Cw_856%2Cc_fill%2Cg_faces:auto/https%3A%2F%2Fi.pcmag.com%2Fimagery%2Farticles%2F01WcFU75wpbaMQMI7me3R2l-1..v1654973957.jpg",
@@ -68,7 +68,7 @@
         ]
     },
     {
-        "topic": "life",
+        "topic": "topnews",
         "items": [
             {
                 "imageUrl": "https://image.thestartmagazine.com/fetch/d_magazineDefault.jpg,c_fill,g_face:auto,fl_lossy,q_70,w_480/https%3A//afp-apicore-prod.afp.com/objects/api/medias%3Fid%3Da1kkIS0nShZCWFQsV0haUEVDAkheKjZCSh0Cdhh0CXtqAwMJawdzand0emsfcWFocFlRWAIBAHBfIippXFQaK0ciDyAsVgxxCHsOBwUSCwFyd2gMZh8EBwAWWFFSeCxETxxbZAVwBHMxU1NfK1ggaycpVB9YWFd4V0hDRl9cQFVSayNLSRxXLlprAnN3AAEGdQwVd3RyCwkabBYhVk4ZBgBTXwpRPGRcUFYJG20qeil0SgUWNlstIHkuUF5FUl0jH0hMRVtCSEsLdHQYAQMDdgN0CHJ3ChdTMAlx.jpg",

@@ -35,4 +35,13 @@ class TopNewsCollectionViewCell: UICollectionViewCell {
             }
         }
     }
+    override func preferredLayoutAttributesFitting(_ layoutAttributes: UICollectionViewLayoutAttributes) -> UICollectionViewLayoutAttributes {
+        super.preferredLayoutAttributesFitting(layoutAttributes)
+
+        let size = contentView.systemLayoutSizeFitting(UIView.layoutFittingCompressedSize)
+        var newFrame = layoutAttributes.frame
+        newFrame.size = size
+        layoutAttributes.frame = newFrame
+         return layoutAttributes
+    }
 }

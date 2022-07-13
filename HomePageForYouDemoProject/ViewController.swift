@@ -10,14 +10,11 @@ import TaboolaSDK
 
 class ViewController: UIViewController {
     @IBOutlet weak var collectionView: UICollectionView!
-    @IBOutlet weak var collectionLayout: UICollectionViewFlowLayout! {
-        didSet {
-            collectionLayout.estimatedItemSize = UICollectionViewFlowLayout.automaticSize
-        }
-    }
+    @IBOutlet weak var collectionLayout: UICollectionViewFlowLayout! { didSet { collectionLayout.estimatedItemSize = UICollectionViewFlowLayout.automaticSize } }
+
     var isPreloadEnabled = true
     let datasource: PublisherDataSource = HomePageDataSource()
-    lazy var page = TBLHomePage(delegate: self, sourceType: SourceTypeText, pageUrl: "http://blog.taboola.com", sectionNames: ["life", "industry", "company", "engagement"])
+    lazy var page = TBLHomePage(delegate: self, sourceType: SourceTypeHome, pageUrl: "http://blog.taboola.com", sectionNames: ["sport", "technology", "topnews"])
 
     enum LayoutConfig: String {
         case topNewsCellIdentifier = "topNewsCell"
@@ -35,30 +32,31 @@ class ViewController: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        setupNavigationBar()
+        title = "News"
+        setupLargeNavigationBarTitle(extraAttributes: [.font: Constants.Layout.newsHeaderFont])
         datasource.fetchArticles { items, error in
             guard error == nil else {
                 print("Error fetching articles: \(error?.localizedDescription ?? ""))")
                 return
             }
-            self.collectionView .reloadData()
+            self.collectionView.reloadData()
         }
-    }
-
-    private func setupNavigationBar() {
-        title = "News"
-        let appearance = UINavigationBarAppearance()
-
-        appearance.largeTitleTextAttributes = [.foregroundColor: UIColor.red, .font: Constants.Layout.newsHeaderFont!]
-        appearance.titleTextAttributes = appearance.largeTitleTextAttributes
-        navigationItem.standardAppearance = appearance
-        navigationItem.scrollEdgeAppearance = appearance
     }
 
     private func setupTaboola() {
         page.setScrollView(collectionView)
         page.targetType = "mix"
-        page.fetchContent()
+        if isPreloadEnabled { page.fetchContent() }
+    }
+
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        if segue.identifier == Constants.NavigationSegue.article {
+            guard let cell = sender as? UICollectionViewCell, let indexPath = collectionView.indexPath(for: cell) else { return }
+            guard let topic = datasource.topicName(at: indexPath.section), let item = datasource.item(in: topic, at: indexPath.row) else { return }
+
+            guard let articleController = segue.destination as? ArticleViewController else { return }
+            articleController.setUrl(item.link.absoluteString)
+        }
     }
 }
 
@@ -85,7 +83,6 @@ extension ViewController: UICollectionViewDataSource {
             datasource.fetchImage(for: item) { url, image, error in
                 guard item.imageUrl == url, error == nil else { return }
                 cell.imageView.image = image
-                cell.widthConstraint.constant = collectionView.frame.width
             }
             cell.isSwapped = false
             cell.titleLabel.text = item.title
@@ -116,11 +113,11 @@ extension ViewController: UICollectionViewDataSource {
     }
 }
 
-extension ViewController: UICollectionViewDelegateFlowLayout { }
+extension ViewController: UICollectionViewDelegateFlowLayout {}
 
 extension ViewController: TBLHomePageDelegate {
     func onItemClick(_ placementName: String, withItemId itemId: String, withClickUrl clickUrl: String, isOrganic organic: Bool, customData: String) -> Bool {
-        true
+        // returning false to handle the click in the app
+        false
     }
 }
-

@@ -20,6 +20,8 @@
 		DC455820286AE35B00748219 /* SettingsTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DC45581F286AE35B00748219 /* SettingsTableViewController.swift */; };
 		DC455822287603BB00748219 /* UIView+extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = DC455821287603BB00748219 /* UIView+extension.swift */; };
 		DC455824287603EB00748219 /* UIImage+extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = DC455823287603EB00748219 /* UIImage+extension.swift */; };
+		DC45582628761FAE00748219 /* ArticleViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DC45582528761FAE00748219 /* ArticleViewController.swift */; };
+		DC4558282877050B00748219 /* UIViewController+extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = DC4558272877050B00748219 /* UIViewController+extension.swift */; };
 		DC45582A28781FB300748219 /* HomePageArticles.json in Resources */ = {isa = PBXBuildFile; fileRef = DC45582928781FB200748219 /* HomePageArticles.json */; };
 		DC6CF16D2879A9A9008EC3CF /* Collection+extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = DC6CF16C2879A9A9008EC3CF /* Collection+extension.swift */; };
 		DC6CF16F2879A9C8008EC3CF /* Data+extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = DC6CF16E2879A9C7008EC3CF /* Data+extension.swift */; };
@@ -46,6 +48,8 @@
 		DC45581F286AE35B00748219 /* SettingsTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsTableViewController.swift; sourceTree = "<group>"; };
 		DC455821287603BB00748219 /* UIView+extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIView+extension.swift"; sourceTree = "<group>"; };
 		DC455823287603EB00748219 /* UIImage+extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIImage+extension.swift"; sourceTree = "<group>"; };
+		DC45582528761FAE00748219 /* ArticleViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ArticleViewController.swift; sourceTree = "<group>"; };
+		DC4558272877050B00748219 /* UIViewController+extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIViewController+extension.swift"; sourceTree = "<group>"; };
 		DC45582928781FB200748219 /* HomePageArticles.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = HomePageArticles.json; sourceTree = "<group>"; };
 		DC6CF16C2879A9A9008EC3CF /* Collection+extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Collection+extension.swift"; sourceTree = "<group>"; };
 		DC6CF16E2879A9C7008EC3CF /* Data+extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Data+extension.swift"; sourceTree = "<group>"; };
@@ -95,11 +99,13 @@
 				DC45581F286AE35B00748219 /* SettingsTableViewController.swift */,
 				DC06917D284F59F4005A42D6 /* AppInformation.swift */,
 				DCE09DC1284F6820000A01D9 /* TopNewsCollectionViewCell.swift */,
+				DC4558272877050B00748219 /* UIViewController+extension.swift */,
 				DC455823287603EB00748219 /* UIImage+extension.swift */,
 				DC455821287603BB00748219 /* UIView+extension.swift */,
 				DC6CF16C2879A9A9008EC3CF /* Collection+extension.swift */,
 				DC06917E284F59F4005A42D6 /* Constants.swift */,
 				DC06916F284F57F0005A42D6 /* Main.storyboard */,
+				DC45582528761FAE00748219 /* ArticleViewController.swift */,
 				DC45582928781FB200748219 /* HomePageArticles.json */,
 				DC069181284F5B0C005A42D6 /* Supporting files */,
 			);
@@ -253,6 +259,7 @@
 			files = (
 				DC069183284F60AD005A42D6 /* HomePageDataSource.swift in Sources */,
 				DC069180284F59F4005A42D6 /* Constants.swift in Sources */,
+				DC4558282877050B00748219 /* UIViewController+extension.swift in Sources */,
 				DCDF310028531AF300886E55 /* TopicHeaderHeaderView.swift in Sources */,
 				DC455824287603EB00748219 /* UIImage+extension.swift in Sources */,
 				DC778834286443A800EE047C /* SettingsViewController.swift in Sources */,
@@ -262,6 +269,7 @@
 				DC455820286AE35B00748219 /* SettingsTableViewController.swift in Sources */,
 				DC06916A284F57F0005A42D6 /* AppDelegate.swift in Sources */,
 				DC06917F284F59F4005A42D6 /* AppInformation.swift in Sources */,
+				DC45582628761FAE00748219 /* ArticleViewController.swift in Sources */,
 				DC06916C284F57F0005A42D6 /* SceneDelegate.swift in Sources */,
 				DC455822287603BB00748219 /* UIView+extension.swift in Sources */,
 				DC6CF16D2879A9A9008EC3CF /* Collection+extension.swift in Sources */,
@@ -420,7 +428,7 @@
 				INFOPLIST_KEY_UIMainStoryboardFile = Main;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations = UIInterfaceOrientationPortrait;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = UIInterfaceOrientationPortrait;
-				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = UIInterfaceOrientationPortrait;
 				IPHONEOS_DEPLOYMENT_TARGET = 14.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
@@ -451,7 +459,7 @@
 				INFOPLIST_KEY_UIMainStoryboardFile = Main;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations = UIInterfaceOrientationPortrait;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = UIInterfaceOrientationPortrait;
-				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = UIInterfaceOrientationPortrait;
 				IPHONEOS_DEPLOYMENT_TARGET = 14.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",

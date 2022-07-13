@@ -48,9 +48,9 @@ class HomePageDataSource: PublisherDataSource {
 
     func fetchArticles(completion: @escaping ([PublisherTopic], Error?) -> Void) {
         requestManager.loadLocalItems(file: Constants.PublisherContent.contentFile, type: [PublisherTopic].self) { objects, error in
-            self.items = objects ?? []
-            self.allTopics = self.items.map { $0.topic }
             DispatchQueue.main.async {
+                self.items = objects ?? []
+                self.allTopics = self.items.map { $0.topic }
                 completion(self.items, error)
             }
         }
