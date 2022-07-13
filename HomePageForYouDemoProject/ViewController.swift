@@ -10,11 +10,8 @@ import TaboolaSDK
 
 class ViewController: UIViewController {
     @IBOutlet weak var collectionView: UICollectionView!
-    @IBOutlet weak var collectionLayout: UICollectionViewFlowLayout! {
-        didSet {
-            collectionLayout.estimatedItemSize = UICollectionViewFlowLayout.automaticSize
-        }
-    }
+    @IBOutlet weak var collectionLayout: UICollectionViewFlowLayout! { didSet { collectionLayout.estimatedItemSize = UICollectionViewFlowLayout.automaticSize } }
+
     var isPreloadEnabled = true
     let datasource: PublisherDataSource = HomePageDataSource()
     lazy var page = TBLHomePage(delegate: self, sourceType: SourceTypeHome, pageUrl: "http://blog.taboola.com", sectionNames: ["sport", "technology", "topnews"])
@@ -42,7 +39,7 @@ class ViewController: UIViewController {
                 print("Error fetching articles: \(error?.localizedDescription ?? ""))")
                 return
             }
-            self.collectionView .reloadData()
+            self.collectionView.reloadData()
         }
     }
 
@@ -86,7 +83,6 @@ extension ViewController: UICollectionViewDataSource {
             datasource.fetchImage(for: item) { url, image, error in
                 guard item.imageUrl == url, error == nil else { return }
                 cell.imageView.image = image
-                cell.widthConstraint.constant = collectionView.frame.width
             }
             cell.isSwapped = false
             cell.titleLabel.text = item.title
@@ -117,7 +113,7 @@ extension ViewController: UICollectionViewDataSource {
     }
 }
 
-extension ViewController: UICollectionViewDelegateFlowLayout { }
+extension ViewController: UICollectionViewDelegateFlowLayout {}
 
 extension ViewController: TBLHomePageDelegate {
     func onItemClick(_ placementName: String, withItemId itemId: String, withClickUrl clickUrl: String, isOrganic organic: Bool, customData: String) -> Bool {
@@ -125,4 +121,3 @@ extension ViewController: TBLHomePageDelegate {
         false
     }
 }
-
