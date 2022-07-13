@@ -21,7 +21,6 @@ class TopNewsCollectionViewCell: UICollectionViewCell {
         isSwapped = false
         titleLabel.text = nil
         subtitleLabel.text = nil
-        contentView.backgroundColor = .white
     }
 
     var isSwapped: Bool = false {
