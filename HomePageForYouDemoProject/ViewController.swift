@@ -14,7 +14,7 @@ class ViewController: UIViewController {
 
     var isPreloadEnabled = true
     let datasource: PublisherDataSource = HomePageDataSource()
-    lazy var page = TBLHomePage(delegate: self, sourceType: SourceTypeHome, pageUrl: "http://blog.taboola.com", sectionNames: ["sport", "technology", "topnews"])
+    lazy var page = TBLHomePage(delegate: self, sourceType: SourceTypeHome, pageUrl: "http://blog.taboola.com", sectionNames: ["health","sport", "technology", "topnews"])
 
     enum LayoutConfig: String {
         case topNewsCellIdentifier = "topNewsCell"
@@ -33,6 +33,7 @@ class ViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         title = "News"
+        setupTaboola()
         setupLargeNavigationBarTitle(extraAttributes: [.font: Constants.Layout.newsHeaderFont])
         datasource.fetchArticles { items, error in
             guard error == nil else {
@@ -51,11 +52,8 @@ class ViewController: UIViewController {
 
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         if segue.identifier == Constants.NavigationSegue.article {
-            guard let cell = sender as? UICollectionViewCell, let indexPath = collectionView.indexPath(for: cell) else { return }
-            guard let topic = datasource.topicName(at: indexPath.section), let item = datasource.item(in: topic, at: indexPath.row) else { return }
-
-            guard let articleController = segue.destination as? ArticleViewController else { return }
-            articleController.setUrl(item.link.absoluteString)
+            guard let url = sender as? String, let articleController = segue.destination as? ArticleViewController else { return }
+            articleController.setUrl(url)
         }
     }
 }
@@ -113,11 +111,19 @@ extension ViewController: UICollectionViewDataSource {
     }
 }
 
+extension ViewController: UICollectionViewDelegate {
+    func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
+        guard let topic = datasource.topicName(at: indexPath.section), let item = datasource.item(in: topic, at: indexPath.row) else { return }
+        performSegue(withIdentifier: "openArticle", sender: item.link.absoluteString)
+    }
+}
+
 extension ViewController: UICollectionViewDelegateFlowLayout {}
 
 extension ViewController: TBLHomePageDelegate {
-    func onItemClick(_ placementName: String, withItemId itemId: String, withClickUrl clickUrl: String, isOrganic organic: Bool, customData: String) -> Bool {
+    func homePageItemDidClick(_ sectionName: String!, itemId: String!, clickUrl: String!, isOrganic: Bool, customData: String!) -> Bool {
+        performSegue(withIdentifier: "openArticle", sender: clickUrl)
         // returning false to handle the click in the app
-        false
+        return false
     }
 }
