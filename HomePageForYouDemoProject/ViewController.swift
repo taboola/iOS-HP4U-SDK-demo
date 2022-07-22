@@ -9,14 +9,21 @@ import UIKit
 import TaboolaSDK
 
 class ViewController: UIViewController {
-    @IBOutlet weak var collectionView: UICollectionView!
-    @IBOutlet weak var collectionLayout: UICollectionViewFlowLayout! { didSet { collectionLayout.estimatedItemSize = UICollectionViewFlowLayout.automaticSize } }
+    
+    @IBOutlet private var collectionView: UICollectionView!
+    
+    @IBOutlet private var collectionLayout: UICollectionViewFlowLayout! {
+        didSet {
+            collectionLayout.estimatedItemSize = UICollectionViewFlowLayout.automaticSize
+        }
+    }
 
     var isPreloadEnabled = true
-    let datasource: PublisherDataSource = HomePageDataSource()
-    lazy var page = TBLHomePage(delegate: self, sourceType: SourceTypeHome, pageUrl: "http://blog.taboola.com", sectionNames: ["health","sport", "technology", "topnews"])
+    
+    private let datasource: PublisherDataSource = HomePageDataSource()
+    private lazy var page = TBLHomePage(delegate: self, sourceType: SourceTypeHome, pageUrl: "http://blog.taboola.com", sectionNames: ["health","sport", "technology", "topnews"])
 
-    enum LayoutConfig: String {
+    private enum LayoutConfig: String {
         case topNewsCellIdentifier = "topNewsCell"
         case defaultNewsCellIdentifier = "newsCell"
         case topicHeaderViewIdentifier = "topicHeader"
@@ -72,9 +79,16 @@ extension ViewController: UICollectionViewDataSource {
             return UICollectionViewCell()
         }
 
-        guard let topic = datasource.topicName(at: indexPath.section), let item = datasource.item(in: topic, at: indexPath.row) else { return cell }
+        guard let topic = datasource.topicName(at: indexPath.section),
+                let item = datasource.item(in: topic, at: indexPath.row) else { return cell }
 
-        if page.shouldSwapItem(inSection: topic, indexPath: indexPath, parentView: cell, imageView: cell.imageView, titleView: cell.titleLabel, descriptionView: cell.subtitleLabel, additionalViews: nil) {
+        if page.shouldSwapItem(inSection: topic,
+                               indexPath: indexPath,
+                               parentView: cell,
+                               imageView: cell.imageView,
+                               titleView: cell.titleLabel,
+                               descriptionView: cell.subtitleLabel,
+                               additionalViews: nil) {
             cell.isSwapped = true
         } else {
             // fetch image
@@ -113,7 +127,8 @@ extension ViewController: UICollectionViewDataSource {
 
 extension ViewController: UICollectionViewDelegate {
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
-        guard let topic = datasource.topicName(at: indexPath.section), let item = datasource.item(in: topic, at: indexPath.row) else { return }
+        guard let topic = datasource.topicName(at: indexPath.section),
+                let item = datasource.item(in: topic, at: indexPath.row) else { return }
         performSegue(withIdentifier: "openArticle", sender: item.link.absoluteString)
     }
 }

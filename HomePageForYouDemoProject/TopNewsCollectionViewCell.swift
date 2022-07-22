@@ -41,6 +41,6 @@ class TopNewsCollectionViewCell: UICollectionViewCell {
         var newFrame = layoutAttributes.frame
         newFrame.size = size
         layoutAttributes.frame = newFrame
-         return layoutAttributes
+        return layoutAttributes
     }
 }

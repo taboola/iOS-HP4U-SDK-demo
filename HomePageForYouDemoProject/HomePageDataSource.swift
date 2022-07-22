@@ -93,8 +93,8 @@ class HomePageDataSource: PublisherDataSource {
 
     func topicName(at index: Int) -> String? {
         allTopics[safe: index]
-
     }
+    
     func item(in topic: String, at index: Int) -> PublisherItem? {
         let articles = items(in: topic)
         return articles[safe: index]
