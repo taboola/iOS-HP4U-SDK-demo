@@ -100,7 +100,6 @@
                                             <outlet property="subtitleLabel" destination="eof-1f-b9C" id="KkZ-Qi-2qg"/>
                                             <outlet property="titleLabel" destination="hQW-WZ-qzx" id="g4U-4a-Wmp"/>
                                             <outlet property="widthConstraint" destination="NRE-gt-mq8" id="xvT-mv-vrY"/>
-                                            <segue destination="wAg-ku-JPQ" kind="show" identifier="openArticle" id="kUq-cg-h0e"/>
                                         </connections>
                                     </collectionViewCell>
                                     <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" reuseIdentifier="newsCell" id="fjl-XZ-LHF" customClass="TopNewsCollectionViewCell" customModule="HomePageForYouDemoProject" customModuleProvider="target">
@@ -201,7 +200,6 @@
                                             <outlet property="subtitleLabel" destination="30c-mE-Z6O" id="gtt-qI-sXn"/>
                                             <outlet property="titleLabel" destination="SSb-lN-Yn1" id="Rnh-tV-r4M"/>
                                             <outlet property="widthConstraint" destination="uz8-11-0AS" id="gn4-bk-TBc"/>
-                                            <segue destination="wAg-ku-JPQ" kind="show" identifier="openArticle" id="xMm-IH-yx7"/>
                                         </connections>
                                     </collectionViewCell>
                                 </cells>
@@ -236,8 +234,8 @@
                                     </connections>
                                 </collectionReusableView>
                                 <connections>
-                                    <outlet property="dataSource" destination="BYZ-38-t0r" id="j6f-e7-0x3"/>
-                                    <outlet property="delegate" destination="BYZ-38-t0r" id="0dX-i9-shQ"/>
+                                    <outlet property="dataSource" destination="BYZ-38-t0r" id="Ocm-Ka-TJq"/>
+                                    <outlet property="delegate" destination="BYZ-38-t0r" id="M5z-jR-Wv6"/>
                                 </connections>
                             </collectionView>
                         </subviews>
@@ -254,6 +252,7 @@
                     <connections>
                         <outlet property="collectionLayout" destination="VdU-th-Aa6" id="lgZ-8k-G5U"/>
                         <outlet property="collectionView" destination="tV2-GW-XAv" id="Ztk-aW-ldQ"/>
+                        <segue destination="wAg-ku-JPQ" kind="show" identifier="openArticle" id="qap-5X-0eX"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
@@ -269,7 +268,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="27y-Vg-Qk2">
-                                <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                                <rect key="frame" x="0.0" y="88" width="414" height="808"/>
                                 <subviews>
                                     <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="equalSpacing" alignment="top" spacing="16" translatesAutoresizingMaskIntoConstraints="NO" id="VkB-mj-kxa">
                                         <rect key="frame" x="20" y="0.0" width="374" height="909"/>
@@ -310,7 +309,7 @@ Phasellus posuere a mauris at finibus. Duis egestas rutrum velit, quis aliquet u
                         <constraints>
                             <constraint firstItem="06q-ie-Pby" firstAttribute="trailing" secondItem="27y-Vg-Qk2" secondAttribute="trailing" id="Hf3-HA-LJI"/>
                             <constraint firstItem="27y-Vg-Qk2" firstAttribute="leading" secondItem="06q-ie-Pby" secondAttribute="leading" id="Se7-gi-HSx"/>
-                            <constraint firstItem="06q-ie-Pby" firstAttribute="top" secondItem="27y-Vg-Qk2" secondAttribute="top" constant="88" id="ao6-Zr-Xd8"/>
+                            <constraint firstItem="06q-ie-Pby" firstAttribute="top" secondItem="27y-Vg-Qk2" secondAttribute="top" id="n1K-sA-Z0H"/>
                             <constraint firstItem="27y-Vg-Qk2" firstAttribute="bottom" secondItem="06q-ie-Pby" secondAttribute="bottom" constant="34" id="oKU-4G-43X"/>
                         </constraints>
                     </view>
@@ -740,9 +739,6 @@ Phasellus posuere a mauris at finibus. Duis egestas rutrum velit, quis aliquet u
             <point key="canvasLocation" x="2270" y="869"/>
         </scene>
     </scenes>
-    <inferredMetricsTieBreakers>
-        <segue reference="xMm-IH-yx7"/>
-    </inferredMetricsTieBreakers>
     <resources>
         <image name="taboola-logo" width="789" height="191"/>
         <namedColor name="accent-red">
