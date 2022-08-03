@@ -15,13 +15,12 @@ protocol PublisherDataSource {
     func numberOfItems(in topic: String) -> Int
     func item(in topic: String, at index: Int) -> PublisherItem?
     func fetchArticles(completion: @escaping ([PublisherTopic], Error?) -> Void)
-    func fetchImage(for item: PublisherItem, completion: @escaping (URL, UIImage?, Error?) -> Void)
 }
 
 protocol PublisherItemProtocol {
     var title: String { get }
     var description: String { get }
-    var imageUrl: URL { get }
+    var imageName: String { get }
     var link: URL { get }
 }
 
@@ -33,7 +32,7 @@ struct PublisherTopic: Decodable {
 struct PublisherItem: PublisherItemProtocol {
     let title: String
     let description: String
-    let imageUrl: URL
+    let imageName: String
     let link: URL
 }
 
@@ -53,41 +52,6 @@ class HomePageDataSource: PublisherDataSource {
                 self.allTopics = self.items.map { $0.topic }
                 completion(self.items, error)
             }
-        }
-    }
-
-    func fetchImage(for item: PublisherItem, completion: @escaping (URL, UIImage?, Error?) -> Void) {
-        DispatchQueue.global(qos: .background).async {
-            var image: UIImage?
-            var error: Error?
-            defer {
-                DispatchQueue.main.async {
-                    completion(item.imageUrl, image, error)
-                }
-            }
-            // check if already cached
-            let key = item.imageUrl.absoluteString
-            if let cachedImage: UIImage = self.cachedImages[key] {
-                image = cachedImage
-                return
-            }
-            // decode data
-            guard let data = try? Data(contentsOf: item.imageUrl) else {
-                error = LocalFileManager.FileManagerError.noContents
-                return
-            }
-            guard let decodedImage = UIImage(data: data) else {
-                error = LocalFileManager.FileManagerError.failedToDecode
-                return
-            }
-            self.saveImageToCache(decodedImage, url: item.imageUrl)
-            image = decodedImage
-        }
-    }
-
-    private func saveImageToCache(_ image: UIImage, url: URL) {
-        DispatchQueue.main.async {
-            self.cachedImages[url.absoluteString] = image
         }
     }
 

@@ -91,11 +91,7 @@ extension ViewController: UICollectionViewDataSource {
                                additionalViews: nil) {
             cell.isSwapped = true
         } else {
-            // fetch image
-            datasource.fetchImage(for: item) { url, image, error in
-                guard item.imageUrl == url, error == nil else { return }
-                cell.imageView.image = image
-            }
+            cell.imageView.image = UIImage(named: item.imageName) ?? UIImage.placeholder
             cell.isSwapped = false
             cell.titleLabel.text = item.title
             cell.subtitleLabel.text = item.description
