@@ -1,27 +1,19 @@
 //
-//  ViewController.swift
+//  BaseDemoViewController.swift
 //  HomePageForYouDemoProject
 //
-//  Created by Roman Slyepko on 07.06.2022.
+//  Created by Roman Slyepko on 21.08.2022.
 //
 
 import UIKit
 import TaboolaSDK
 
-class ViewController: UIViewController {
-    
-    @IBOutlet private var collectionView: UICollectionView!
-    
-    @IBOutlet private var collectionLayout: UICollectionViewFlowLayout! {
-        didSet {
-            collectionLayout.estimatedItemSize = UICollectionViewFlowLayout.automaticSize
-        }
-    }
-
+class BaseDemoViewController: UIViewController {
     var isPreloadEnabled = true
-    
-    private let datasource: PublisherDataSource = HomePageDataSource()
+    var isFlowLayout = false
     private lazy var page = TBLHomePage(delegate: self, sourceType: SourceTypeHome, pageUrl: "http://blog.taboola.com", sectionNames: ["health","sport", "technology", "topnews"])
+
+    let datasource: PublisherDataSource = HomePageDataSource()
 
     private enum LayoutConfig: String {
         case topNewsCellIdentifier = "topNewsCell"
@@ -39,22 +31,18 @@ class ViewController: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        title = "News"
         setupTaboola()
+        title = "News"
         setupLargeNavigationBarTitle(extraAttributes: [.font: Constants.Layout.newsHeaderFont])
-        datasource.fetchArticles { items, error in
-            guard error == nil else {
-                print("Error fetching articles: \(error?.localizedDescription ?? ""))")
-                return
-            }
-            self.collectionView.reloadData()
-        }
     }
 
     private func setupTaboola() {
-        page.setScrollView(collectionView)
         page.targetType = "mix"
         if isPreloadEnabled { page.fetchContent() }
+    }
+
+    func setScrollView(_ scrollView: UIScrollView) {
+        page.setScrollView(scrollView)
     }
 
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
@@ -65,7 +53,7 @@ class ViewController: UIViewController {
     }
 }
 
-extension ViewController: UICollectionViewDataSource {
+extension BaseDemoViewController: UICollectionViewDataSource {
     func numberOfSections(in collectionView: UICollectionView) -> Int { datasource.allTopics.count }
 
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
@@ -80,7 +68,7 @@ extension ViewController: UICollectionViewDataSource {
         }
 
         guard let topic = datasource.topicName(at: indexPath.section),
-                let item = datasource.item(in: topic, at: indexPath.row) else { return cell }
+              let item = datasource.item(in: topic, at: indexPath.row) else { return cell }
 
         if page.shouldSwapItem(inSection: topic,
                                indexPath: indexPath,
@@ -96,15 +84,11 @@ extension ViewController: UICollectionViewDataSource {
             cell.titleLabel.text = item.title
             cell.subtitleLabel.text = item.description
         }
-        cell.widthConstraint.constant = collectionView.frame.width
-        return cell
-    }
-
-    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, referenceSizeForHeaderInSection section: Int) -> CGSize {
-        if section == 0 {
-            return CGSize.zero
+        if isFlowLayout {
+            cell.widthConstraint.constant = collectionView.frame.width
         }
-        return CGSize(width: collectionView.frame.width, height: 50)
+
+        return cell
     }
 
     // MARK: - Section header
@@ -119,9 +103,13 @@ extension ViewController: UICollectionViewDataSource {
         }
         return UICollectionReusableView()
     }
+
+//    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, referenceSizeForHeaderInSection section: Int) -> CGSize {
+//        section == 0 ? .zero : CGSize(width: collectionView.frame.width, height: 50)
+//    }
 }
 
-extension ViewController: UICollectionViewDelegate {
+extension BaseDemoViewController: UICollectionViewDelegate {
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
         guard let topic = datasource.topicName(at: indexPath.section),
                 let item = datasource.item(in: topic, at: indexPath.row) else { return }
@@ -129,9 +117,7 @@ extension ViewController: UICollectionViewDelegate {
     }
 }
 
-extension ViewController: UICollectionViewDelegateFlowLayout {}
-
-extension ViewController: TBLHomePageDelegate {
+extension BaseDemoViewController: TBLHomePageDelegate {
     func homePageItemDidClick(_ sectionName: String!, itemId: String!, clickUrl: String!, isOrganic: Bool, customData: String!) -> Bool {
         performSegue(withIdentifier: "openArticle", sender: clickUrl)
         // returning false to handle the click in the app
