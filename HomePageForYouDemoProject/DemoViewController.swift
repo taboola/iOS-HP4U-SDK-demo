@@ -9,12 +9,16 @@ import UIKit
 import TaboolaSDK
 
 class DemoViewController: BaseDemoViewController {
+    
     @IBOutlet private var collectionView: UICollectionView!
     @IBOutlet private var collectionLayout: UICollectionViewFlowLayout! { didSet { collectionLayout.estimatedItemSize = UICollectionViewFlowLayout.automaticSize } }
 
     override func viewDidLoad() {
         isFlowLayout = true
         super.viewDidLoad()
+        // setup view
+        setScrollView(collectionView)
+        // fetch publisher's content
         datasource.fetchArticles { items, error in
             guard error == nil else {
                 print("Error fetching articles: \(error?.localizedDescription ?? ""))")

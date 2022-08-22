@@ -9,12 +9,15 @@ import UIKit
 import TaboolaSDK
 
 class CompositionalDemoViewController: BaseDemoViewController {
-    @IBOutlet weak var collectionView: UICollectionView!
+
+    @IBOutlet private var collectionView: UICollectionView!
 
     override func viewDidLoad() {
         super.viewDidLoad()
+        // setup view
         collectionView.collectionViewLayout = compositionalLayout
         setScrollView(collectionView)
+        // fetch publisher's content
         datasource.fetchArticles { items, error in
             guard error == nil else {
                 print("Error fetching articles: \(error?.localizedDescription ?? ""))")
@@ -24,7 +27,7 @@ class CompositionalDemoViewController: BaseDemoViewController {
         }
     }
 
-    let compositionalLayout: UICollectionViewCompositionalLayout = UICollectionViewCompositionalLayout(sectionProvider: { (sectionIndex, environment) -> NSCollectionLayoutSection? in
+    private let compositionalLayout = UICollectionViewCompositionalLayout(sectionProvider: { (sectionIndex, environment) -> NSCollectionLayoutSection? in
         let fraction: CGFloat = 1
         let isTopNewsSection = sectionIndex == 0
 

@@ -9,10 +9,9 @@ import UIKit
 import TaboolaSDK
 
 class BaseDemoViewController: UIViewController {
+    private lazy var page = TBLHomePage(delegate: self, sourceType: SourceTypeHome, pageUrl: "http://blog.taboola.com", sectionNames: ["health","sport", "technology", "topnews"])
     var isPreloadEnabled = true
     var isFlowLayout = false
-    private lazy var page = TBLHomePage(delegate: self, sourceType: SourceTypeHome, pageUrl: "http://blog.taboola.com", sectionNames: ["health","sport", "technology", "topnews"])
-
     let datasource: PublisherDataSource = HomePageDataSource()
 
     private enum LayoutConfig: String {
@@ -103,10 +102,6 @@ extension BaseDemoViewController: UICollectionViewDataSource {
         }
         return UICollectionReusableView()
     }
-
-//    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, referenceSizeForHeaderInSection section: Int) -> CGSize {
-//        section == 0 ? .zero : CGSize(width: collectionView.frame.width, height: 50)
-//    }
 }
 
 extension BaseDemoViewController: UICollectionViewDelegate {
