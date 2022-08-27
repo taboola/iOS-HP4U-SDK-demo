@@ -103,15 +103,10 @@
 		DC069168284F57F0005A42D6 /* HomePageForYouDemoProject */ = {
 			isa = PBXGroup;
 			children = (
-				DCB0B7A028B3D28F001DE582 /* Demo view controllers */,
-				DCB0B7A428B3D2DC001DE582 /* Reusable views */,
-				DCB0B7A128B3D2A7001DE582 /* Settings */,
-				DCB0B7A228B3D2AD001DE582 /* App information */,
+				DC43C1F528B923F0007640B7 /* Presentation */,
 				DCB0B7A328B3D2D4001DE582 /* Data source */,
 				DCB0B79F28B3D273001DE582 /* Extensions */,
 				DC06917E284F59F4005A42D6 /* Constants.swift */,
-				DC06916F284F57F0005A42D6 /* Main.storyboard */,
-				DC45582528761FAE00748219 /* ArticleViewController.swift */,
 				DC45582928781FB200748219 /* HomePageArticles.json */,
 				DC069181284F5B0C005A42D6 /* Supporting files */,
 			);
@@ -128,6 +123,19 @@
 				DC069177284F57F1005A42D6 /* Info.plist */,
 			);
 			path = "Supporting files";
+			sourceTree = "<group>";
+		};
+		DC43C1F528B923F0007640B7 /* Presentation */ = {
+			isa = PBXGroup;
+			children = (
+				DCB0B7A028B3D28F001DE582 /* Demo view controllers */,
+				DCB0B7A428B3D2DC001DE582 /* Reusable views */,
+				DCB0B7A128B3D2A7001DE582 /* Settings */,
+				DC06917D284F59F4005A42D6 /* AppInformation.swift */,
+				DC45582528761FAE00748219 /* ArticleViewController.swift */,
+				DC06916F284F57F0005A42D6 /* Main.storyboard */,
+			);
+			path = Presentation;
 			sourceTree = "<group>";
 		};
 		DCB0B79F28B3D273001DE582 /* Extensions */ = {
@@ -159,19 +167,11 @@
 			path = Settings;
 			sourceTree = "<group>";
 		};
-		DCB0B7A228B3D2AD001DE582 /* App information */ = {
-			isa = PBXGroup;
-			children = (
-				DC06917D284F59F4005A42D6 /* AppInformation.swift */,
-			);
-			path = "App information";
-			sourceTree = "<group>";
-		};
 		DCB0B7A328B3D2D4001DE582 /* Data source */ = {
 			isa = PBXGroup;
 			children = (
-				DC069182284F60AD005A42D6 /* HomePageDataSource.swift */,
 				DCB0B7A728B3D340001DE582 /* PublisherDataSourceProtocol.swift */,
+				DC069182284F60AD005A42D6 /* HomePageDataSource.swift */,
 				DCB0B7AB28B3D3B4001DE582 /* Models */,
 				DCB0B7A528B3D321001DE582 /* LocalFileManager.swift */,
 			);
