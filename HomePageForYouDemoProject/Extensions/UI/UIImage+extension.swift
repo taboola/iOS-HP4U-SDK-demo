@@ -9,5 +9,7 @@ import Foundation
 import UIKit
 
 extension UIImage {
+
+    /// Placeholder image
     static var placeholder: UIImage { .init(named: "placeholder-image")! }
 }

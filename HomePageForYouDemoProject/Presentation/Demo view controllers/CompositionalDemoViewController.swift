@@ -27,6 +27,7 @@ class CompositionalDemoViewController: BaseDemoViewController {
         }
     }
 
+    /// Returns a compositional layout
     private let compositionalLayout = UICollectionViewCompositionalLayout(sectionProvider: { (sectionIndex, environment) -> NSCollectionLayoutSection? in
         let fraction: CGFloat = 1
         let isTopNewsSection = sectionIndex == 0

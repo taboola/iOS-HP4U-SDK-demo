@@ -11,6 +11,8 @@ import TaboolaSDK
 class SettingsViewController: UIViewController {
     // a flag to report usage only once per session
     private var hasReportedDemoUsage = false
+
+    /// Embedded table view controller for mutable properties
     private var tableViewController: SettingsTableViewController {
         guard let controller = children.first as? SettingsTableViewController else { preconditionFailure("Wrong embedded viewcontroller") }
         return controller
@@ -26,10 +28,12 @@ class SettingsViewController: UIViewController {
         tableViewController.setCredentials(publisher: Constants.DefaultPublisher.name, apikey: Constants.DefaultPublisher.apiKey)
     }
 
+    /// Show launch screen
     private func showLaunchScreen() {
         navigationController?.isNavigationBarHidden = true
         let splash = UIStoryboard(name: "Main", bundle: .main).instantiateViewController(withIdentifier: "SplashViewController")
         self.navigationController?.show(splash, sender: nil)
+        // hide launch screen after a delay
         DispatchQueue.main.asyncAfter(deadline: .now() + Constants.LaunchScreen.onScreenTime) {
             self.navigationController?.popViewController(animated: false)
             self.navigationController?.isNavigationBarHidden = false
@@ -56,7 +60,9 @@ class SettingsViewController: UIViewController {
         alertCtrl.addAction(okAction)
         present(alertCtrl, animated: true)
     }
+
     // MARK: - Navigation
+
     override func shouldPerformSegue(withIdentifier identifier: String, sender: Any?) -> Bool {
         if identifier == Constants.NavigationSegue.demo {
             return tableViewController.publisherCredentials() != nil

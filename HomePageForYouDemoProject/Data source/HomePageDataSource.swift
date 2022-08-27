@@ -8,12 +8,14 @@
 import Foundation
 import UIKit
 
+
+/// HomePageDataSource class imitates a datasource of publisher's content.
+/// Content is structed into Topics and each Topic constists of Items.
 class HomePageDataSource: PublisherDataSource {
-    
+    /// All items
     private var items: [PublisherTopic] = []
     private(set) var allTopics: [String] = []
 
-    private var cachedImages: [String: UIImage] = [:]
     private let requestManager = LocalFileManager()
 
     func fetchArticles(completion: @escaping ([PublisherTopic], Error?) -> Void) {
@@ -26,15 +28,18 @@ class HomePageDataSource: PublisherDataSource {
         }
     }
 
+    /// Topic name at given index
     func topicName(at index: Int) -> String? {
         allTopics[safe: index]
     }
-    
+
+    /// Publisher's content item if available
     func item(in topic: String, at index: Int) -> PublisherItem? {
         let articles = items(in: topic)
         return articles[safe: index]
     }
 
+    /// Number of items in a topic with a given name.
     func numberOfItems(in topic: String) -> Int {
         items(in: topic).count
     }

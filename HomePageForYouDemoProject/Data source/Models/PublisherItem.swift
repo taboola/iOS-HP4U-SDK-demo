@@ -10,6 +10,8 @@ import Foundation
 struct PublisherItem: PublisherItemProtocol {
     let title: String
     let description: String
+    /// Image filename
     let imageName: String
+    /// Click URL
     let link: URL
 }

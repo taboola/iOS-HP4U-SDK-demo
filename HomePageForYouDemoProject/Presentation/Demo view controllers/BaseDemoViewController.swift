@@ -49,6 +49,7 @@ class BaseDemoViewController: UIViewController {
     }
 
     func setScrollView(_ scrollView: UIScrollView) {
+        // set scrollview object to TBLHomePage
         page.setScrollView(scrollView)
     }
 
@@ -110,6 +111,7 @@ extension BaseDemoViewController: UICollectionViewDataSource {
             guard let headerView = collectionView.dequeueReusableSupplementaryView(ofKind: kind, withReuseIdentifier: LayoutConfig.topicHeaderViewIdentifier.rawValue, for: indexPath) as? TopicHeaderHeaderView else {
                 return UICollectionReusableView()
             }
+            // set header title for all but first sections
             let title = indexPath.section == 0 ? nil : datasource.topicName(at: indexPath.section)?.capitalized
             headerView.setTitle(title)
             return headerView
@@ -118,16 +120,22 @@ extension BaseDemoViewController: UICollectionViewDataSource {
     }
 }
 
+// MARK: - UICollectionViewDelegate
+
 extension BaseDemoViewController: UICollectionViewDelegate {
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
+        // pass item's URL to Article view controller
         guard let topic = datasource.topicName(at: indexPath.section),
               let item = datasource.item(in: topic, at: indexPath.row) else { return }
         performSegue(withIdentifier: "openArticle", sender: item.link.absoluteString)
     }
 }
 
+// MARK: - TBLHomePageDelegate
+
 extension BaseDemoViewController: TBLHomePageDelegate {
     func homePageItemDidClick(_ sectionName: String!, itemId: String!, clickUrl: String!, isOrganic: Bool, customData: String!) -> Bool {
+        // open Article view controller
         performSegue(withIdentifier: "openArticle", sender: clickUrl)
         // returning false to handle the click in the app
         return false

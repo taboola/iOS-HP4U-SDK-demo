@@ -11,7 +11,9 @@ import TaboolaSDK
 class DemoViewController: BaseDemoViewController {
     
     @IBOutlet private var collectionView: UICollectionView!
-    @IBOutlet private var collectionLayout: UICollectionViewFlowLayout! { didSet { collectionLayout.estimatedItemSize = UICollectionViewFlowLayout.automaticSize } }
+    @IBOutlet private var collectionLayout: UICollectionViewFlowLayout! {
+        didSet { collectionLayout.estimatedItemSize = UICollectionViewFlowLayout.automaticSize }
+    }
 
     override func viewDidLoad() {
         isFlowLayout = true
@@ -28,6 +30,8 @@ class DemoViewController: BaseDemoViewController {
         }
     }
 }
+
+// MARK: - UICollectionViewDelegateFlowLayout
 
 extension DemoViewController: UICollectionViewDelegateFlowLayout {
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, referenceSizeForHeaderInSection section: Int) -> CGSize {
