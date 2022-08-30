@@ -9,7 +9,7 @@ import UIKit
 import TaboolaSDK
 
 class SettingsViewController: UIViewController {
-    // a flag to report usage only once per session
+    /// a flag to report usage only once per session
     private var hasReportedDemoUsage = false
 
     /// Embedded table view controller for mutable properties

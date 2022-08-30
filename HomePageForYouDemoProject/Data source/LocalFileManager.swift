@@ -17,7 +17,7 @@ class LocalFileManager {
         case failedToDecode
     }
 
-    func loadLocalItems<T:Decodable>(file: (name: String, fileExtension: String), type: T.Type = T.self, completion: @escaping (T?, Error?) -> Void) {
+    func loadLocalItems<T: Decodable>(file: (name: String, fileExtension: String), type: T.Type = T.self, completion: @escaping (T?, Error?) -> Void) {
         queue.async {
             // get file path
             guard let path = Bundle.main.path(forResource: file.name, ofType: file.fileExtension) else {
