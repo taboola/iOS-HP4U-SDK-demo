@@ -30,7 +30,7 @@
                                     <inset key="sectionInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
                                 </collectionViewFlowLayout>
                                 <cells>
-                                    <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" reuseIdentifier="topNewsCell" translatesAutoresizingMaskIntoConstraints="NO" id="aYc-o9-ayK" customClass="TopNewsCollectionViewCell" customModule="HomePageForYouDemoProject" customModuleProvider="target">
+                                    <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" fixedFrame="YES" insetsLayoutMarginsFromSafeArea="NO" reuseIdentifier="topNewsCell" translatesAutoresizingMaskIntoConstraints="NO" id="aYc-o9-ayK" customClass="TopNewsCollectionViewCell" customModule="HomePageForYouDemoProject" customModuleProvider="target">
                                         <rect key="frame" x="0.0" y="50" width="414" height="414"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <collectionViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" id="FVP-pj-ch7">
@@ -516,98 +516,6 @@ Phasellus posuere a mauris at finibus. Duis egestas rutrum velit, quis aliquet u
                                     </tableViewCell>
                                 </cells>
                             </tableViewSection>
-                            <tableViewSection id="5Gv-oH-XhY">
-                                <cells>
-                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" rowHeight="50" id="HZw-RE-McP">
-                                        <rect key="frame" x="0.0" y="205" width="414" height="50"/>
-                                        <autoresizingMask key="autoresizingMask"/>
-                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="HZw-RE-McP" id="1da-I5-PFQ">
-                                            <rect key="frame" x="0.0" y="0.0" width="414" height="50"/>
-                                            <autoresizingMask key="autoresizingMask"/>
-                                            <subviews>
-                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Loading (choose one of the following)" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="LgX-uE-GJM">
-                                                    <rect key="frame" x="16" y="0.0" width="352.5" height="50"/>
-                                                    <fontDescription key="fontDescription" type="boldSystem" pointSize="20"/>
-                                                    <nil key="textColor"/>
-                                                    <nil key="highlightedColor"/>
-                                                </label>
-                                            </subviews>
-                                            <constraints>
-                                                <constraint firstAttribute="trailing" relation="greaterThanOrEqual" secondItem="LgX-uE-GJM" secondAttribute="trailing" constant="8" id="51I-2E-gZo"/>
-                                                <constraint firstAttribute="bottom" secondItem="LgX-uE-GJM" secondAttribute="bottom" id="TmQ-0e-Wzt"/>
-                                                <constraint firstItem="LgX-uE-GJM" firstAttribute="top" secondItem="1da-I5-PFQ" secondAttribute="top" id="rND-2H-npU"/>
-                                                <constraint firstItem="LgX-uE-GJM" firstAttribute="leading" secondItem="1da-I5-PFQ" secondAttribute="leading" constant="16" id="wGe-Kj-HCe"/>
-                                            </constraints>
-                                        </tableViewCellContentView>
-                                    </tableViewCell>
-                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" id="aGq-jq-yZ8">
-                                        <rect key="frame" x="0.0" y="255" width="414" height="47.5"/>
-                                        <autoresizingMask key="autoresizingMask"/>
-                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="aGq-jq-yZ8" id="OCW-tX-v3O">
-                                            <rect key="frame" x="0.0" y="0.0" width="414" height="47.5"/>
-                                            <autoresizingMask key="autoresizingMask"/>
-                                            <subviews>
-                                                <stackView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="kNF-lb-8Xz">
-                                                    <rect key="frame" x="16" y="8" width="382" height="31.5"/>
-                                                    <subviews>
-                                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Preload" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="hJQ-Fh-Pmp">
-                                                            <rect key="frame" x="0.0" y="0.0" width="333" height="31.5"/>
-                                                            <fontDescription key="fontDescription" type="system" pointSize="20"/>
-                                                            <nil key="textColor"/>
-                                                            <nil key="highlightedColor"/>
-                                                        </label>
-                                                        <switch opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" contentHorizontalAlignment="center" contentVerticalAlignment="center" on="YES" translatesAutoresizingMaskIntoConstraints="NO" id="uXt-3K-6OV">
-                                                            <rect key="frame" x="333" y="0.0" width="51" height="31.5"/>
-                                                            <connections>
-                                                                <action selector="loadingSwitchStateDidChange:" destination="1rJ-SR-6gf" eventType="valueChanged" id="OdS-2h-veA"/>
-                                                            </connections>
-                                                        </switch>
-                                                    </subviews>
-                                                </stackView>
-                                            </subviews>
-                                            <constraints>
-                                                <constraint firstAttribute="bottom" secondItem="kNF-lb-8Xz" secondAttribute="bottom" constant="8" id="Ox8-LR-a0o"/>
-                                                <constraint firstItem="kNF-lb-8Xz" firstAttribute="leading" secondItem="OCW-tX-v3O" secondAttribute="leading" constant="16" id="QGr-C1-EFD"/>
-                                                <constraint firstItem="kNF-lb-8Xz" firstAttribute="top" secondItem="OCW-tX-v3O" secondAttribute="top" constant="8" id="j6i-hr-Wcc"/>
-                                                <constraint firstAttribute="trailing" secondItem="kNF-lb-8Xz" secondAttribute="trailing" constant="16" id="yyD-gU-vae"/>
-                                            </constraints>
-                                        </tableViewCellContentView>
-                                    </tableViewCell>
-                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" id="6YZ-8H-syv">
-                                        <rect key="frame" x="0.0" y="302.5" width="414" height="47.5"/>
-                                        <autoresizingMask key="autoresizingMask"/>
-                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="6YZ-8H-syv" id="zQD-jI-hM2">
-                                            <rect key="frame" x="0.0" y="0.0" width="414" height="47.5"/>
-                                            <autoresizingMask key="autoresizingMask"/>
-                                            <subviews>
-                                                <stackView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="UAf-iF-rbe">
-                                                    <rect key="frame" x="16" y="8" width="382" height="31.5"/>
-                                                    <subviews>
-                                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Lazy Load" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="a5z-Hj-VsA">
-                                                            <rect key="frame" x="0.0" y="0.0" width="333" height="31.5"/>
-                                                            <fontDescription key="fontDescription" type="system" pointSize="20"/>
-                                                            <nil key="textColor"/>
-                                                            <nil key="highlightedColor"/>
-                                                        </label>
-                                                        <switch opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" contentHorizontalAlignment="center" contentVerticalAlignment="center" translatesAutoresizingMaskIntoConstraints="NO" id="C69-5B-dNR">
-                                                            <rect key="frame" x="333" y="0.0" width="51" height="31.5"/>
-                                                            <connections>
-                                                                <action selector="loadingSwitchStateDidChange:" destination="1rJ-SR-6gf" eventType="valueChanged" id="dsB-vr-c4B"/>
-                                                            </connections>
-                                                        </switch>
-                                                    </subviews>
-                                                </stackView>
-                                            </subviews>
-                                            <constraints>
-                                                <constraint firstItem="UAf-iF-rbe" firstAttribute="leading" secondItem="zQD-jI-hM2" secondAttribute="leading" constant="16" id="3Eq-pd-V45"/>
-                                                <constraint firstItem="UAf-iF-rbe" firstAttribute="top" secondItem="zQD-jI-hM2" secondAttribute="top" constant="8" id="FI5-hw-gAq"/>
-                                                <constraint firstAttribute="trailing" secondItem="UAf-iF-rbe" secondAttribute="trailing" constant="16" id="FiG-H0-VPY"/>
-                                                <constraint firstAttribute="bottom" secondItem="UAf-iF-rbe" secondAttribute="bottom" constant="8" id="T88-fB-b2m"/>
-                                            </constraints>
-                                        </tableViewCellContentView>
-                                    </tableViewCell>
-                                </cells>
-                            </tableViewSection>
                         </sections>
                         <connections>
                             <outlet property="dataSource" destination="1rJ-SR-6gf" id="xgN-LO-faG"/>
@@ -616,8 +524,6 @@ Phasellus posuere a mauris at finibus. Duis egestas rutrum velit, quis aliquet u
                     </tableView>
                     <connections>
                         <outlet property="apiKeyTextfield" destination="O2R-sN-rfc" id="imv-Y1-6ei"/>
-                        <outlet property="lazyLoadSwitch" destination="C69-5B-dNR" id="9Nr-CX-SF0"/>
-                        <outlet property="preloadSwitch" destination="uXt-3K-6OV" id="4ob-ey-WKl"/>
                         <outlet property="publisherTextfield" destination="JkQ-nr-skb" id="2v6-dh-cxc"/>
                     </connections>
                 </tableViewController>
@@ -864,7 +770,7 @@ Phasellus posuere a mauris at finibus. Duis egestas rutrum velit, quis aliquet u
                                             <outlet property="widthConstraint" destination="6aJ-y5-th3" id="Y1t-jh-GhI"/>
                                         </connections>
                                     </collectionViewCell>
-                                    <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" reuseIdentifier="topNewsCell" translatesAutoresizingMaskIntoConstraints="NO" id="Fqp-m8-dXh" customClass="TopNewsCollectionViewCell" customModule="HomePageForYouDemoProject" customModuleProvider="target">
+                                    <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" fixedFrame="YES" insetsLayoutMarginsFromSafeArea="NO" reuseIdentifier="topNewsCell" translatesAutoresizingMaskIntoConstraints="NO" id="Fqp-m8-dXh" customClass="TopNewsCollectionViewCell" customModule="HomePageForYouDemoProject" customModuleProvider="target">
                                         <rect key="frame" x="0.0" y="213.5" width="414" height="414"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <collectionViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" id="IsX-kL-cY7">
