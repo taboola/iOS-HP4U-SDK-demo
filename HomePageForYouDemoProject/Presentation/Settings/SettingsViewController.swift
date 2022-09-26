@@ -46,7 +46,7 @@ class SettingsViewController: UIViewController {
             showAlert(with: "Error", subtitle: "Please fill in all required fields")
         } else if !hasReportedDemoUsage {
             // report app usage
-            Taboola.reportTBLMobileEvent([:], eventType: Constants.UsageReporting.eventType)
+            Taboola.reportTBLMobileEvent([:], eventType: TaboolaEventTypeHomePageUsage)
             // change the flag to report only once
             hasReportedDemoUsage = true
         }

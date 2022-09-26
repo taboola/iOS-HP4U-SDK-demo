@@ -41,8 +41,4 @@ struct Constants {
     struct LaunchScreen {
         static let onScreenTime = 2.0
     }
-
-    struct UsageReporting {
-        static let eventType = 44
-    }
 }
