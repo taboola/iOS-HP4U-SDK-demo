@@ -9,11 +9,11 @@ import UIKit
 import TaboolaSDK
 
 class BaseDemoViewController: UIViewController {
+    private typealias HomePageSection = Constants.PublisherContent.HomePageSection
+
     // init TBLHomePage
     private lazy var page = TBLHomePage(delegate: self,
-                                        sourceType: SourceTypeHome,
-                                        pageUrl: "http://blog.taboola.com",
-                                        sectionNames: ["health","sport", "technology", "topnews"])
+                                        settings: createHomePageSettings())
     var isFlowLayout = false
     let datasource: PublisherDataSource = HomePageDataSource()
 
@@ -58,6 +58,16 @@ class BaseDemoViewController: UIViewController {
             articleController.setUrl(url)
         }
     }
+
+    private func createHomePageSettings() -> TBLHomePageSettings {
+        let builder = TBLHomePageBuilder(sourceType: SourceTypeHome,
+                                         pageUrl: "http://blog.taboola.com",
+                                         sectionNames: [HomePageSection.health.rawValue, HomePageSection.sport.rawValue, HomePageSection.technology.rawValue, HomePageSection.topNews.rawValue])
+        guard let settings = builder.build() else {
+            preconditionFailure("TBLHomePageSetting must not be nil")
+        }
+        return settings
+    }
 }
 
 // MARK: - UICollectionViewDataSource
@@ -83,7 +93,7 @@ extension BaseDemoViewController: UICollectionViewDataSource {
         // shouldSwapItem(...) returns whether this cell is going to be swapped by Taboola HomePage
         if page.shouldSwapItem(inSection: topic,
                                indexPath: indexPath,
-                               parentView: cell,
+                               parentView: cell.contentView,
                                imageView: cell.imageView,
                                titleView: cell.titleLabel,
                                descriptionView: cell.subtitleLabel,
