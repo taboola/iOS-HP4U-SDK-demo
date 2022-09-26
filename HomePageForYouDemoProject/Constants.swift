@@ -14,7 +14,13 @@ struct Constants {
     }
 
     struct PublisherContent {
-        static let contentFile = (name:"HomePageArticles",fileExtension: "json")
+        static let contentFile = (name:"HomePageArticles", fileExtension: "json")
+        enum HomePageSection: String {
+            case health
+            case sport
+            case technology
+            case topNews = "topnews"
+        }
     }
 
     struct DefaultPublisher {
