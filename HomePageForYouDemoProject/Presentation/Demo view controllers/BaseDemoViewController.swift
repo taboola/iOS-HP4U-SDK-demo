@@ -14,7 +14,6 @@ class BaseDemoViewController: UIViewController {
                                         sourceType: SourceTypeHome,
                                         pageUrl: "http://blog.taboola.com",
                                         sectionNames: ["health","sport", "technology", "topnews"])
-    var isPreloadEnabled = true
     var isFlowLayout = false
     let datasource: PublisherDataSource = HomePageDataSource()
 
@@ -45,7 +44,7 @@ class BaseDemoViewController: UIViewController {
 
     private func setupTaboola() {
         page.targetType = "mix"
-        if isPreloadEnabled { page.fetchContent() }
+        page.fetchContent()
     }
 
     func setScrollView(_ scrollView: UIScrollView) {

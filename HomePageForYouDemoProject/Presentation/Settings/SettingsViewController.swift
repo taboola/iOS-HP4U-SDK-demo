@@ -72,9 +72,6 @@ class SettingsViewController: UIViewController {
 
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         if segue.identifier == Constants.NavigationSegue.demo, let account = tableViewController.publisherCredentials() {
-            if let destination = segue.destination as? DemoViewController {
-                destination.isPreloadEnabled = tableViewController.isPreloadSelected()
-            }
             let publisher = TBLPublisherInfo(publisherName: account.publisher)
             publisher.apiKey = account.apiKey
             Taboola.initWith(publisher)
