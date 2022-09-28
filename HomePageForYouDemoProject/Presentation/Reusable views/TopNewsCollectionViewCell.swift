@@ -9,12 +9,13 @@ import Foundation
 import UIKit
 
 class TopNewsCollectionViewCell: UICollectionViewCell {
-    @IBOutlet weak var imageView: UIImageView!
-    @IBOutlet weak var titleLabel: UILabel!
-    @IBOutlet weak var subtitleLabel: UILabel!
-    @IBOutlet weak var isSwappedLabel: UILabel!
+    
+    @IBOutlet var imageView: UIImageView!
+    @IBOutlet var titleLabel: UILabel!
+    @IBOutlet var subtitleLabel: UILabel!
+    @IBOutlet var isSwappedLabel: UILabel!
 
-    @IBOutlet weak var widthConstraint: NSLayoutConstraint!
+    @IBOutlet var widthConstraint: NSLayoutConstraint!
 
     override func prepareForReuse() {
         imageView.image = UIImage.placeholder

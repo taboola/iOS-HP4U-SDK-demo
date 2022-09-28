@@ -12,21 +12,6 @@ class CompositionalDemoViewController: BaseDemoViewController {
 
     @IBOutlet private var collectionView: UICollectionView!
 
-    override func viewDidLoad() {
-        super.viewDidLoad()
-        // setup view
-        collectionView.collectionViewLayout = compositionalLayout
-        setScrollView(collectionView)
-        // fetch publisher's content
-        datasource.fetchArticles { items, error in
-            guard error == nil else {
-                print("Error fetching articles: \(error?.localizedDescription ?? ""))")
-                return
-            }
-            self.collectionView.reloadData()
-        }
-    }
-
     /// Returns a compositional layout
     private let compositionalLayout = UICollectionViewCompositionalLayout(sectionProvider: { (sectionIndex, environment) -> NSCollectionLayoutSection? in
         let fraction: CGFloat = 1
@@ -53,4 +38,24 @@ class CompositionalDemoViewController: BaseDemoViewController {
 
         return section
     })
+    
+    override func viewDidLoad() {
+        super.viewDidLoad()
+        // setup view
+        collectionView.collectionViewLayout = compositionalLayout
+        setScrollView(collectionView)
+    }
+    
+    override func viewDidAppear(_ animated: Bool) {
+        super.viewDidAppear(animated)
+        
+        // fetch publisher's content
+        datasource.fetchArticles { items, error in
+            guard error == nil else {
+                print("Error fetching articles: \(error?.localizedDescription ?? ""))")
+                return
+            }
+            self.collectionView.reloadData()
+        }
+    }
 }

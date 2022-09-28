@@ -16,10 +16,16 @@ class DemoViewController: BaseDemoViewController {
     }
 
     override func viewDidLoad() {
-        isFlowLayout = true
         super.viewDidLoad()
+        isFlowLayout = true
+
         // setup view
         setScrollView(collectionView)
+    }
+    
+    override func viewDidAppear(_ animated: Bool) {
+        super.viewDidAppear(animated)
+        
         // fetch publisher's content
         datasource.fetchArticles { items, error in
             guard error == nil else {
