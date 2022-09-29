@@ -9,7 +9,7 @@ import UIKit
 
 class TopicHeaderHeaderView: UICollectionReusableView {
 
-    @IBOutlet private weak var titleLabel: UILabel!
+    @IBOutlet private var titleLabel: UILabel!
 
     func setTitle(_ text: String?) {
         titleLabel.text = text
