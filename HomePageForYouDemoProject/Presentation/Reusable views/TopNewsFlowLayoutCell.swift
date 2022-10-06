@@ -1,5 +1,5 @@
 //
-//  TopNewsCollectionViewCell.swift
+//  TopNewsFlowLayoutCell.swift
 //  HomePageForYouDemoProject
 //
 //  Created by Roman Slyepko on 07.06.2022.
@@ -8,7 +8,7 @@
 import Foundation
 import UIKit
 
-class TopNewsCollectionViewCell: UICollectionViewCell {
+class TopNewsFlowLayoutCell: UICollectionViewCell {
     
     @IBOutlet var imageView: UIImageView!
     @IBOutlet var titleLabel: UILabel!
@@ -16,14 +16,7 @@ class TopNewsCollectionViewCell: UICollectionViewCell {
     @IBOutlet var isSwappedLabel: UILabel!
 
     @IBOutlet var widthConstraint: NSLayoutConstraint!
-
-    override func prepareForReuse() {
-        imageView.image = UIImage.placeholder
-        isSwapped = false
-        titleLabel.text = nil
-        subtitleLabel.text = nil
-    }
-
+    
     var isSwapped: Bool = false {
         didSet {
             isSwappedLabel.isHidden = !isSwapped
@@ -34,6 +27,15 @@ class TopNewsCollectionViewCell: UICollectionViewCell {
                 isSwappedLabel.layer.removeAllAnimations()
             }
         }
+    }
+
+    override func prepareForReuse() {
+        super.prepareForReuse()
+        
+        imageView.image = nil
+        isSwapped = false
+        titleLabel.text = nil
+        subtitleLabel.text = nil
     }
 
     override func preferredLayoutAttributesFitting(_ layoutAttributes: UICollectionViewLayoutAttributes) -> UICollectionViewLayoutAttributes {

@@ -9,16 +9,18 @@ import UIKit
 import TaboolaSDK
 
 class BaseDemoViewController: UIViewController {
+    
+    @IBOutlet private(set) var collectionView: UICollectionView!
+
     private typealias HomePageSection = Constants.PublisherContent.HomePageSection
 
     // init TBLHomePage
-    private lazy var page = TBLHomePage(delegate: self,
+    lazy var page = TBLHomePage(delegate: self,
                                         settings: createHomePageSettings())
-    var isFlowLayout = false
     let datasource: PublisherDataSource = HomePageDataSource()
 
     // layout configs for different
-    private enum LayoutConfig: String {
+    enum LayoutConfig: String {
         // raw value = cell reuse identifier
         case topNewsCellIdentifier = "topNewsCell"
         case defaultNewsCellIdentifier = "newsCell"
@@ -40,6 +42,20 @@ class BaseDemoViewController: UIViewController {
         setupTaboola()
         title = "News"
         setupLargeNavigationBarTitle(extraAttributes: [.font: Constants.Layout.newsHeaderFont])
+    }
+    
+    override func viewDidAppear(_ animated: Bool) {
+        super.viewDidAppear(animated)
+        
+        
+        // fetch publisher's content
+        datasource.fetchArticles { items, error in
+            guard error == nil else {
+                print("Error fetching articles: \(error?.localizedDescription ?? ""))")
+                return
+            }
+            self.collectionView.reloadData()
+        }
     }
 
     private func setupTaboola() {
@@ -73,45 +89,17 @@ class BaseDemoViewController: UIViewController {
 // MARK: - UICollectionViewDataSource
 
 extension BaseDemoViewController: UICollectionViewDataSource {
-    func numberOfSections(in collectionView: UICollectionView) -> Int { datasource.allTopics.count }
+    func numberOfSections(in collectionView: UICollectionView) -> Int {
+        datasource.allTopics.count
+    }
+    
+    func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
+        preconditionFailure("Subclasses must ovveride this method!!!")
+    }
 
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
         guard let topic = datasource.topicName(at: section) else { return 0 }
         return datasource.numberOfItems(in: topic)
-    }
-
-    func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
-        // get cell reuse identifier for this indexPath
-        let identifier = LayoutConfig.cellIdentifier(at: indexPath).rawValue
-        guard let cell = collectionView.dequeueReusableCell(withReuseIdentifier: identifier, for: indexPath) as? TopNewsCollectionViewCell else {
-            return UICollectionViewCell()
-        }
-        // get topic name and item for this indexPath
-        guard let topic = datasource.topicName(at: indexPath.section),
-              let item = datasource.item(in: topic, at: indexPath.row) else { return cell }
-
-        // shouldSwapItem(...) returns whether this cell is going to be swapped by Taboola HomePage
-        if page.shouldSwapItem(inSection: topic,
-                               indexPath: indexPath,
-                               parentView: cell.contentView,
-                               imageView: cell.imageView,
-                               titleView: cell.titleLabel,
-                               descriptionView: cell.subtitleLabel,
-                               additionalViews: nil) {
-            cell.isSwapped = true
-        } else {
-            // if not swapped, set publisher's content
-            cell.imageView.image = UIImage(named: item.imageName) ?? UIImage.placeholder
-            cell.isSwapped = false
-            cell.titleLabel.text = item.title
-            cell.subtitleLabel.text = item.description
-        }
-        // autolayout adjustment for cell width
-        if isFlowLayout {
-            cell.widthConstraint.constant = collectionView.frame.width
-        }
-
-        return cell
     }
 
     // MARK: - Section header
