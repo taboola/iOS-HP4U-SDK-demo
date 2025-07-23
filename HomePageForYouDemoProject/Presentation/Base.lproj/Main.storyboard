@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="21225" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="aSX-P9-nip">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="23094" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="aSX-P9-nip">
     <device id="retina6_1" orientation="portrait" appearance="light"/>
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="21207"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="23084"/>
         <capability name="Named colors" minToolsVersion="9.0"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="System colors in document resources" minToolsVersion="11.0"/>
@@ -14,7 +14,6 @@
         <!--Demo View Controller-->
         <scene sceneID="tne-QT-ifu">
             <objects>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
                 <viewController storyboardIdentifier="DemoScreenViewController" id="BYZ-38-t0r" customClass="DemoViewController" customModule="HomePageForYouDemoProject" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="8bC-Xf-vdC">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
@@ -267,13 +266,13 @@
                         <segue destination="wAg-ku-JPQ" kind="show" identifier="openArticle" id="qap-5X-0eX"/>
                     </connections>
                 </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="2269.5652173913045" y="137.94642857142856"/>
         </scene>
         <!--Article View Controller-->
         <scene sceneID="2si-pJ-4eD">
             <objects>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="TKV-Ne-nM4" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
                 <viewController id="wAg-ku-JPQ" customClass="ArticleViewController" customModule="HomePageForYouDemoProject" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="U4b-yk-CtN">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
@@ -330,6 +329,7 @@ Phasellus posuere a mauris at finibus. Duis egestas rutrum velit, quis aliquet u
                         <outlet property="urlLabel" destination="FSc-JW-Lgp" id="y2t-NA-54P"/>
                     </connections>
                 </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="TKV-Ne-nM4" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="3677" y="-287"/>
         </scene>
@@ -894,7 +894,7 @@ Phasellus posuere a mauris at finibus. Duis egestas rutrum velit, quis aliquet u
         </scene>
     </scenes>
     <inferredMetricsTieBreakers>
-        <segue reference="i5j-cG-GLp"/>
+        <segue reference="qap-5X-0eX"/>
     </inferredMetricsTieBreakers>
     <resources>
         <image name="taboola-logo" width="789" height="191"/>

@@ -13,10 +13,13 @@ class BaseDemoViewController: UIViewController {
     @IBOutlet private(set) var collectionView: UICollectionView!
 
     private typealias HomePageSection = Constants.PublisherContent.HomePageSection
-
+    private var classicPage:TBLClassicPage?
+    var classicUnit:TBLClassicUnit?
+    var isWithFeed: Bool = false // Supporting cross integration
+    
     // init TBLHomePage
-    lazy var page = TBLHomePage(delegate: self,
-                                        settings: createHomePageSettings())
+    lazy var page = TBLHomePage(settings: createHomePageSettings(), delegate: self)
+    
     let datasource: PublisherDataSource = HomePageDataSource()
 
     // layout configs for different
@@ -46,26 +49,24 @@ class BaseDemoViewController: UIViewController {
     
     override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(animated)
-        
-        
         // fetch publisher's content
-        datasource.fetchArticles { items, error in
+        datasource.fetchArticles {[weak self] items, error in
             guard error == nil else {
                 print("Error fetching articles: \(error?.localizedDescription ?? ""))")
                 return
             }
-            self.collectionView.reloadData()
+            self?.collectionView.reloadData()
         }
     }
 
     private func setupTaboola() {
-        page.targetType = "mix"
-        page.fetchContent()
+        page?.targetType = "mix"
+        page?.fetchContent()
     }
 
     func setScrollView(_ scrollView: UIScrollView) {
         // set scrollview object to TBLHomePage
-        page.setScrollView(scrollView)
+        page?.setScrollView(scrollView)
     }
 
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
@@ -76,8 +77,7 @@ class BaseDemoViewController: UIViewController {
     }
 
     private func createHomePageSettings() -> TBLHomePageSettings {
-        let builder = TBLHomePageBuilder(sourceType: SourceTypeHome,
-                                         pageUrl: "http://blog.taboola.com",
+        let builder = TBLHomePageBuilder(pageUrl: "http://blog.taboola.com",
                                          sectionNames: [HomePageSection.health.rawValue, HomePageSection.sport.rawValue, HomePageSection.technology.rawValue, HomePageSection.topNews.rawValue])
         guard let settings = builder.build() else {
             preconditionFailure("TBLHomePageSetting must not be nil")
@@ -94,11 +94,14 @@ extension BaseDemoViewController: UICollectionViewDataSource {
     }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
-        preconditionFailure("Subclasses must ovveride this method!!!")
+        preconditionFailure("Subclasses must override this method!!!")
     }
 
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
         guard let topic = datasource.topicName(at: section) else { return 0 }
+        if section == datasource.allTopics.count - 1 && isWithFeed {
+            return datasource.numberOfItems(in: topic) + 1
+        }
         return datasource.numberOfItems(in: topic)
     }
 
@@ -137,4 +140,27 @@ extension BaseDemoViewController: TBLHomePageDelegate {
         // returning false to handle the click in the app
         return false
     }
+    
+    func crossIntegrationFetchDidBecomeAvailable() {
+        self.classicPage = TBLClassicPage(pageType: "article", pageUrl:"http://www.example.com", delegate: self, scrollView: collectionView)
+        self.classicUnit = self.classicPage?.createUnit(withPlacementName: "Feed without video", mode: "thumbs-feed-01")
+        self.classicUnit?.fetchContent()
+    }
 }
+
+extension BaseDemoViewController: TBLClassicPageDelegate {
+    
+    func classicUnit(_ classicUnit: UIView!, didFailToLoadPlacementName placementName: String!, errorMessage error: String!) {
+        print("Placement with name: \(String(describing: placementName)) failed to load with  error: \(error.debugDescription)")
+    }
+    
+    func classicUnit(_ classicUnit: UIView!, didLoadOrResizePlacementName placementName: String!, height: CGFloat, placementType: PlacementType) {
+        print("Placement name: \(String(describing: placementName)) has been loaded with height: \(height)")
+    }
+    
+    func classicUnit(_ classicUnit: UIView!, didClickPlacementName placementName: String!, itemId: String!, clickUrl: String!, isOrganic organic: Bool, customData: [AnyHashable : Any]!) -> Bool {
+        return true
+    }
+    
+}
+

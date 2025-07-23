@@ -39,6 +39,7 @@ class CompositionalDemoViewController: BaseDemoViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        isWithFeed = false
         // setup view
         collectionView.collectionViewLayout = compositionalLayout
         setScrollView(collectionView)
@@ -58,15 +59,15 @@ extension CompositionalDemoViewController {
         // get topic name and item for this indexPath
         guard let topic = datasource.topicName(at: indexPath.section),
               let item = datasource.item(in: topic, at: indexPath.row) else { return cell }
-
+        
         // shouldSwapItem(...) returns whether this cell is going to be swapped by Taboola HomePage
-        if page.shouldSwapItem(inSection: topic,
-                               indexPath: indexPath,
-                               parentView: cell.contentView,
-                               imageView: cell.imageView,
-                               titleView: cell.titleLabel,
-                               descriptionView: cell.subtitleLabel,
-                               additionalViews: nil) {
+        if let page, page.shouldSwapItem(inSection: topic,
+                                indexPath: indexPath,
+                                parentView: cell.contentView,
+                                titleView: cell.titleLabel,
+                                descriptionView: cell.subtitleLabel,
+                                imageView: cell.imageView,
+                                additionalViews: nil) {
             cell.isSwapped = true
         } else {
             // if not swapped, set publisher's content
@@ -75,7 +76,6 @@ extension CompositionalDemoViewController {
             cell.titleLabel.text = item.title
             cell.subtitleLabel.text = item.description
         }
-
         return cell
     }
 }

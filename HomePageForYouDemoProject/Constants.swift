@@ -24,8 +24,8 @@ struct Constants {
     }
 
     struct DefaultPublisher {
-        static let name = "sdk-tester-hp4u-demo"
-        static let apiKey = "05380b1d71ca985df52d641e1f0336ebbb8d67f7"
+        static let name = "sdk-tester-demo"
+        static let apiKey = "30dfcf6b094361ccc367bbbef5973bdaa24dbcd6"
     }
 
     struct Layout {
