@@ -27,7 +27,7 @@ class AppInformation: UIViewController {
     
     In addition to the demo project and the enclosed documention, here are the requirements for moving forward:
     - The homepage/section screen developed in native Android/iOS solution (no Flutter/React-native)
-    - Integrate Taboola mobile SDK 3
+    - Integrate Taboola mobile SDK 4
     - The Homepage must use the RecyclerView (Android) / UICollectionView (iOS) native layouts
     - The mobile app content and UI must be identical to the mobile web
     - We do not currently support dynamically changing the layout (elements added or moved in runtime), only done modifications before compiling the application

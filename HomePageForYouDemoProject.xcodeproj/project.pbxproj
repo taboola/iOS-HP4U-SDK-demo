@@ -7,7 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		AC3794191062174040FC55B0 /* Pods_HomePageForYouDemoProject.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 47EE0A8F06A37A5ED09DC1E6 /* Pods_HomePageForYouDemoProject.framework */; };
+		0980860AD9AAED6F50E6F2EF /* Pods_HomePageForYouDemoProject.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F35BF9A9A242E394F9975F9B /* Pods_HomePageForYouDemoProject.framework */; };
 		D872381A28EED90B00A2914A /* TopNewsCompositionalLayoutCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = D872381928EED90B00A2914A /* TopNewsCompositionalLayoutCell.swift */; };
 		DC06916A284F57F0005A42D6 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = DC069169284F57F0005A42D6 /* AppDelegate.swift */; };
 		DC06916C284F57F0005A42D6 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = DC06916B284F57F0005A42D6 /* SceneDelegate.swift */; };
@@ -38,9 +38,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
-		47EE0A8F06A37A5ED09DC1E6 /* Pods_HomePageForYouDemoProject.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_HomePageForYouDemoProject.framework; sourceTree = BUILT_PRODUCTS_DIR; };
-		7B9FE020636F3866EE5E0E9A /* Pods-HomePageForYouDemoProject.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-HomePageForYouDemoProject.debug.xcconfig"; path = "Target Support Files/Pods-HomePageForYouDemoProject/Pods-HomePageForYouDemoProject.debug.xcconfig"; sourceTree = "<group>"; };
-		8CF2F83CF25124D21590A18A /* Pods-HomePageForYouDemoProject.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-HomePageForYouDemoProject.release.xcconfig"; path = "Target Support Files/Pods-HomePageForYouDemoProject/Pods-HomePageForYouDemoProject.release.xcconfig"; sourceTree = "<group>"; };
+		979D3C33478DDA3952696E6C /* Pods-HomePageForYouDemoProject.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-HomePageForYouDemoProject.debug.xcconfig"; path = "Target Support Files/Pods-HomePageForYouDemoProject/Pods-HomePageForYouDemoProject.debug.xcconfig"; sourceTree = "<group>"; };
 		D872381928EED90B00A2914A /* TopNewsCompositionalLayoutCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TopNewsCompositionalLayoutCell.swift; sourceTree = "<group>"; };
 		DC069166284F57F0005A42D6 /* HomePageForYouDemoProject.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = HomePageForYouDemoProject.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		DC069169284F57F0005A42D6 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -70,6 +68,8 @@
 		DCD41CBD28AB8A4B00994B66 /* CompositionalDemoViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CompositionalDemoViewController.swift; sourceTree = "<group>"; };
 		DCDF30FF28531AF300886E55 /* TopicHeaderHeaderView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TopicHeaderHeaderView.swift; sourceTree = "<group>"; };
 		DCE09DC1284F6820000A01D9 /* TopNewsFlowLayoutCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TopNewsFlowLayoutCell.swift; sourceTree = "<group>"; };
+		E4CFB9587F1AD2283073D64D /* Pods-HomePageForYouDemoProject.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-HomePageForYouDemoProject.release.xcconfig"; path = "Target Support Files/Pods-HomePageForYouDemoProject/Pods-HomePageForYouDemoProject.release.xcconfig"; sourceTree = "<group>"; };
+		F35BF9A9A242E394F9975F9B /* Pods_HomePageForYouDemoProject.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_HomePageForYouDemoProject.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -77,7 +77,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				AC3794191062174040FC55B0 /* Pods_HomePageForYouDemoProject.framework in Frameworks */,
+				0980860AD9AAED6F50E6F2EF /* Pods_HomePageForYouDemoProject.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -90,7 +90,7 @@
 				DC069168284F57F0005A42D6 /* HomePageForYouDemoProject */,
 				DC069167284F57F0005A42D6 /* Products */,
 				FF4600A346CF908DA3B63B3D /* Pods */,
-				FB7E156C2E4E85264865B5C3 /* Frameworks */,
+				EEC4E5C6B0A6468913F3D049 /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -209,10 +209,10 @@
 			path = UI;
 			sourceTree = "<group>";
 		};
-		FB7E156C2E4E85264865B5C3 /* Frameworks */ = {
+		EEC4E5C6B0A6468913F3D049 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
-				47EE0A8F06A37A5ED09DC1E6 /* Pods_HomePageForYouDemoProject.framework */,
+				F35BF9A9A242E394F9975F9B /* Pods_HomePageForYouDemoProject.framework */,
 			);
 			name = Frameworks;
 			sourceTree = "<group>";
@@ -220,8 +220,8 @@
 		FF4600A346CF908DA3B63B3D /* Pods */ = {
 			isa = PBXGroup;
 			children = (
-				7B9FE020636F3866EE5E0E9A /* Pods-HomePageForYouDemoProject.debug.xcconfig */,
-				8CF2F83CF25124D21590A18A /* Pods-HomePageForYouDemoProject.release.xcconfig */,
+				979D3C33478DDA3952696E6C /* Pods-HomePageForYouDemoProject.debug.xcconfig */,
+				E4CFB9587F1AD2283073D64D /* Pods-HomePageForYouDemoProject.release.xcconfig */,
 			);
 			path = Pods;
 			sourceTree = "<group>";
@@ -233,11 +233,11 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = DC06917A284F57F1005A42D6 /* Build configuration list for PBXNativeTarget "HomePageForYouDemoProject" */;
 			buildPhases = (
-				D25BC2AC512DC1CACE03CA8A /* [CP] Check Pods Manifest.lock */,
+				7DF8397DFCCF29DF0803A79B /* [CP] Check Pods Manifest.lock */,
 				DC069162284F57F0005A42D6 /* Sources */,
 				DC069163284F57F0005A42D6 /* Frameworks */,
 				DC069164284F57F0005A42D6 /* Resources */,
-				7029E9EDE99752E97D0D6CB9 /* [CP] Embed Pods Frameworks */,
+				205B1FA20EB325D1F63DF772 /* [CP] Embed Pods Frameworks */,
 			);
 			buildRules = (
 			);
@@ -296,7 +296,7 @@
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXShellScriptBuildPhase section */
-		7029E9EDE99752E97D0D6CB9 /* [CP] Embed Pods Frameworks */ = {
+		205B1FA20EB325D1F63DF772 /* [CP] Embed Pods Frameworks */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -313,7 +313,7 @@
 			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-HomePageForYouDemoProject/Pods-HomePageForYouDemoProject-frameworks.sh\"\n";
 			showEnvVarsInLog = 0;
 		};
-		D25BC2AC512DC1CACE03CA8A /* [CP] Check Pods Manifest.lock */ = {
+		7DF8397DFCCF29DF0803A79B /* [CP] Check Pods Manifest.lock */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -506,7 +506,7 @@
 		};
 		DC06917B284F57F1005A42D6 /* Debug */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 7B9FE020636F3866EE5E0E9A /* Pods-HomePageForYouDemoProject.debug.xcconfig */;
+			baseConfigurationReference = 979D3C33478DDA3952696E6C /* Pods-HomePageForYouDemoProject.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
@@ -537,7 +537,7 @@
 		};
 		DC06917C284F57F1005A42D6 /* Release */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 8CF2F83CF25124D21590A18A /* Pods-HomePageForYouDemoProject.release.xcconfig */;
+			baseConfigurationReference = E4CFB9587F1AD2283073D64D /* Pods-HomePageForYouDemoProject.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
