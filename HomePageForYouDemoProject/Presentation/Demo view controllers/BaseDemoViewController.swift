@@ -143,7 +143,7 @@ extension BaseDemoViewController: TBLHomePageDelegate {
     
     func crossIntegrationFetchDidBecomeAvailable() {
         self.classicPage = TBLClassicPage(pageType: "article", pageUrl:"http://www.example.com", delegate: self, scrollView: collectionView)
-        self.classicUnit = self.classicPage?.createUnit(withPlacementName: "Feed without video", mode: "thumbs-feed-01")
+        self.classicUnit = self.classicPage?.createUnit(withPlacementName: "Feed Without Video", mode: "thumbs-feed-01")
         self.classicUnit?.fetchContent()
     }
 }

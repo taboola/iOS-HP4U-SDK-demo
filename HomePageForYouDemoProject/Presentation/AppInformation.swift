@@ -32,14 +32,11 @@ class AppInformation: UIViewController {
     - The mobile app content and UI must be identical to the mobile web
     - We do not currently support dynamically changing the layout (elements added or moved in runtime), only done modifications before compiling the application
     - We require a dedicated mobile developer to work with us on a daily/regular basis, preferably using a shared Slack channel.
-    
-    And here are a few technical points to consider:
     - We prefer working on the iOS and Android app at the same time
-    - Currently, in our beta phase, we are focusing on replacing homepage items with ONLY title text, content text, and a thumbnail image. Items with additional functionality, like the share button, video player,etc., will be handled by you For example, if an item include a share icon, the actual share functionality is controlled by you.
 
     The mobile app should be similar in terms of UI to the mobile web as much as possible to allow control over the SDK features and debugging.
     
-    Looking forward to hearing from you, and talking through any questions, feedback, or concerns. Feel free to reach out at android.sdk@taboola.com
+    Looking forward to hearing from you, and talking through any questions, feedback, or concerns. Feel free to reach out at https://developers.taboola.com/taboolasdk/discuss
     
     Please note that using the demo project is subject to Taboola terms of use, privacy policy and business agreements.
     Please do not share it with any 3rd party. Taboola sends a beacon to itself on usage of this demo.

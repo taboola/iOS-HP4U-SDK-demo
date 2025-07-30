@@ -39,6 +39,14 @@
                                                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="rmg-Wt-kA2">
                                                     <rect key="frame" x="0.0" y="0.0" width="414" height="414"/>
                                                     <subviews>
+                                                        <label hidden="YES" opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="RlW-un-AJy">
+                                                            <rect key="frame" x="187" y="198" width="0.0" height="0.0"/>
+                                                            <autoresizingMask key="autoresizingMask" flexibleMinX="YES" flexibleMaxX="YES" flexibleMinY="YES" flexibleMaxY="YES"/>
+                                                            <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="13"/>
+                                                            <nil key="textColor"/>
+                                                            <nil key="highlightedColor"/>
+                                                            <color key="shadowColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                        </label>
                                                         <imageView clipsSubviews="YES" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="1Zl-Kg-bfG">
                                                             <rect key="frame" x="0.0" y="0.0" width="414" height="414"/>
                                                             <constraints>
@@ -107,6 +115,7 @@
                                             </constraints>
                                         </collectionViewCellContentView>
                                         <connections>
+                                            <outlet property="authorView" destination="RlW-un-AJy" id="Szn-XA-J2H"/>
                                             <outlet property="imageView" destination="1Zl-Kg-bfG" id="ymf-IQ-UEV"/>
                                             <outlet property="isSwappedLabel" destination="RgA-Ui-dCo" id="P3l-36-pu4"/>
                                             <outlet property="subtitleLabel" destination="eof-1f-b9C" id="xll-Pi-HsR"/>
@@ -190,22 +199,35 @@
                                                     <constraints>
                                                         <constraint firstAttribute="bottom" secondItem="DmK-TI-Oyr" secondAttribute="bottom" id="4ep-E1-8wA"/>
                                                         <constraint firstAttribute="trailing" secondItem="DmK-TI-Oyr" secondAttribute="trailing" constant="8" id="DD3-AF-EEm"/>
+                                                        <constraint firstAttribute="trailing" secondItem="Hzq-yj-xcV" secondAttribute="trailing" constant="149" id="bNr-fS-GyS"/>
+                                                        <constraint firstItem="Hzq-yj-xcV" firstAttribute="top" secondItem="gAi-or-Cft" secondAttribute="top" constant="40" id="cTu-dd-n0e"/>
                                                         <constraint firstItem="iiM-Jx-Vo1" firstAttribute="width" secondItem="gAi-or-Cft" secondAttribute="width" multiplier="0.33" priority="999" id="gFZ-jE-GGK"/>
                                                         <constraint firstItem="DmK-TI-Oyr" firstAttribute="leading" secondItem="gAi-or-Cft" secondAttribute="leading" constant="8" id="gRG-bC-AGh"/>
                                                         <constraint firstAttribute="width" priority="999" constant="414" id="ogU-ay-ni1"/>
                                                         <constraint firstItem="DmK-TI-Oyr" firstAttribute="top" secondItem="gAi-or-Cft" secondAttribute="top" constant="8" id="wLU-9V-g1L"/>
                                                     </constraints>
                                                 </view>
+                                                <label opaque="NO" userInteractionEnabled="NO" alpha="0.84999999999999998" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="pW4-7J-JBy">
+                                                    <rect key="frame" x="402" y="138" width="0.0" height="0.0"/>
+                                                    <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                    <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="13"/>
+                                                    <nil key="textColor"/>
+                                                    <color key="highlightedColor" white="0.33333333329999998" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                    <color key="shadowColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                </label>
                                             </subviews>
                                             <constraints>
                                                 <constraint firstItem="gAi-or-Cft" firstAttribute="top" secondItem="Lf2-Sv-mVi" secondAttribute="top" id="8wt-ty-xGC"/>
                                                 <constraint firstAttribute="bottom" secondItem="gAi-or-Cft" secondAttribute="bottom" id="M1W-24-lGG"/>
                                                 <constraint firstItem="gAi-or-Cft" firstAttribute="leading" secondItem="Lf2-Sv-mVi" secondAttribute="leading" id="P9F-Uf-aMc"/>
+                                                <constraint firstItem="DmK-TI-Oyr" firstAttribute="bottom" secondItem="pW4-7J-JBy" secondAttribute="bottom" constant="12" id="Tzc-F3-oDU"/>
                                                 <constraint firstAttribute="trailing" secondItem="gAi-or-Cft" secondAttribute="trailing" id="pPl-ph-KnS"/>
+                                                <constraint firstItem="gAi-or-Cft" firstAttribute="trailing" secondItem="pW4-7J-JBy" secondAttribute="trailing" constant="12" id="xXK-lX-ihJ"/>
                                             </constraints>
                                         </collectionViewCellContentView>
                                         <size key="customSize" width="414" height="150"/>
                                         <connections>
+                                            <outlet property="authorView" destination="pW4-7J-JBy" id="6Pq-0N-Lce"/>
                                             <outlet property="imageView" destination="L1y-nW-VcE" id="NOS-q6-boh"/>
                                             <outlet property="isSwappedLabel" destination="8qE-oZ-9Wr" id="ArF-hm-EPZ"/>
                                             <outlet property="subtitleLabel" destination="Hzq-yj-xcV" id="pk9-BW-m3p"/>

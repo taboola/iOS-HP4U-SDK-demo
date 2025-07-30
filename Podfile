@@ -1,5 +1,5 @@
 target 'HomePageForYouDemoProject' do
   use_frameworks!
 
-  pod 'TaboolaSDK'
+  pod 'TaboolaSDK', '~>4.0' 
 end

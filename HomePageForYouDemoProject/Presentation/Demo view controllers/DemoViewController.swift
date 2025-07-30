@@ -50,6 +50,31 @@ extension DemoViewController {
         guard let topic = datasource.topicName(at: indexPath.section),
               let item = datasource.item(in: topic, at: indexPath.row) else { return cell }
         
+
+        let authorAdditionalView = TBLAdditionalView(view: cell.authorView,
+                                                         type: .author,
+                                                         properties: [NSNumber(value: TBLHomePageAdditionalViewProperty.rtlMark.rawValue)])
+        
+        // Other possible views that could be passed as additional ones
+              
+//        let timeAdditionalView = TBLAdditionalView(view: <timeLabel>,
+//                                                       type: .publishTime,
+//                                                       properties: [NSNumber(value: TBLHomePageAdditionalViewProperty.rtlMark.rawValue)])
+//              
+//        let authorAvatarAdditionalView = TBLAdditionalView(view: <authorAvatarImageView>,
+//                                                               type: .authorAvatar)
+//            
+//        let isSubscriptionAdditionalView = TBLAdditionalView(view: <isSubscriptionImageView>,
+//                                                                 type: .isSubscription,
+//                                                                   properties: [NSNumber(value: TBLHomePageAdditionalViewProperty.presentAfterThumbnail.rawValue)])
+//              
+//        let isVideoAdditionalView = TBLAdditionalView(view: <isVideoImageView>,
+//                                                          type: .isVideo,
+//                                                          properties: [NSNumber(value: TBLHomePageAdditionalViewProperty.presentAfterThumbnail.rawValue)])
+              
+        let additionalViews: [TBLAdditionalView] = [authorAdditionalView]
+        
+        
         // shouldSwapItem(...) returns whether this cell is going to be swapped by Taboola HomePage
         if let page, page.shouldSwapItem(inSection: topic,
                                          indexPath: indexPath,
@@ -57,7 +82,7 @@ extension DemoViewController {
                                          titleView: cell.titleLabel,
                                          descriptionView: cell.subtitleLabel,
                                          imageView: cell.imageView,
-                                         additionalViews: nil) {
+                                         additionalViews: additionalViews) {
             cell.isSwapped = true
         } else {
             // if not swapped, set publisher's content
