@@ -9,15 +9,15 @@ This project showcases how to integrate Taboola's SDK on iOS and use its HomePag
   
       **SPM:** 
       
-      https://github.com/taboola/taboola-spm-ios-sdk - (3.8.0)
+      https://github.com/taboola/taboola-spm-ios-sdk - (4.0.16)
 
       **Cocoapods: podfile:** 
       
-      `pod 'TaboolaSDK', ‘3.8.0’`
+      `pod 'TaboolaSDK', ‘4.0.16’`
 
       **Carthage: cartfile:** 
       
-      `binary "https://taboola-mobile-sdk.s3-us-west-2.amazonaws.com/public/Carthage/TaboolaSDK.json" == 3.8.0`
+      `binary "https://taboola-mobile-sdk.s3-us-west-2.amazonaws.com/public/Carthage/TaboolaSDK.json" == 4.0.16`
 
 
 2. Start with init Taboola:
@@ -104,7 +104,10 @@ Listen to `TBLHomePageDelegate`. All functions are optional and do not need to b
 
 `func homePageStatusDidChange(_ status: Bool)` Triggered when HomePage is being initialized.
 
+`func crossIntegrationFetchDidBecomeAvailable()` Triggered when fetch for classic integration can be performed in case that is used
+
 `func homePageDidFail(_ error: String?, sectionName: String?)` Triggered while the swapped items are being rendered.
+
 
 Possible errors:
 

@@ -14,7 +14,8 @@ class TopNewsFlowLayoutCell: UICollectionViewCell {
     @IBOutlet var titleLabel: UILabel!
     @IBOutlet var subtitleLabel: UILabel!
     @IBOutlet var isSwappedLabel: UILabel!
-
+    @IBOutlet var authorView: UILabel!
+    
     @IBOutlet var widthConstraint: NSLayoutConstraint!
     
     var isSwapped: Bool = false {
@@ -31,7 +32,7 @@ class TopNewsFlowLayoutCell: UICollectionViewCell {
 
     override func prepareForReuse() {
         super.prepareForReuse()
-        
+        authorView.text = nil
         imageView.image = nil
         isSwapped = false
         titleLabel.text = nil
