@@ -16,6 +16,7 @@ class DemoViewController: BaseDemoViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
+        page?.fetchContent()
         isWithFeed = true
         // setup view
         setScrollView(collectionView)
@@ -86,7 +87,9 @@ extension DemoViewController {
             cell.isSwapped = true
         } else {
             // if not swapped, set publisher's content
-            cell.imageView.image = UIImage(named: item.imageName) ?? UIImage.placeholder
+            if let imageName = item.imageName {
+                cell.imageView.image = UIImage(named: imageName) ?? UIImage.placeholder
+            }
             cell.isSwapped = false
             cell.titleLabel.text = item.title
             cell.subtitleLabel.text = item.description

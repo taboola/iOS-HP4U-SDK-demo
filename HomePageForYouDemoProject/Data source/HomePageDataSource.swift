@@ -7,11 +7,11 @@
 
 import Foundation
 import UIKit
-
+import TaboolaSDK
 
 /// HomePageDataSource class imitates a datasource of publisher's content.
 /// Content is structed into Topics and each Topic constists of Items.
-class HomePageDataSource: PublisherDataSource {
+class HomePageDataSource: PublisherDataSourceProtocol {
     /// All items
     private var items: [PublisherTopic] = []
     private(set) var allTopics: [String] = []
@@ -40,12 +40,16 @@ class HomePageDataSource: PublisherDataSource {
         return articles[safe: index]
     }
 
+    func item(in topic: String, at index: Int, shouldReturnSwapItem: Bool) -> PublisherItem? {
+        item(in: topic, at: index)
+    }
+
     /// Number of items in a topic with a given name.
     func numberOfItems(in topic: String) -> Int {
         items(in: topic).count
     }
 
-    private func topic(named: String) -> PublisherTopic? {
+    func topic(named: String) -> PublisherTopic? {
         items.filter { $0.topic == named }.first
     }
 
@@ -53,4 +57,7 @@ class HomePageDataSource: PublisherDataSource {
         let contentTopic = topic(named: topicName)
         return contentTopic?.items ?? []
     }
+
+    func saveTaboolaRecommendations(items: [TBLHomePageItem]) {}
+
 }

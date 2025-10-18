@@ -34,6 +34,9 @@ struct Constants {
 
     struct NavigationSegue {
         static let demo = "openDemo"
+        static let compositionDemo = "openCompositionDemo"
+        static let dataApiDiffableDemo = "openDataApiDiffableDemo"
+        static let dataApiDemo = "openDataApiDemo"
         static let info = "openInfo"
         static let article = "openArticle"
     }

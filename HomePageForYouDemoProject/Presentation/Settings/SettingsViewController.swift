@@ -71,10 +71,22 @@ class SettingsViewController: UIViewController {
     }
 
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        if segue.identifier == Constants.NavigationSegue.demo, let account = tableViewController.publisherCredentials() {
+        let demoSegues: [String] = [
+            Constants.NavigationSegue.demo,
+            Constants.NavigationSegue.compositionDemo,
+            Constants.NavigationSegue.dataApiDemo,
+            Constants.NavigationSegue.dataApiDiffableDemo]
+        if let segueIdentifier = segue.identifier, demoSegues.contains(segueIdentifier), let account = tableViewController.publisherCredentials() {
             let publisher = TBLPublisherInfo(publisherName: account.publisher)
             publisher.apiKey = account.apiKey
             Taboola.initWith(publisher)
+            switch segueIdentifier {
+            case Constants.NavigationSegue.dataApiDiffableDemo,
+                Constants.NavigationSegue.dataApiDemo:
+                (segue.destination as? BaseDemoViewController)?.datasource = HomePageDataApiDataSource()
+            default:
+                break
+            }
         }
     }
 }
