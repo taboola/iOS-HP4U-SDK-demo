@@ -73,7 +73,8 @@ extension DataApiDemoViewController {
             } else if let imageUrl = item.imageUrl {
                 // save URL for a check later when download completes
                 cell.imageUrl = imageUrl
-                imageLoader.load(imageUrl) { image, requestUrl in
+                imageLoader.load(imageUrl) {[weak cell] image, requestUrl in
+                    guard let cell else { return }
                     guard requestUrl == cell.imageUrl else { return }
                     guard let image else {
                         cell.imageView.image = UIImage.placeholder
