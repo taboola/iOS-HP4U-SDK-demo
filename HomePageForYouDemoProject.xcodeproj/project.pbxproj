@@ -108,8 +108,7 @@
 			isa = PBXGroup;
 			children = (
 				83C34D5B2EA2853E00602E36 /* DiffableWithHostingDemoViewController.swift */,
-				83C34D5E2EA357A900602E36 /* HomePageCollectionHostingCellView.swift */,
-				83C34D5F2EA357A900602E36 /* HomePageSwiftUiCellView.swift */,
+				83C34D6A2EA3C1A000602E36 /* UIHostingConfiguration cell */,
 			);
 			path = Diffable;
 			sourceTree = "<group>";
@@ -130,6 +129,15 @@
 				DCD41CBD28AB8A4B00994B66 /* CompositionalDemoViewController.swift */,
 			);
 			path = Swapping;
+			sourceTree = "<group>";
+		};
+		83C34D6A2EA3C1A000602E36 /* UIHostingConfiguration cell */ = {
+			isa = PBXGroup;
+			children = (
+				83C34D5E2EA357A900602E36 /* HomePageCollectionHostingCellView.swift */,
+				83C34D5F2EA357A900602E36 /* HomePageSwiftUiCellView.swift */,
+			);
+			path = "UIHostingConfiguration cell";
 			sourceTree = "<group>";
 		};
 		DC06915D284F57F0005A42D6 = {

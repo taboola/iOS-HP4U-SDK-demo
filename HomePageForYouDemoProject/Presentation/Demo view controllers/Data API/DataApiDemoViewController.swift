@@ -71,7 +71,7 @@ extension DataApiDemoViewController {
             if let imageName = item.imageName {
                 cell.imageView.image = UIImage(named: imageName) ?? UIImage.placeholder
             } else if let imageUrl = item.imageUrl {
-                // save for URL check later
+                // save URL for a check later when download completes
                 cell.imageUrl = imageUrl
                 imageLoader.load(imageUrl) { image, requestUrl in
                     guard requestUrl == cell.imageUrl else { return }
@@ -85,6 +85,8 @@ extension DataApiDemoViewController {
             }
             // report successful swap
             page.reportSwapSuccess(ofItem: item.id, inSection: topicName, indexPath: indexPath, parentView: cell)
+            // alternatively report failure if there is a swap item but still you can't swap the item due to your internal logic
+            // page.reportSwapFailure(ofItem: item.id, reason: "failed_to_swap", inSection: topic, indexPath: indexPath, parentView: cell)
         }
         // autolayout adjustment for cell width
         cell.widthConstraint.constant = collectionView.frame.width
