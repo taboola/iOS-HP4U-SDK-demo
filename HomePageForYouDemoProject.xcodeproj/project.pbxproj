@@ -8,6 +8,12 @@
 
 /* Begin PBXBuildFile section */
 		0980860AD9AAED6F50E6F2EF /* Pods_HomePageForYouDemoProject.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F35BF9A9A242E394F9975F9B /* Pods_HomePageForYouDemoProject.framework */; };
+		83C34D5A2EA2853B00602E36 /* HomePageDataApiDataSource.swift in Sources */ = {isa = PBXBuildFile; fileRef = 83C34D582EA2853B00602E36 /* HomePageDataApiDataSource.swift */; };
+		83C34D5D2EA2853E00602E36 /* DiffableWithHostingDemoViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 83C34D5B2EA2853E00602E36 /* DiffableWithHostingDemoViewController.swift */; };
+		83C34D602EA357A900602E36 /* HomePageSwiftUiCellView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 83C34D5F2EA357A900602E36 /* HomePageSwiftUiCellView.swift */; };
+		83C34D612EA357A900602E36 /* HomePageCollectionHostingCellView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 83C34D5E2EA357A900602E36 /* HomePageCollectionHostingCellView.swift */; };
+		83C34D632EA36BCB00602E36 /* HomePageArticlesForDiffable.json in Resources */ = {isa = PBXBuildFile; fileRef = 83C34D622EA36BCB00602E36 /* HomePageArticlesForDiffable.json */; };
+		83C34D672EA38A7200602E36 /* DataApiDemoViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 83C34D662EA38A7200602E36 /* DataApiDemoViewController.swift */; };
 		D872381A28EED90B00A2914A /* TopNewsCompositionalLayoutCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = D872381928EED90B00A2914A /* TopNewsCompositionalLayoutCell.swift */; };
 		DC06916A284F57F0005A42D6 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = DC069169284F57F0005A42D6 /* AppDelegate.swift */; };
 		DC06916C284F57F0005A42D6 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = DC06916B284F57F0005A42D6 /* SceneDelegate.swift */; };
@@ -38,6 +44,12 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		83C34D582EA2853B00602E36 /* HomePageDataApiDataSource.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomePageDataApiDataSource.swift; sourceTree = "<group>"; };
+		83C34D5B2EA2853E00602E36 /* DiffableWithHostingDemoViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DiffableWithHostingDemoViewController.swift; sourceTree = "<group>"; };
+		83C34D5E2EA357A900602E36 /* HomePageCollectionHostingCellView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomePageCollectionHostingCellView.swift; sourceTree = "<group>"; };
+		83C34D5F2EA357A900602E36 /* HomePageSwiftUiCellView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomePageSwiftUiCellView.swift; sourceTree = "<group>"; };
+		83C34D622EA36BCB00602E36 /* HomePageArticlesForDiffable.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = HomePageArticlesForDiffable.json; sourceTree = "<group>"; };
+		83C34D662EA38A7200602E36 /* DataApiDemoViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DataApiDemoViewController.swift; sourceTree = "<group>"; };
 		979D3C33478DDA3952696E6C /* Pods-HomePageForYouDemoProject.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-HomePageForYouDemoProject.debug.xcconfig"; path = "Target Support Files/Pods-HomePageForYouDemoProject/Pods-HomePageForYouDemoProject.debug.xcconfig"; sourceTree = "<group>"; };
 		D872381928EED90B00A2914A /* TopNewsCompositionalLayoutCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TopNewsCompositionalLayoutCell.swift; sourceTree = "<group>"; };
 		DC069166284F57F0005A42D6 /* HomePageForYouDemoProject.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = HomePageForYouDemoProject.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -84,6 +96,50 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		83C34D592EA2853B00602E36 /* Diffable datasource */ = {
+			isa = PBXGroup;
+			children = (
+				83C34D582EA2853B00602E36 /* HomePageDataApiDataSource.swift */,
+			);
+			path = "Diffable datasource";
+			sourceTree = "<group>";
+		};
+		83C34D5C2EA2853E00602E36 /* Diffable */ = {
+			isa = PBXGroup;
+			children = (
+				83C34D5B2EA2853E00602E36 /* DiffableWithHostingDemoViewController.swift */,
+				83C34D6A2EA3C1A000602E36 /* UIHostingConfiguration cell */,
+			);
+			path = Diffable;
+			sourceTree = "<group>";
+		};
+		83C34D642EA388A500602E36 /* Data API */ = {
+			isa = PBXGroup;
+			children = (
+				83C34D5C2EA2853E00602E36 /* Diffable */,
+				83C34D662EA38A7200602E36 /* DataApiDemoViewController.swift */,
+			);
+			path = "Data API";
+			sourceTree = "<group>";
+		};
+		83C34D652EA388B300602E36 /* Swapping */ = {
+			isa = PBXGroup;
+			children = (
+				DC06916D284F57F0005A42D6 /* DemoViewController.swift */,
+				DCD41CBD28AB8A4B00994B66 /* CompositionalDemoViewController.swift */,
+			);
+			path = Swapping;
+			sourceTree = "<group>";
+		};
+		83C34D6A2EA3C1A000602E36 /* UIHostingConfiguration cell */ = {
+			isa = PBXGroup;
+			children = (
+				83C34D5E2EA357A900602E36 /* HomePageCollectionHostingCellView.swift */,
+				83C34D5F2EA357A900602E36 /* HomePageSwiftUiCellView.swift */,
+			);
+			path = "UIHostingConfiguration cell";
+			sourceTree = "<group>";
+		};
 		DC06915D284F57F0005A42D6 = {
 			isa = PBXGroup;
 			children = (
@@ -110,6 +166,7 @@
 				DCB0B79F28B3D273001DE582 /* Extensions */,
 				DC06917E284F59F4005A42D6 /* Constants.swift */,
 				DC45582928781FB200748219 /* HomePageArticles.json */,
+				83C34D622EA36BCB00602E36 /* HomePageArticlesForDiffable.json */,
 				DC069181284F5B0C005A42D6 /* Supporting files */,
 			);
 			path = HomePageForYouDemoProject;
@@ -154,8 +211,8 @@
 			isa = PBXGroup;
 			children = (
 				DCB0B79D28B2619C001DE582 /* BaseDemoViewController.swift */,
-				DC06916D284F57F0005A42D6 /* DemoViewController.swift */,
-				DCD41CBD28AB8A4B00994B66 /* CompositionalDemoViewController.swift */,
+				83C34D652EA388B300602E36 /* Swapping */,
+				83C34D642EA388A500602E36 /* Data API */,
 			);
 			path = "Demo view controllers";
 			sourceTree = "<group>";
@@ -172,6 +229,7 @@
 		DCB0B7A328B3D2D4001DE582 /* Data source */ = {
 			isa = PBXGroup;
 			children = (
+				83C34D592EA2853B00602E36 /* Diffable datasource */,
 				DCB0B7A728B3D340001DE582 /* PublisherDataSourceProtocol.swift */,
 				DC069182284F60AD005A42D6 /* HomePageDataSource.swift */,
 				DCB0B7AB28B3D3B4001DE582 /* Models */,
@@ -237,7 +295,7 @@
 				DC069162284F57F0005A42D6 /* Sources */,
 				DC069163284F57F0005A42D6 /* Frameworks */,
 				DC069164284F57F0005A42D6 /* Resources */,
-				205B1FA20EB325D1F63DF772 /* [CP] Embed Pods Frameworks */,
+				8DD8FFF90DA24B3280619D03 /* [CP] Embed Pods Frameworks */,
 			);
 			buildRules = (
 			);
@@ -286,6 +344,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				83C34D632EA36BCB00602E36 /* HomePageArticlesForDiffable.json in Resources */,
 				DC069176284F57F1005A42D6 /* LaunchScreen.storyboard in Resources */,
 				DC069173284F57F1005A42D6 /* Assets.xcassets in Resources */,
 				DC45582A28781FB300748219 /* HomePageArticles.json in Resources */,
@@ -296,23 +355,6 @@
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXShellScriptBuildPhase section */
-		205B1FA20EB325D1F63DF772 /* [CP] Embed Pods Frameworks */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputFileListPaths = (
-				"${PODS_ROOT}/Target Support Files/Pods-HomePageForYouDemoProject/Pods-HomePageForYouDemoProject-frameworks-${CONFIGURATION}-input-files.xcfilelist",
-			);
-			name = "[CP] Embed Pods Frameworks";
-			outputFileListPaths = (
-				"${PODS_ROOT}/Target Support Files/Pods-HomePageForYouDemoProject/Pods-HomePageForYouDemoProject-frameworks-${CONFIGURATION}-output-files.xcfilelist",
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-HomePageForYouDemoProject/Pods-HomePageForYouDemoProject-frameworks.sh\"\n";
-			showEnvVarsInLog = 0;
-		};
 		7DF8397DFCCF29DF0803A79B /* [CP] Check Pods Manifest.lock */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
@@ -335,6 +377,27 @@
 			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
 			showEnvVarsInLog = 0;
 		};
+		8DD8FFF90DA24B3280619D03 /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-HomePageForYouDemoProject/Pods-HomePageForYouDemoProject-frameworks-${CONFIGURATION}-input-files.xcfilelist",
+			);
+			inputPaths = (
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-HomePageForYouDemoProject/Pods-HomePageForYouDemoProject-frameworks-${CONFIGURATION}-output-files.xcfilelist",
+			);
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-HomePageForYouDemoProject/Pods-HomePageForYouDemoProject-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
 /* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
@@ -349,6 +412,9 @@
 				DC455824287603EB00748219 /* UIImage+extension.swift in Sources */,
 				DC778834286443A800EE047C /* SettingsViewController.swift in Sources */,
 				DCB0B7A628B3D321001DE582 /* LocalFileManager.swift in Sources */,
+				83C34D602EA357A900602E36 /* HomePageSwiftUiCellView.swift in Sources */,
+				83C34D612EA357A900602E36 /* HomePageCollectionHostingCellView.swift in Sources */,
+				83C34D5D2EA2853E00602E36 /* DiffableWithHostingDemoViewController.swift in Sources */,
 				DC6CF16F2879A9C8008EC3CF /* Data+extension.swift in Sources */,
 				DCB0B7AA28B3D3AE001DE582 /* PublisherItem.swift in Sources */,
 				DC06916E284F57F0005A42D6 /* DemoViewController.swift in Sources */,
@@ -357,6 +423,7 @@
 				DCB0B7AD28B3D448001DE582 /* PublisherTopic.swift in Sources */,
 				DC455820286AE35B00748219 /* SettingsTableViewController.swift in Sources */,
 				DC06916A284F57F0005A42D6 /* AppDelegate.swift in Sources */,
+				83C34D672EA38A7200602E36 /* DataApiDemoViewController.swift in Sources */,
 				DC06917F284F59F4005A42D6 /* AppInformation.swift in Sources */,
 				DC45582628761FAE00748219 /* ArticleViewController.swift in Sources */,
 				D872381A28EED90B00A2914A /* TopNewsCompositionalLayoutCell.swift in Sources */,
@@ -364,6 +431,7 @@
 				DCB0B79E28B2619C001DE582 /* BaseDemoViewController.swift in Sources */,
 				DC06916C284F57F0005A42D6 /* SceneDelegate.swift in Sources */,
 				DC455822287603BB00748219 /* UIView+extension.swift in Sources */,
+				83C34D5A2EA2853B00602E36 /* HomePageDataApiDataSource.swift in Sources */,
 				DC6CF16D2879A9A9008EC3CF /* Collection+extension.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -521,7 +589,7 @@
 				INFOPLIST_KEY_UISupportedInterfaceOrientations = UIInterfaceOrientationPortrait;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = UIInterfaceOrientationPortrait;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = UIInterfaceOrientationPortrait;
-				IPHONEOS_DEPLOYMENT_TARGET = 14.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 15.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -552,7 +620,7 @@
 				INFOPLIST_KEY_UISupportedInterfaceOrientations = UIInterfaceOrientationPortrait;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = UIInterfaceOrientationPortrait;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = UIInterfaceOrientationPortrait;
-				IPHONEOS_DEPLOYMENT_TARGET = 14.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 15.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",

@@ -20,7 +20,7 @@ class BaseDemoViewController: UIViewController {
     // init TBLHomePage
     lazy var page = TBLHomePage(settings: createHomePageSettings(), delegate: self)
     
-    let datasource: PublisherDataSource = HomePageDataSource()
+    var datasource: PublisherDataSourceProtocol = HomePageDataSource()
 
     // layout configs for different
     enum LayoutConfig: String {
@@ -59,9 +59,8 @@ class BaseDemoViewController: UIViewController {
         }
     }
 
-    private func setupTaboola() {
+    func setupTaboola() {
         page?.targetType = "mix"
-        page?.fetchContent()
     }
 
     func setScrollView(_ scrollView: UIScrollView) {
@@ -78,11 +77,22 @@ class BaseDemoViewController: UIViewController {
 
     private func createHomePageSettings() -> TBLHomePageSettings {
         let builder = TBLHomePageBuilder(pageUrl: "http://blog.taboola.com",
-                                         sectionNames: [HomePageSection.health.rawValue, HomePageSection.sport.rawValue, HomePageSection.technology.rawValue, HomePageSection.topNews.rawValue])
+                                         sectionNames: allSectionNames())
         guard let settings = builder.build() else {
             preconditionFailure("TBLHomePageSetting must not be nil")
         }
         return settings
+    }
+
+    func allSectionNames() -> [String] {
+        [HomePageSection.health.rawValue,
+         HomePageSection.sport.rawValue,
+         HomePageSection.technology.rawValue,
+         HomePageSection.topNews.rawValue]
+    }
+
+    func indexOfSection(named: String) -> Int? {
+        allSectionNames().firstIndex(of: named)
     }
 }
 
@@ -126,8 +136,9 @@ extension BaseDemoViewController: UICollectionViewDelegate {
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
         // pass item's URL to Article view controller
         guard let topic = datasource.topicName(at: indexPath.section),
-              let item = datasource.item(in: topic, at: indexPath.row) else { return }
-        performSegue(withIdentifier: "openArticle", sender: item.link.absoluteString)
+              let item = datasource.item(in: topic, at: indexPath.row),
+        let clickUrl = item.clickUrl else { return }
+        performSegue(withIdentifier: "openArticle", sender: clickUrl.absoluteString)
     }
 }
 

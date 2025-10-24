@@ -17,7 +17,9 @@ class TopNewsFlowLayoutCell: UICollectionViewCell {
     @IBOutlet var authorView: UILabel!
     
     @IBOutlet var widthConstraint: NSLayoutConstraint!
-    
+
+    var imageUrl: URL?
+
     var isSwapped: Bool = false {
         didSet {
             isSwappedLabel.isHidden = !isSwapped
