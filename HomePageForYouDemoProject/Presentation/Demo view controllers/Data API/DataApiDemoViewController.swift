@@ -96,13 +96,15 @@ extension DataApiDemoViewController {
 
     func reloadItems(at positions:[String: [NSNumber]]) {
         collectionView.performBatchUpdates {
-            for (topicName, indexes) in positions {
-                guard let sectionIndex = indexOfSection(named: topicName) else { continue }
-                let items = indexes.compactMap {
-                    IndexPath(item: $0.intValue, section: sectionIndex)
+            let itemsToReload: [IndexPath] = positions
+                .compactMap { topic, indexes -> [IndexPath]? in
+                    guard let section = indexOfSection(named: topic) else { return nil }
+                    return indexes.map { IndexPath(item: $0.intValue, section: section) }
                 }
-                collectionView.reloadItems(at: items)
-            }
+                .flatMap { $0 }
+
+            guard !itemsToReload.isEmpty else { return }
+            collectionView.reloadItems(at: itemsToReload)
         }
     }
 }
