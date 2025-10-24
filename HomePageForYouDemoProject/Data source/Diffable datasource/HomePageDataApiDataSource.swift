@@ -29,17 +29,14 @@ class HomePageDataApiDataSource: PublisherDataSourceProtocol {
         }
     }
 
-    func saveTaboolaRecommendations(items:[TBLHomePageItem]) {
-        for topic in allTopics {
-            let filteredByTopic = items.filter { $0.sectionName == topic }
-            if !filteredByTopic.isEmpty {
-                let publisherItems = filteredByTopic.compactMap { taboolaItem in
-                    PublisherItem(from: taboolaItem)
-                }
-                let publisherTopic = PublisherTopic(topic: topic, items: publisherItems)
-                taboolaItems.append(publisherTopic)
-            }
+    func saveTaboolaRecommendations(items:[String:[TBLHomePageItem]]) {
+        let taboolaTopics = allTopics.compactMap { topic -> PublisherTopic? in
+            guard let topicItems = items[topic], !topicItems.isEmpty else { return nil }
+            // create PublisherItem from each item
+            let publisherItems = topicItems.compactMap(PublisherItem.init(from:))
+            return PublisherTopic(topic: topic, items: publisherItems)
         }
+        taboolaItems = taboolaTopics
     }
 
     /// Topic name at given index

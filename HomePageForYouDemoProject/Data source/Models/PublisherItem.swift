@@ -91,6 +91,6 @@ extension PublisherItem {
             description: homePageItem.description,
             imageUrl: URL(string: homePageItem.imageUrl)
         )
-        self.indexToInsert = homePageItem.swapIndex
+        self.indexToInsert = homePageItem.swapIndexInSection
     }
 }

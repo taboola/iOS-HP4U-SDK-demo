@@ -123,6 +123,8 @@ extension DiffableWithHostingDemoViewController {
                     self.data.saveTaboolaRecommendations(items: fetchDatasource.items)
                     self.reloadDiffableItems(at: fetchDatasource.allSwapIndexes())
                 }
+            } failureCompletion: { error in
+                print("Error fetching home page: \(error.localizedDescription)")
             }
         }
     }

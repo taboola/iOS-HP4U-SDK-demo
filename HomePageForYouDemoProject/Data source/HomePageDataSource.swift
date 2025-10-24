@@ -58,6 +58,7 @@ class HomePageDataSource: PublisherDataSourceProtocol {
         return contentTopic?.items ?? []
     }
 
-    func saveTaboolaRecommendations(items: [TBLHomePageItem]) {}
-
+    func saveTaboolaRecommendations(items: [String : [TBLHomePageItem]]) {
+        // not aplicable to Swapping datasource
+    }
 }

@@ -110,11 +110,13 @@ extension DataApiDemoViewController {
 extension DataApiDemoViewController {
     func homePageStatusDidChange(_ status: Bool) {
         if let page, status {
-            page.fetchContent {[weak self] status, fetchDatasource in
+            page.fetchContent { [weak self] isHomePageEnabled, fetchDatasource in
                 if let self, status {
                     self.datasource.saveTaboolaRecommendations(items: fetchDatasource.items)
                     self.reloadItems(at: fetchDatasource.allSwapIndexes())
                 }
+            } failureCompletion: { error in
+                print("Error fetching home page: \(error.localizedDescription)")
             }
         }
     }

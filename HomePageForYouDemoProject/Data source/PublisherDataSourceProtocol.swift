@@ -38,7 +38,7 @@ protocol PublisherDataSourceProtocol {
 
     // MARK: Data API
     /// Stores recommendations from TaboolaSDK into your app datasource
-    func saveTaboolaRecommendations(items:[TBLHomePageItem])
+    func saveTaboolaRecommendations(items:[String:[TBLHomePageItem]])
     // Returns publisher's or (if available) Taboola swap item for given topic and index based on `swapItem` parameter.
     func item(in topic: String, at index: Int, shouldReturnSwapItem: Bool) -> PublisherItem? // used only for Data API solution
 
